@@ -1,0 +1,12 @@
+# Virtuelle Umgebung
+.venv/
+
+# Datenbank
+data/*.db
+
+# Python Cache
+__pycache__/
+*.pyc
+
+# VS Code Einstellungen
+.vscode/
