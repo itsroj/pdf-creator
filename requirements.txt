@@ -1,0 +1,13 @@
+ultralytics
+opencv-python
+pdf2image
+pytesseract
+flask
+sqlalchemy
+pandas
+openpyxl
+joblib
+scikit-learn
+Pillow
+PyMuPDF
+

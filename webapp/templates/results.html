@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <title>Rechnungsergebnisse</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+    <div class="container">
+        <h1>Erkannte Rechnung</h1>
+
+        <p><strong>Dateiname:</strong> {{ filename }}</p>
+        <p><strong>Typ:</strong> {{ invoice_type }}</p>
+
+        <hr>
+
+        <h2>Gespeicherte Rechnungen</h2>
+
+        {% if invoices %}
+        <table>
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>Dateiname</th>
+                    <th>Typ</th>
+                    <th>Lieferant</th>
+                    <th>Betrag (€)</th>
+                    <th>Datum</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for invoice in invoices %}
+                <tr>
+                    <td>{{ invoice.id }}</td>
+                    <td>{{ invoice.filename }}</td>
+                    <td>{{ invoice.type }}</td>
+                    <td>{{ invoice.supplier }}</td>
+                    <td>{{ "%.2f"|format(invoice.total) }}</td>
+                    <td>{{ invoice.date.strftime("%d.%m.%Y") if invoice.date else "" }}</td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+        {% else %}
+            <p>Keine Rechnungen in der Datenbank gefunden.</p>
+        {% endif %}
+
+        <div style="margin-top: 20px;">
+            <a href="{{ url_for('export_excel') }}" class="btn">📊 In Excel exportieren</a>
+            <a href="{{ url_for('index') }}" class="home-link">⬅️ Zurück zur Startseite</a>
+        </div>
+    </div>
+</body>
+</html>
