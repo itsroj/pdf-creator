@@ -26,17 +26,17 @@ class PDFProcessor:
         try:
             logger.info(f"🔍 Extrahiere Text aus: {pdf_path}")
             
-            # PDF zu Bildern konvertieren
-            pages = pdf2image.convert_from_path(pdf_path)
+            # PDF zu Bildern konvertieren - nur erste Seite für Performance
+            pages = pdf2image.convert_from_path(pdf_path, first_page=1, last_page=1, dpi=150)
             full_text = ""
             
             for i, page in enumerate(pages):
                 logger.info(f"📃 Verarbeite Seite {i+1}/{len(pages)}")
                 
-                # OCR auf jede Seite anwenden
+                # OCR auf jede Seite anwenden - mit optimierter Konfiguration
                 page_text = pytesseract.image_to_string(
                     page, 
-                    config=self.tesseract_config
+                    config='--oem 3 --psm 6 -l deu+eng -c tessedit_char_whitelist=ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyzäöüßÄÖÜ0123456789.,€$-:/ '
                 )
                 full_text += page_text + "\n\n"
             

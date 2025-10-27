@@ -174,28 +174,35 @@
 
             // Progress anzeigen
             progressContainer.style.display = 'block';
-            progressBar.style.width = '20%';
+            progressBar.style.width = '10%';
+            showAlert('PDF wird hochgeladen...', 'info');
 
             fetch('/upload', {
                 method: 'POST',
                 body: formData
             })
             .then(response => {
-                progressBar.style.width = '80%';
+                progressBar.style.width = '50%';
+                showAlert('PDF wird verarbeitet - OCR läuft...', 'info');
                 return response.json();
             })
             .then(data => {
-                progressBar.style.width = '100%';
+                progressBar.style.width = '90%';
+                showAlert('Daten werden extrahiert...', 'info');
+                
                 setTimeout(() => {
-                    progressContainer.style.display = 'none';
-                    progressBar.style.width = '0%';
-                    
-                    if (data.success) {
-                        displayResults(data.data);
-                        showAlert('PDF erfolgreich verarbeitet!', 'success');
-                    } else {
-                        showAlert(data.error || 'Fehler beim Verarbeiten', 'danger');
-                    }
+                    progressBar.style.width = '100%';
+                    setTimeout(() => {
+                        progressContainer.style.display = 'none';
+                        progressBar.style.width = '0%';
+                        
+                        if (data.success) {
+                            displayResults(data.data);
+                            showAlert('PDF erfolgreich verarbeitet!', 'success');
+                        } else {
+                            showAlert(data.error || 'Fehler beim Verarbeiten', 'danger');
+                        }
+                    }, 300);
                 }, 500);
             })
             .catch(error => {

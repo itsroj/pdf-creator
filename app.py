@@ -130,18 +130,27 @@ def export_data(format_type):
         df = pd.DataFrame(data)
         
         # Temporäre Datei erstellen
-        with tempfile.NamedTemporaryFile(delete=False, suffix=f'.{format_type}') as tmp:
-            if format_type.lower() == 'excel':
-                df.to_excel(tmp.name, index=False)
-                mimetype = 'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet'
-            else:  # CSV
-                df.to_csv(tmp.name, index=False, encoding='utf-8')
-                mimetype = 'text/csv'
-            
+        if format_type.lower() == 'excel':
+            # Excel-Export mit expliziter Engine
+            filename = f'rechnungen_{datetime.now().strftime("%Y%m%d")}.xlsx'
+            temp_path = os.path.join(tempfile.gettempdir(), filename)
+            df.to_excel(temp_path, index=False, engine='openpyxl')
+            mimetype = 'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet'
             return send_file(
-                tmp.name,
+                temp_path,
                 as_attachment=True,
-                download_name=f'rechnungen_{datetime.now().strftime("%Y%m%d")}.{format_type}',
+                download_name=filename,
+                mimetype=mimetype
+            )
+        else:  # CSV
+            filename = f'rechnungen_{datetime.now().strftime("%Y%m%d")}.csv'
+            temp_path = os.path.join(tempfile.gettempdir(), filename)
+            df.to_csv(temp_path, index=False, encoding='utf-8')
+            mimetype = 'text/csv'
+            return send_file(
+                temp_path,
+                as_attachment=True,
+                download_name=filename,
                 mimetype=mimetype
             )
             
@@ -152,10 +161,10 @@ def export_data(format_type):
 if __name__ == '__main__':
     print("🚀 Starte PDF Rechnungsverarbeitung...")
     print("📊 Neues, sauberes System gestartet")
-    print("🔗 Verfügbar unter: http://127.0.0.1:5000")
+    print("🔗 Verfügbar unter: http://127.0.0.1:5002")
     print("💡 Features: PDF Upload • Datenextraktion • Excel/CSV Export")
     
     # Uploads-Ordner erstellen falls nicht vorhanden
     os.makedirs('uploads', exist_ok=True)
     
-    app.run(debug=True, host='127.0.0.1', port=5000)
+    app.run(debug=False, host='127.0.0.1', port=5002)
