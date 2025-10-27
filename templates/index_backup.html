@@ -278,13 +278,6 @@
                 progressContainer.style.display = 'none';
                 showAlert(`✅ Batch-Verarbeitung abgeschlossen! ${processedFiles.length} Dateien verarbeitet.`, 'success');
                 updateProcessedFilesList();
-                
-                // Zeige Daten der letzten verarbeiteten Datei
-                if (processedFiles.length > 0) {
-                    const lastFile = processedFiles[processedFiles.length - 1];
-                    currentPdfData = lastFile;
-                    showResults(lastFile.data);
-                }
                 return;
             }
 
@@ -307,24 +300,13 @@
             })
             .then(response => response.json())
             .then(data => {
-                console.log('Upload response:', data); // Debug-Log
-                
                 if (data.success) {
-                    // Füge zu verarbeiteten Dateien hinzu
-                    const processedFile = {
+                    processedFiles.push({
                         filename: file.name,
                         data: data.data,
                         raw_text: data.raw_text || '',
                         timestamp: new Date().toLocaleString('de-DE')
-                    };
-                    processedFiles.push(processedFile);
-                    
-                    console.log('Processing file data:', data.data); // Debug-Log
-                    
-                    // Zeige Daten der letzten verarbeiteten Datei in der Hauptansicht
-                    currentPdfData = processedFile;
-                    showResults(data.data);
-                    
+                    });
                     showAlert(`✅ ${file.name} erfolgreich verarbeitet`, 'success');
                 } else {
                     showAlert(`❌ Fehler bei ${file.name}: ${data.error}`, 'danger');
@@ -362,8 +344,6 @@
             })
             .then(response => response.json())
             .then(data => {
-                console.log('Single file upload response:', data); // Debug-Log
-                
                 isProcessing = false;
                 progressContainer.style.display = 'none';
 
@@ -373,8 +353,6 @@
                         data: data.data,
                         raw_text: data.raw_text || ''
                     };
-                    
-                    console.log('Single file data:', data.data); // Debug-Log
                     showResults(data.data);
                     showAlert('✅ PDF erfolgreich verarbeitet!', 'success');
                 } else {
@@ -427,14 +405,6 @@
         }
 
         function showResults(data) {
-            console.log('Showing results with data:', data); // Debug-Log
-            
-            if (!data) {
-                console.error('Keine Daten erhalten!');
-                showAlert('❌ Keine Daten empfangen', 'danger');
-                return;
-            }
-            
             document.getElementById('field_supplier').value = data.supplier || '';
             document.getElementById('field_invoice_number').value = data.invoice_number || '';
             document.getElementById('field_date').value = data.date || '';
@@ -443,9 +413,6 @@
             document.getElementById('field_description').value = data.description || '';
             
             resultsSection.style.display = 'block';
-            
-            // Debug-Information anzeigen
-            showAlert(`📊 Daten angezeigt: Lieferant: ${data.supplier || 'N/A'}, Betrag: ${data.amount || 'N/A'}`, 'info');
         }
 
         // Processed Files Management
