@@ -2,12 +2,12 @@
 <html lang="de">
 <head>
     <meta charset="UTF-8">
-    <title>Rechnungserkennung KI</title>
+    <title>Rechnungsverarbeitung</title>
     <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
 </head>
 <body>
     <div class="container">
-        <h1>📄 KI-basierte Rechnungserkennung</h1>
+        <h1>PDF Rechnungsverarbeitung</h1>
         <form action="/upload" method="post" enctype="multipart/form-data">
             <input type="file" name="file" accept=".pdf" required>
             <button type="submit">Hochladen & Analysieren</button>

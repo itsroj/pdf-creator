@@ -1,14 +1,14 @@
-# PDF-Creator - KI-basierte Rechnungserfassung
+# PDF-Creator - Automatische Rechnungserfassung
 
 ## Projektbeschreibung
-Entwicklung einer KI-basierten Anwendung zur automatischen Erfassung der Inhalte von verschiedenen PDF-Eingangs- und Ausgangsrechnungen. Die Inhalte werden über OCR und KI erfasst, klassifiziert und strukturiert in Excel übertragen.
+Entwicklung einer Anwendung zur automatischen Erfassung der Inhalte von verschiedenen PDF-Eingangs- und Ausgangsrechnungen. Die Inhalte werden über OCR erfasst, klassifiziert und strukturiert in Excel übertragen.
 
 ## Features
-- 📄 PDF-Rechnungen automatisch einlesen
-- 🔍 OCR-basierte Texterkennung
-- 🤖 KI-Klassifizierung (Eingangs-/Ausgangsrechnung)
-- 📊 Strukturierter Excel-Export
-- 🌐 Webinterface für überwachtes Lernen
+- PDF-Rechnungen automatisch einlesen
+- OCR-basierte Texterkennung
+- Automatische Klassifizierung (Eingangs-/Ausgangsrechnung)
+- Strukturierter Excel-Export
+- Webinterface für Datenverarbeitung
 
 ## Team
 - Rojda

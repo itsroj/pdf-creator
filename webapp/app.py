@@ -3,6 +3,7 @@ import os
 import pandas as pd
 from flask import Flask, render_template, request, redirect, url_for, send_file
 from werkzeug.utils import secure_filename
+from ocr_helper import extract_text_from_pdf, extract_invoice_data, classify_invoice_type
 
 # Pfad zu src importieren
 sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), '..')))
@@ -34,16 +35,22 @@ def upload():
         os.makedirs(app.config['UPLOAD_FOLDER'], exist_ok=True)
         file.save(filepath)
 
-        # Beispielhafte Klassifizierung (später durch KI ersetzt)
-        invoice_type = "Eingangsrechnung" if "eingang" in filename.lower() else "Ausgangsrechnung"
+        # OCR-basierte Textextraktion
+        extracted_text = extract_text_from_pdf(filepath)
+        
+        # Rechnungsdaten extrahieren
+        invoice_data = extract_invoice_data(extracted_text)
+        
+        # Rechnungstyp klassifizieren
+        invoice_type = classify_invoice_type(extracted_text)
 
         # In DB speichern
         session = get_session()
         invoice = Invoice(
             filename=filename,
             type=invoice_type,
-            supplier="Unbekannt",
-            total=0.0
+            supplier=invoice_data['supplier'],
+            total=invoice_data['total']
         )
         session.add(invoice)
         session.commit()
@@ -51,7 +58,12 @@ def upload():
         # Alle Rechnungen aus DB laden
         invoices = session.query(Invoice).order_by(Invoice.date.desc()).all()
 
-        return render_template('results.html', filename=filename, invoice_type=invoice_type, invoices=invoices)
+        return render_template('results.html', 
+                             filename=filename, 
+                             invoice_type=invoice_type, 
+                             invoices=invoices,
+                             extracted_text=extracted_text[:500] + "..." if len(extracted_text) > 500 else extracted_text,
+                             invoice_data=invoice_data)
 
 
 @app.route('/export_excel')

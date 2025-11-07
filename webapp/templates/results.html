@@ -12,6 +12,23 @@
         <p><strong>Dateiname:</strong> {{ filename }}</p>
         <p><strong>Typ:</strong> {{ invoice_type }}</p>
 
+        {% if invoice_data %}
+        <h2>📋 Extrahierte Daten</h2>
+        <div class="extracted-data">
+            <p><strong>Lieferant:</strong> {{ invoice_data.supplier }}</p>
+            <p><strong>Rechnungsnummer:</strong> {{ invoice_data.invoice_number }}</p>
+            <p><strong>Betrag:</strong> {{ "%.2f"|format(invoice_data.total) }}€</p>
+            <p><strong>Datum:</strong> {{ invoice_data.date }}</p>
+        </div>
+        {% endif %}
+
+        {% if extracted_text %}
+        <h3>🔍 Erkannter Text (Auszug)</h3>
+        <div class="extracted-text">
+            <pre>{{ extracted_text }}</pre>
+        </div>
+        {% endif %}
+
         <hr>
 
         <h2>Gespeicherte Rechnungen</h2>

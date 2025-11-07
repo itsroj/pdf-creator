@@ -50,6 +50,34 @@ a.back:hover {
     text-decoration: underline;
 }
 
+/* === Extrahierte Daten === */
+.extracted-data {
+    background-color: #e8f5e8;
+    border: 1px solid #4caf50;
+    border-radius: 8px;
+    padding: 15px;
+    margin: 15px 0;
+    text-align: left;
+}
+
+.extracted-text {
+    background-color: #f5f5f5;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    padding: 15px;
+    margin: 15px 0;
+    text-align: left;
+    max-height: 200px;
+    overflow-y: auto;
+}
+
+.extracted-text pre {
+    margin: 0;
+    white-space: pre-wrap;
+    font-size: 12px;
+    color: #666;
+}
+
 /* === Ergebnisse (Tabelle + Export-Button) === */
 h1 {
     color: #333;
