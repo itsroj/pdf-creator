@@ -1,0 +1,422 @@
+{
+  "invoices": [
+    {
+      "company": "Tausendkraut GmbH",
+      "amount": 21.81,
+      "number": "425021827",
+      "date": "2025-10-20",
+      "service_date": "2025-10-20",
+      "description": "Guayusa BIO Energytee XXL (500g) 1",
+      "net_amount": 20.38,
+      "tax_rate": 7.0,
+      "total_amount": 21.81,
+      "filename": "Tausendkraut_425021827.pdf",
+      "timestamp": "2025-11-11 20:35:22.711554"
+    },
+    {
+      "filename": "Tausendkraut_425021827.pdf",
+      "company": "Tausendkraut GmbH",
+      "number": "425021827",
+      "date": "2025-10-20",
+      "service_date": "2025-10-17",
+      "description": "Guayusa BIO Energytee XXL (500g) ",
+      "net_amount": 20.38,
+      "tax_rate": 7.0,
+      "total_amount": 21.81,
+      "amount": 21.81,
+      "timestamp": "2025-11-11 20:38:05.146425"
+    },
+    {
+      "company": "Parf\u00fcmerie Akzente GmbH",
+      "amount": 32.95,
+      "number": "153879764",
+      "date": "2025-10-20",
+      "service_date": "2025-10-19",
+      "description": "NIVEA D\u00fcfte Damend\u00fcfte Eau de Toilette Spray",
+      "net_amount": 27.69,
+      "tax_rate": 19.0,
+      "total_amount": 32.95,
+      "filename": "Rechnung_153879764_INV.pdf",
+      "timestamp": "2025-11-11 20:38:12.960451"
+    },
+    {
+      "filename": "Rechnung_153879764_INV.pdf",
+      "company": "Parf\u00fcmerie Akzente GmbH",
+      "number": "153879764",
+      "date": "2025-10-20",
+      "service_date": "2025-10-19",
+      "description": "The Ordinary Gesicht Augenpflege Caffeine Solution 5% + EGCG\r\nNIVEA D\u00fcfte Damend\u00fcfte Eau de Toilette Spray",
+      "net_amount": 27.69,
+      "tax_rate": 19.0,
+      "total_amount": 32.95,
+      "amount": 32.95,
+      "timestamp": "2025-11-11 20:39:02.251120"
+    },
+    {
+      "company": "St\u00fcckpreis",
+      "amount": 25.6,
+      "number": "101818",
+      "date": "",
+      "service_date": "",
+      "description": "Zahlungsreferenznummer",
+      "net_amount": 0,
+      "tax_rate": 19.0,
+      "total_amount": 25.6,
+      "filename": "invoice7.pdf",
+      "timestamp": "2025-11-11 20:39:09.365538"
+    },
+    {
+      "filename": "invoice7.pdf",
+      "company": "Amazon EU S.a.r.l.",
+      "number": "DE",
+      "date": "",
+      "service_date": "",
+      "description": "Zahlungsreferenznummer",
+      "net_amount": 0.0,
+      "tax_rate": 19.0,
+      "total_amount": 25.6,
+      "amount": 25.6,
+      "timestamp": "2025-11-11 20:39:29.330583"
+    },
+    {
+      "company": "St\u00fcckpreis",
+      "amount": 25.6,
+      "number": "101818",
+      "date": "",
+      "service_date": "",
+      "description": "Zahlungsreferenznummer",
+      "net_amount": 0,
+      "tax_rate": 19.0,
+      "total_amount": 25.6,
+      "filename": "invoice7.pdf",
+      "timestamp": "2025-11-11 20:39:35.539199"
+    },
+    {
+      "filename": "invoice7.pdf",
+      "company": "Amazon EU S.a.r.l.",
+      "number": "DE446ZI4VAEUI",
+      "date": "2024-10-27",
+      "service_date": "2024-10-27",
+      "description": "Clinique All About Eyes Rich ugencreme 15ml (1er Pack)",
+      "net_amount": 18.28,
+      "tax_rate": 19.0,
+      "total_amount": 21.76,
+      "amount": 21.76,
+      "timestamp": "2025-11-11 20:40:40.765679"
+    },
+    {
+      "company": "St\u00fcckpreis",
+      "amount": 25.6,
+      "number": "101818",
+      "date": "",
+      "service_date": "",
+      "description": "Zahlungsreferenznummer",
+      "net_amount": 0,
+      "tax_rate": 19.0,
+      "total_amount": 25.6,
+      "filename": "invoice7.pdf",
+      "timestamp": "2025-11-11 20:41:02.783822"
+    },
+    {
+      "company": "Tausendkraut GmbH",
+      "amount": 21.81,
+      "number": "425021827",
+      "date": "2025-10-20",
+      "service_date": "2025-10-20",
+      "description": "Guayusa BIO Energytee XXL (500g) 1",
+      "net_amount": 20.38,
+      "tax_rate": 7.0,
+      "total_amount": 21.81,
+      "filename": "Tausendkraut_425021827.pdf",
+      "timestamp": "2025-11-13 12:35:17.213983"
+    },
+    {
+      "company": "Tausendkraut GmbH",
+      "amount": 21.81,
+      "number": "425021827",
+      "date": "2025-10-20",
+      "service_date": "2025-10-20",
+      "description": "Guayusa BIO Energytee XXL (500g) 1",
+      "net_amount": 20.38,
+      "tax_rate": 7.0,
+      "total_amount": 21.81,
+      "filename": "Tausendkraut_425021827.pdf",
+      "timestamp": "2025-11-17 16:30:56.764713"
+    },
+    {
+      "filename": "Tausendkraut_425021827.pdf",
+      "company": "Tausendkraut GmbH",
+      "number": "425021827",
+      "date": "2025-10-20",
+      "service_date": "2025-10-17",
+      "description": "Guayusa BIO Energytee XXL (500g) 1",
+      "net_amount": 20.38,
+      "tax_rate": 7.0,
+      "total_amount": 21.81,
+      "amount": 21.81,
+      "timestamp": "2025-11-17 16:31:20.908840"
+    },
+    {
+      "company": "Tausendkraut GmbH",
+      "amount": 21.81,
+      "number": "425021827",
+      "date": "2025-10-20",
+      "service_date": "2025-10-20",
+      "description": "Guayusa BIO Energytee XXL (500g) 1",
+      "net_amount": 20.38,
+      "tax_rate": 7.0,
+      "total_amount": 21.81,
+      "filename": "Tausendkraut_425021827.pdf",
+      "timestamp": "2025-11-17 18:07:48.261111"
+    },
+    {
+      "filename": "Tausendkraut_425021827.pdf",
+      "company": "Tausendkraut GmbH",
+      "number": "425021827",
+      "date": "2025-10-20",
+      "service_date": "2025-10-17",
+      "description": "Guayusa BIO Energytee XXL (500g) 1",
+      "net_amount": 20.38,
+      "tax_rate": 7.0,
+      "total_amount": 21.81,
+      "amount": 21.81,
+      "timestamp": "2025-11-17 18:08:06.842022"
+    },
+    {
+      "company": "Artikel",
+      "amount": 41.65,
+      "number": "280683331",
+      "date": "2025-10-17",
+      "service_date": "",
+      "description": "",
+      "net_amount": 0,
+      "tax_rate": 19.0,
+      "total_amount": 41.65,
+      "filename": "Credit_Memo_EU-0137535CR.pdf",
+      "timestamp": "2025-11-17 18:09:48.500849"
+    }
+  ],
+  "samples": [
+    {
+      "original": {
+        "company": "Tausendkraut GmbH",
+        "number": "425021827",
+        "date": "2025-10-20",
+        "service_date": "2025-10-20",
+        "description": "Guayusa BIO Energytee XXL (500g) 1",
+        "net_amount": "20.38",
+        "tax_rate": "7.0",
+        "total_amount": "21.81"
+      },
+      "corrected": {
+        "filename": "Tausendkraut_425021827.pdf",
+        "company": "Tausendkraut GmbH",
+        "number": "425021827",
+        "date": "2025-10-20",
+        "service_date": "2025-10-17",
+        "description": "Guayusa BIO Energytee XXL (500g) ",
+        "net_amount": 20.38,
+        "tax_rate": 7.0,
+        "total_amount": 21.81,
+        "amount": 21.81,
+        "timestamp": "2025-11-11 20:38:05.146425"
+      },
+      "timestamp": "2025-11-11 20:38:05.146425"
+    },
+    {
+      "original": {
+        "company": "Parf\u00fcmerie Akzente GmbH",
+        "number": "153879764",
+        "date": "2025-10-20",
+        "service_date": "2025-10-19",
+        "description": "NIVEA D\u00fcfte Damend\u00fcfte Eau de Toilette Spray",
+        "net_amount": "27.69",
+        "tax_rate": "19.0",
+        "total_amount": "32.95"
+      },
+      "corrected": {
+        "filename": "Rechnung_153879764_INV.pdf",
+        "company": "Parf\u00fcmerie Akzente GmbH",
+        "number": "153879764",
+        "date": "2025-10-20",
+        "service_date": "2025-10-19",
+        "description": "The Ordinary Gesicht Augenpflege Caffeine Solution 5% + EGCG\r\nNIVEA D\u00fcfte Damend\u00fcfte Eau de Toilette Spray",
+        "net_amount": 27.69,
+        "tax_rate": 19.0,
+        "total_amount": 32.95,
+        "amount": 32.95,
+        "timestamp": "2025-11-11 20:39:02.251120"
+      },
+      "timestamp": "2025-11-11 20:39:02.251120"
+    },
+    {
+      "original": {
+        "company": "St\u00fcckpreis",
+        "number": "101818",
+        "date": "",
+        "service_date": "",
+        "description": "Zahlungsreferenznummer",
+        "net_amount": "0",
+        "tax_rate": "19.0",
+        "total_amount": "25.6"
+      },
+      "corrected": {
+        "filename": "invoice7.pdf",
+        "company": "Amazon EU S.a.r.l.",
+        "number": "DE",
+        "date": "",
+        "service_date": "",
+        "description": "Zahlungsreferenznummer",
+        "net_amount": 0.0,
+        "tax_rate": 19.0,
+        "total_amount": 25.6,
+        "amount": 25.6,
+        "timestamp": "2025-11-11 20:39:29.330583"
+      },
+      "timestamp": "2025-11-11 20:39:29.346182"
+    },
+    {
+      "original": {
+        "company": "St\u00fcckpreis",
+        "number": "101818",
+        "date": "",
+        "service_date": "",
+        "description": "Zahlungsreferenznummer",
+        "net_amount": "0",
+        "tax_rate": "19.0",
+        "total_amount": "25.6"
+      },
+      "corrected": {
+        "filename": "invoice7.pdf",
+        "company": "Amazon EU S.a.r.l.",
+        "number": "DE446ZI4VAEUI",
+        "date": "2024-10-27",
+        "service_date": "2024-10-27",
+        "description": "Clinique All About Eyes Rich ugencreme 15ml (1er Pack)",
+        "net_amount": 18.28,
+        "tax_rate": 19.0,
+        "total_amount": 21.76,
+        "amount": 21.76,
+        "timestamp": "2025-11-11 20:40:40.765679"
+      },
+      "timestamp": "2025-11-11 20:40:40.788465"
+    },
+    {
+      "original": {
+        "company": "Tausendkraut GmbH",
+        "number": "425021827",
+        "date": "2025-10-20",
+        "service_date": "2025-10-20",
+        "description": "Guayusa BIO Energytee XXL (500g) 1",
+        "net_amount": "20.38",
+        "tax_rate": "7.0",
+        "total_amount": "21.81"
+      },
+      "corrected": {
+        "filename": "Tausendkraut_425021827.pdf",
+        "company": "Tausendkraut GmbH",
+        "number": "425021827",
+        "date": "2025-10-20",
+        "service_date": "2025-10-17",
+        "description": "Guayusa BIO Energytee XXL (500g) 1",
+        "net_amount": 20.38,
+        "tax_rate": 7.0,
+        "total_amount": 21.81,
+        "amount": 21.81,
+        "timestamp": "2025-11-17 16:31:20.908840"
+      },
+      "timestamp": "2025-11-17 16:31:20.910084"
+    },
+    {
+      "original": {
+        "company": "Tausendkraut GmbH",
+        "number": "425021827",
+        "date": "2025-10-20",
+        "service_date": "2025-10-20",
+        "description": "Guayusa BIO Energytee XXL (500g) 1",
+        "net_amount": "20.38",
+        "tax_rate": "7.0",
+        "total_amount": "21.81"
+      },
+      "corrected": {
+        "filename": "Tausendkraut_425021827.pdf",
+        "company": "Tausendkraut GmbH",
+        "number": "425021827",
+        "date": "2025-10-20",
+        "service_date": "2025-10-17",
+        "description": "Guayusa BIO Energytee XXL (500g) 1",
+        "net_amount": 20.38,
+        "tax_rate": 7.0,
+        "total_amount": 21.81,
+        "amount": 21.81,
+        "timestamp": "2025-11-17 18:08:06.842022"
+      },
+      "timestamp": "2025-11-17 18:08:06.848286"
+    }
+  ],
+  "corrections": [
+    {
+      "original_text": "2025-10-20",
+      "corrected_text": "2025-10-17",
+      "field_type": "service_date",
+      "company_context": "Tausendkraut GmbH",
+      "correction_count": 3,
+      "confidence_score": 0.6000000000000001,
+      "timestamp": "2025-11-11 20:38:05.146425"
+    },
+    {
+      "original_text": "Guayusa BIO Energytee XXL (500g) 1",
+      "corrected_text": "Guayusa BIO Energytee XXL (500g)",
+      "field_type": "description",
+      "company_context": "Tausendkraut GmbH",
+      "correction_count": 1,
+      "confidence_score": 0.2,
+      "timestamp": "2025-11-11 20:38:05.146425"
+    },
+    {
+      "original_text": "NIVEA D\u00fcfte Damend\u00fcfte Eau de Toilette Spray",
+      "corrected_text": "The Ordinary Gesicht Augenpflege Caffeine Solution 5% + EGCG\r\nNIVEA D\u00fcfte Damend\u00fcfte Eau de Toilette Spray",
+      "field_type": "description",
+      "company_context": "Parf\u00fcmerie Akzente GmbH",
+      "correction_count": 1,
+      "confidence_score": 0.2,
+      "timestamp": "2025-11-11 20:39:02.251120"
+    },
+    {
+      "original_text": "St\u00fcckpreis",
+      "corrected_text": "Amazon EU S.a.r.l.",
+      "field_type": "company",
+      "company_context": "Amazon EU S.a.r.l.",
+      "correction_count": 2,
+      "confidence_score": 0.4,
+      "timestamp": "2025-11-11 20:39:29.330583"
+    },
+    {
+      "original_text": "101818",
+      "corrected_text": "DE446ZI4VAEUI",
+      "field_type": "number",
+      "company_context": "Amazon EU S.a.r.l.",
+      "correction_count": 2,
+      "confidence_score": 0.4,
+      "timestamp": "2025-11-11 20:39:29.330583"
+    },
+    {
+      "original_text": "Zahlungsreferenznummer",
+      "corrected_text": "Clinique All About Eyes Rich ugencreme 15ml (1er Pack)",
+      "field_type": "description",
+      "company_context": "Amazon EU S.a.r.l.",
+      "correction_count": 1,
+      "confidence_score": 0.2,
+      "timestamp": "2025-11-11 20:40:40.780218"
+    },
+    {
+      "original_text": "25.6",
+      "corrected_text": "21.76",
+      "field_type": "total_amount",
+      "company_context": "Amazon EU S.a.r.l.",
+      "correction_count": 1,
+      "confidence_score": 0.2,
+      "timestamp": "2025-11-11 20:40:40.783244"
+    }
+  ]
+}

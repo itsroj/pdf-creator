@@ -1,33 +1,200 @@
-/* === Grundlayout für alle Seiten === */
+/* === Moderne CSS für KI-PDF-App === */
 body {
-    font-family: Arial, sans-serif;
-    background-color: #f6f8fa;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100vh;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    min-height: 100vh;
     margin: 0;
 }
 
-/* === Container für Inhalt (Upload & Ergebnisse) === */
-.container {
-    text-align: center;
+/* Override Bootstrap body styles for full-height layout */
+body.bg-light {
+    background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%) !important;
+}
+
+/* === Upload Area Animations === */
+.upload-area {
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    cursor: pointer;
+}
+
+.upload-area:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 25px rgba(0, 123, 255, 0.2);
+}
+
+/* === Card Animations === */
+.card {
+    transition: all 0.3s ease;
+    border: none;
+}
+
+.card:hover {
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.1);
+}
+
+/* === Progress Indicators === */
+.progress {
+    height: 8px;
+    border-radius: 4px;
+    background: linear-gradient(90deg, #e9ecef, #f8f9fa);
+    overflow: hidden;
+}
+
+.progress-bar {
+    background: linear-gradient(90deg, #28a745, #20c997);
+    transition: width 0.6s ease;
+}
+
+/* === Stats Cards === */
+.stats-card {
+    background: linear-gradient(135deg, #007bff, #6610f2) !important;
+    border: none;
+    position: relative;
+    overflow: hidden;
+}
+
+.stats-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.1), transparent);
+    transition: left 0.5s;
+}
+
+.stats-card:hover::before {
+    left: 100%;
+}
+
+/* === Buttons === */
+.btn {
+    border: none;
+    border-radius: 8px;
+    font-weight: 600;
+    transition: all 0.3s ease;
+}
+
+.btn-success {
+    background: linear-gradient(135deg, #28a745, #20c997);
+    box-shadow: 0 4px 15px rgba(40, 167, 69, 0.3);
+}
+
+.btn-success:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(40, 167, 69, 0.4);
+}
+
+.btn-warning {
+    background: linear-gradient(135deg, #ffc107, #fd7e14);
+    color: white;
+}
+
+.btn-info {
+    background: linear-gradient(135deg, #17a2b8, #007bff);
+}
+
+/* === Feature Cards === */
+.feature-card {
     background: white;
-    padding: 40px;
+    border: 1px solid rgba(0, 0, 0, 0.05);
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.feature-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+}
+
+/* === Text Animations === */
+.display-4 {
+    background: linear-gradient(135deg, #667eea, #764ba2);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    font-weight: 800;
+}
+
+/* === Responsive Design === */
+@media (max-width: 768px) {
+    .upload-area {
+        padding: 30px 15px;
+    }
+    
+    .display-4 {
+        font-size: 2rem;
+    }
+    
+    .btn-lg {
+        padding: 12px 24px;
+        font-size: 1rem;
+    }
+}
+
+/* === Loading States === */
+.loading {
+    position: relative;
+    pointer-events: none;
+    opacity: 0.7;
+}
+
+.loading::after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 20px;
+    height: 20px;
+    border: 2px solid #f3f3f3;
+    border-top: 2px solid #007bff;
+    border-radius: 50%;
+    animation: spin 1s linear infinite;
+    transform: translate(-50%, -50%);
+}
+
+@keyframes spin {
+    0% { transform: translate(-50%, -50%) rotate(0deg); }
+    100% { transform: translate(-50%, -50%) rotate(360deg); }
+}
+
+/* === File Input Styling === */
+.form-control-file:focus {
+    outline: none;
+    box-shadow: none;
+}
+
+/* === Alert Styling === */
+.alert {
+    border: none;
+    border-radius: 10px;
+    font-weight: 500;
+}
+
+.alert-success {
+    background: linear-gradient(135deg, #d4edda, #c3e6cb);
+    color: #155724;
+}
+
+.alert-danger {
+    background: linear-gradient(135deg, #f8d7da, #f1b0b7);
+    color: #721c24;
+}
+
+/* === Tables (for results) === */
+.table {
+    background: white;
     border-radius: 12px;
-    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
-    width: 80%;
-    max-width: 900px;
-    overflow-x: auto;
+    overflow: hidden;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
 }
 
-/* === Upload-Seite === */
-input[type="file"] {
-    margin: 20px 0;
+.table thead th {
+    background: linear-gradient(135deg, #343a40, #495057);
+    color: white;
+    border: none;
+    font-weight: 600;
 }
-
-button {
-    background-color: #2e7d32;
     color: white;
     border: none;
     padding: 10px 18px;
