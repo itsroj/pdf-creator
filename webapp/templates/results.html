@@ -1,52 +1,356 @@
-<!DOCTYPE html>
-<html lang="de">
-<head>
-    <meta charset="UTF-8">
-    <title>Rechnungsergebnisse</title>
-    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
-</head>
-<body>
-    <div class="container">
-        <h1>Erkannte Rechnung</h1>
+<!DOCTYPE html><!DOCTYPE html>
 
-        <p><strong>Dateiname:</strong> {{ filename }}</p>
-        <p><strong>Typ:</strong> {{ invoice_type }}</p>
+<html lang="de"><html lang="de">
 
-        {% if invoice_data %}
-        <h2>📋 Extrahierte Daten</h2>
-        <div class="extracted-data">
-            <p><strong>Lieferant:</strong> {{ invoice_data.supplier }}</p>
-            <p><strong>Rechnungsnummer:</strong> {{ invoice_data.invoice_number }}</p>
-            <p><strong>Betrag:</strong> {{ "%.2f"|format(invoice_data.total) }}€</p>
-            <p><strong>Datum:</strong> {{ invoice_data.date }}</p>
+<head><head>
+
+    <meta charset="UTF-8">    <meta charset="UTF-8">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1">    <title>Rechnungsergebnisse</title>
+
+    <title>Ergebnisse - PDF Rechnungsverarbeitung</title>    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet">
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet">    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+
+    <style>    <style>
+
+        .pdf-preview {        .ai-improved { border-left: 4px solid #28a745; background-color: #f8f9fa; }
+
+            max-width: 100%;        .original-data { opacity: 0.7; text-decoration: line-through; }
+
+            border: 1px solid #ddd;        .improved-data { color: #28a745; font-weight: bold; }
+
+            border-radius: 8px;        .correction-btn { margin-top: 10px; }
+
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);    </style>
+
+        }</head>
+
+        .field-group {<body>
+
+            margin-bottom: 1rem;    <div class="container mt-4">
+
+        }        <h1>🤖 KI-gestützte Rechnungsverarbeitung</h1>
+
+        .field-label {
+
+            font-weight: 600;        <div class="row mt-4">
+
+            color: #495057;            <div class="col-md-8">
+
+        }                <div class="card">
+
+        .field-value {                    <div class="card-header">
+
+            font-size: 1.1rem;                        <h2>📋 Erkannte Rechnung: {{ filename }}</h2>
+
+            color: #212529;                        {% if ai_improved %}
+
+        }                        <span class="badge bg-success">🚀 KI-Verbessert</span>
+
+    </style>                        {% endif %}
+
+</head>                    </div>
+
+<body class="bg-light">                    <div class="card-body">
+
+    <div class="container mt-5">                        <p><strong>Typ:</strong> {{ invoice_type }}</p>
+
+        <div class="row mb-4">
+
+            <div class="col-12">                        {% if ai_improved %}
+
+                <h1>🤖 Extraktionsergebnisse</h1>                        <div class="alert alert-success ai-improved">
+
+                <p class="text-muted">Überprüfen Sie die extrahierten Daten und korrigieren Sie bei Bedarf</p>                            <h5>🎯 KI-Verbesserungen angewendet!</h5>
+
+            </div>                            <p>Die KI hat gelernte Muster verwendet, um die Extraktion zu verbessern.</p>
+
+        </div>                        </div>
+
+                        {% endif %}
+
+        <div class="row">
+
+            <!-- PDF Preview -->                        {% if invoice_data %}
+
+            <div class="col-md-6 mb-4">                        <h4>Extrahierte Daten</h4>
+
+                <div class="card shadow">                        <div class="row">
+
+                    <div class="card-header bg-primary text-white">                            <div class="col-md-6">
+
+                        <h5 class="mb-0">📄 PDF Vorschau</h5>                                <p><strong>Lieferant:</strong> 
+
+                    </div>                                    {% if ai_improved and original_data.supplier != invoice_data.supplier %}
+
+                    <div class="card-body">                                    <span class="original-data">{{ original_data.supplier }}</span><br>
+
+                        {% if result.preview_image %}                                    <span class="improved-data">→ {{ invoice_data.supplier }}</span>
+
+                        <img src="{{ result.preview_image }}" alt="PDF Vorschau" class="pdf-preview">                                    {% else %}
+
+                        {% else %}                                    {{ invoice_data.supplier }}
+
+                        <p class="text-muted">Keine Vorschau verfügbar</p>                                    {% endif %}
+
+                        {% endif %}                                </p>
+
+                    </div>                                <p><strong>Betrag:</strong> 
+
+                </div>                                    {% if ai_improved and original_data.total != invoice_data.total %}
+
+            </div>                                    <span class="original-data">{{ "%.2f"|format(original_data.total) }}€</span><br>
+
+                                    <span class="improved-data">→ {{ "%.2f"|format(invoice_data.total) }}€</span>
+
+            <!-- Extracted Data -->                                    {% else %}
+
+            <div class="col-md-6 mb-4">                                    {{ "%.2f"|format(invoice_data.total) }}€
+
+                <div class="card shadow">                                    {% endif %}
+
+                    <div class="card-header bg-success text-white">                                </p>
+
+                        <h5 class="mb-0">📊 Extrahierte Daten</h5>                            </div>
+
+                    </div>                            <div class="col-md-6">
+
+                    <div class="card-body">                                <p><strong>Rechnungsnummer:</strong> {{ invoice_data.invoice_number }}</p>
+
+                        <form action="/save" method="post">                                <p><strong>Datum:</strong> {{ invoice_data.get('date', 'Unbekannt') }}</p>
+
+                            <div class="field-group">                            </div>
+
+                                <label class="field-label">Firma:</label>                        </div>
+
+                                <input type="text" name="Firma" class="form-control field-value" value="{{ result.data.Firma }}">                        
+
+                            </div>                        {% if invoice_data.description %}
+
+                        <p><strong>Beschreibung:</strong> {{ invoice_data.description }}</p>
+
+                            <div class="field-group">                        {% endif %}
+
+                                <label class="field-label">Rechnungsnummer:</label>
+
+                                <input type="text" name="Rechnungsnummer" class="form-control field-value" value="{{ result.data.Rechnungsnummer }}">                        <!-- Korrektur-Button -->
+
+                            </div>                        <div class="correction-btn">
+
+                            {% for invoice in invoices %}
+
+                            <div class="field-group">                                {% if invoice.filename == filename %}
+
+                                <label class="field-label">Datum:</label>                                <a href="{{ url_for('show_correction_form', invoice_id=invoice.id) }}" 
+
+                                <input type="text" name="Datum" class="form-control field-value" value="{{ result.data.Datum }}">                                   class="btn btn-warning">
+
+                            </div>                                    📝 Korrigieren & KI trainieren
+
+                                </a>
+
+                            <div class="field-group">                                {% break %}
+
+                                <label class="field-label">Betrag (€):</label>                                {% endif %}
+
+                                <input type="number" step="0.01" name="Betrag" class="form-control field-value" value="{{ result.data.Betrag }}">                            {% endfor %}
+
+                            </div>                        </div>
+
+                        {% endif %}
+
+                            <div class="field-group">                    </div>
+
+                                <label class="field-label">Netto (€):</label>                </div>
+
+                                <input type="number" step="0.01" name="Netto" class="form-control field-value" value="{{ result.data.Netto or '' }}">            </div>
+
+                            </div>            
+
+            <div class="col-md-4">
+
+                            <div class="field-group">                <div class="card">
+
+                                <label class="field-label">Steuer (%):</label>                    <div class="card-header">
+
+                                <input type="number" step="0.01" name="Steuer" class="form-control field-value" value="{{ result.data.Steuer or '' }}">                        <h5>🧠 KI-Training Status</h5>
+
+                            </div>                    </div>
+
+                    <div class="card-body" id="training-stats">
+
+                            <div class="field-group">                        <p class="text-muted">Lade Statistiken...</p>
+
+                                <label class="field-label">Beschreibung:</label>                    </div>
+
+                                <textarea name="Beschreibung" class="form-control" rows="3">{{ result.data.Beschreibung or '' }}</textarea>                </div>
+
+                            </div>                
+
+                <div class="card mt-3">
+
+                            <input type="hidden" name="filename" value="{{ result.filename }}">                    <div class="card-header">
+
+                            <input type="hidden" name="original_data" value="{{ result.original_data | tojson }}">                        <h6>🔍 Text-Extraktion</h6>
+
+                    </div>
+
+                            <div class="d-grid gap-2 mt-4">                    <div class="card-body">
+
+                                <button type="submit" class="btn btn-success btn-lg">                        {% if extracted_text %}
+
+                                    💾 Speichern & KI trainieren                        <div class="extracted-text" style="max-height: 200px; overflow-y: auto;">
+
+                                </button>                            <pre style="font-size: 0.8em;">{{ extracted_text }}</pre>
+
+                                <a href="/" class="btn btn-secondary">                        </div>
+
+                                    ← Zurück zur Startseite                        {% endif %}
+
+                                </a>                    </div>
+
+                            </div>                </div>
+
+                        </form>            </div>
+
+                    </div>        </div>
+
+                </div>
+
+            </div>        <hr class="my-4">
+
         </div>
+
+        <h2>📊 Gespeicherte Rechnungen</h2>
+
+        <!-- Debug Info (optional) -->
+
+        {% if result.text %}        {% if invoices %}
+
+        <div class="row mt-4">        <div class="table-responsive">
+
+            <div class="col-12">            <table class="table table-striped">
+
+                <div class="card">                <thead class="table-dark">
+
+                    <div class="card-header">                    <tr>
+
+                        <h6 class="mb-0">🔍 Extrahierter Text (Debug)</h6>                        <th>ID</th>
+
+                    </div>                        <th>Dateiname</th>
+
+                    <div class="card-body">                        <th>Typ</th>
+
+                        <pre style="max-height: 300px; overflow-y: auto; font-size: 0.85rem;">{{ result.text[:1000] }}{% if result.text|length > 1000 %}...{% endif %}</pre>                        <th>Lieferant</th>
+
+                    </div>                        <th>Betrag (€)</th>
+
+                </div>                        <th>KI-Status</th>
+
+            </div>                        <th>Aktionen</th>
+
+        </div>                    </tr>
+
+        {% endif %}                </thead>
+
+    </div>                <tbody>
+
+                    {% for invoice in invoices %}
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>                    <tr>
+
+</body>                        <td>{{ invoice.get('id', '') }}</td>
+
+</html>                        <td>{{ invoice.get('filename', '') }}</td>
+
+                        <td>{{ invoice.get('type', '') }}</td>
+                        <td>{{ invoice.get('supplier', '') }}</td>
+                        <td>{{ "%.2f"|format(invoice.get('total', 0)) }}</td>
+                        <td>
+                            {% if invoice.get('ai_improved', False) %}
+                            <span class="badge bg-success">🚀 KI</span>
+                            {% endif %}
+                            {% if invoice.get('corrected', False) %}
+                            <span class="badge bg-info">✅ Korrigiert</span>
+                            {% endif %}
+                        </td>
+                        <td>
+                            <a href="{{ url_for('show_correction_form', invoice_id=invoice.get('id')) }}" 
+                               class="btn btn-sm btn-outline-warning">📝</a>
+                        </td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+        {% else %}
+        <p class="text-muted">Keine Rechnungen gespeichert.</p>
         {% endif %}
 
-        {% if extracted_text %}
-        <h3>🔍 Erkannter Text (Auszug)</h3>
-        <div class="extracted-text">
-            <pre>{{ extracted_text }}</pre>
+        <div class="mt-4">
+            <a href="{{ url_for('index') }}" class="btn btn-primary">← Neue Rechnung hochladen</a>
+            {% if invoices %}
+            <a href="{{ url_for('export_excel') }}" class="btn btn-success">📊 Excel Export</a>
+            <button onclick="trainAI()" class="btn btn-info" id="train-btn">🤖 KI Retraining</button>
+            {% endif %}
         </div>
-        {% endif %}
+    </div>
 
-        <hr>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+        // Lade KI-Training Statistiken
+        async function loadTrainingStats() {
+            try {
+                const response = await fetch('/training_stats');
+                const stats = await response.json();
+                
+                const statsDiv = document.getElementById('training-stats');
+                statsDiv.innerHTML = `
+                    <p><strong>Rechnungen:</strong> ${stats.total_invoices}</p>
+                    <p><strong>Training-Samples:</strong> ${stats.training_samples}</p>
+                    <p><strong>Korrekturen:</strong> ${stats.corrections}</p>
+                    <p><strong>Aktive Modelle:</strong> ${stats.active_models}</p>
+                    <p><strong>Geschätzte Accuracy:</strong> ${stats.estimated_accuracy}%</p>
+                    ${stats.ready_for_training ? 
+                        '<span class="badge bg-success">✅ Training bereit</span>' : 
+                        '<span class="badge bg-warning">⏳ Mehr Daten benötigt</span>'}
+                `;
+            } catch (error) {
+                console.error('Fehler beim Laden der Statistiken:', error);
+            }
+        }
 
-        <h2>Gespeicherte Rechnungen</h2>
+        // KI-Training starten
+        async function trainAI() {
+            const btn = document.getElementById('train-btn');
+            const originalText = btn.textContent;
+            btn.textContent = '🔄 Training...';
+            btn.disabled = true;
 
-        {% if invoices %}
-        <table>
-            <thead>
-                <tr>
-                    <th>ID</th>
-                    <th>Dateiname</th>
-                    <th>Typ</th>
-                    <th>Lieferant</th>
-                    <th>Betrag (€)</th>
-                    <th>Datum</th>
-                </tr>
-            </thead>
-            <tbody>
-                {% for invoice in invoices %}
+            try {
+                const response = await fetch('/train_ai', { method: 'POST' });
+                const result = await response.json();
+                
+                if (result.success) {
+                    alert(`✅ ${result.message}\n🎯 ${result.improvements} Verbesserungen\n📈 ${result.new_accuracy}% Accuracy`);
+                    loadTrainingStats(); // Aktualisiere Statistiken
+                } else {
+                    alert(`❌ ${result.message}`);
+                }
+            } catch (error) {
+                alert('❌ Fehler beim Training: ' + error);
+            } finally {
+                btn.textContent = originalText;
+                btn.disabled = false;
+            }
+        }
+
+        // Lade Statistiken beim Seitenaufruf
+        loadTrainingStats();
+    </script>
+</body>
+</html>
                 <tr>
                     <td>{{ invoice.id }}</td>
                     <td>{{ invoice.filename }}</td>
