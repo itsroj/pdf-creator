@@ -1,19 +1,6 @@
 {
   "invoices": [
     {
-      "company": "Tausendkraut GmbH",
-      "amount": 21.81,
-      "number": "425021827",
-      "date": "2025-10-20",
-      "service_date": "2025-10-20",
-      "description": "Guayusa BIO Energytee XXL (500g) 1",
-      "net_amount": 20.38,
-      "tax_rate": 7.0,
-      "total_amount": 21.81,
-      "filename": "Tausendkraut_425021827.pdf",
-      "timestamp": "2025-11-11 20:35:22.711554"
-    },
-    {
       "filename": "Tausendkraut_425021827.pdf",
       "company": "Tausendkraut GmbH",
       "number": "425021827",
@@ -194,6 +181,657 @@
       "total_amount": 41.65,
       "filename": "Credit_Memo_EU-0137535CR.pdf",
       "timestamp": "2025-11-17 18:09:48.500849"
+    },
+    {
+      "company": "Tausendkraut GmbH",
+      "amount": 21.81,
+      "number": "425021827",
+      "date": "2025-10-20",
+      "service_date": "2025-10-20",
+      "description": "Guayusa BIO Energytee XXL (500g) 1",
+      "net_amount": "1,43",
+      "tax_rate": 7.0,
+      "total_amount": "21,81",
+      "invoice_number": "425021827",
+      "invoice_date": "20.10.2025",
+      "company_name": "Tausendkraut GmbH",
+      "currency": "EUR",
+      "tax_amount": "20,38",
+      "customer_number": "249336",
+      "items": [
+        {
+          "artikelnr": "36866",
+          "bezeichnung": "Guayusa BIO Energytee XXL (500g)",
+          "einh": "1",
+          "menge": "2",
+          "einzelpreis": "19,90",
+          "gpreis": "19,90"
+        },
+        {
+          "artikelnr": "36866",
+          "bezeichnung": "Newsletter TKNEWS04",
+          "einh": "1",
+          "menge": "2",
+          "einzelpreis": "-1,99",
+          "gpreis": "-1,99"
+        }
+      ],
+      "_llm_used": true,
+      "_model": "llama3.2:3b",
+      "_extraction_method": "hybrid",
+      "_llm_confidence": 1.0,
+      "_used_llm": true,
+      "filename": "Tausendkraut_425021827.pdf",
+      "timestamp": "2025-11-20 10:40:13.784958"
+    },
+    {
+      "company": "Tausendkraut GmbH",
+      "amount": 21.81,
+      "number": "425021827",
+      "date": "2025-10-20",
+      "service_date": "2025-10-20",
+      "description": "Guayusa BIO Energytee XXL (500g) 1",
+      "net_amount": 20.38,
+      "tax_rate": 7.0,
+      "total_amount": 21.81,
+      "filename": "Tausendkraut_425021827.pdf",
+      "timestamp": "2025-11-20 10:44:48.146863"
+    },
+    {
+      "company": "Tausendkraut GmbH",
+      "amount": 21.81,
+      "number": "425021827",
+      "date": "2025-10-20",
+      "service_date": "2025-10-20",
+      "description": "Guayusa BIO Energytee XXL (500g) 1",
+      "net_amount": "1,43",
+      "tax_rate": 7.0,
+      "total_amount": "21,81",
+      "invoice_number": "425021827",
+      "invoice_date": "20.10.2025",
+      "company_name": "Tausendkraut GmbH",
+      "currency": "EUR",
+      "tax_amount": "20,38",
+      "customer_number": "249336",
+      "items": [
+        {
+          "artikelnr": "36866",
+          "bezeichnung": "Guayusa BIO Energytee XXL (500g)",
+          "einh": "1",
+          "menge": "2",
+          "einzelpreis": "19,90",
+          "gpreis": "19,90"
+        },
+        {
+          "artikelnr": "",
+          "bezeichnung": "Newsletter TKNEWS04",
+          "einh": "1",
+          "menge": "2",
+          "einzelpreis": "-1,99",
+          "gpreis": "-1,99"
+        }
+      ],
+      "_llm_used": true,
+      "_model": "llama3.2:3b",
+      "_extraction_method": "hybrid",
+      "_llm_confidence": 1.0,
+      "_used_llm": true,
+      "filename": "Tausendkraut_425021827.pdf",
+      "timestamp": "2025-11-20 10:45:48.429906"
+    },
+    {
+      "company": "Tausendkraut GmbH",
+      "amount": 21.81,
+      "number": "425021827",
+      "date": "2025-10-20",
+      "service_date": "2025-10-20",
+      "description": "Guayusa BIO Energytee XXL (500g) 1",
+      "net_amount": 20.38,
+      "tax_rate": 7.0,
+      "total_amount": 21.81,
+      "_used_llm": true,
+      "filename": "Tausendkraut_425021827.pdf",
+      "timestamp": "2025-11-20 10:48:46.498484"
+    },
+    {
+      "filename": "Tausendkraut_425021827.pdf",
+      "company": "Tausendkraut GmbH",
+      "number": "425021827",
+      "date": "2025-10-20",
+      "service_date": "2025-10-17",
+      "description": "Guayusa BIO Energytee XXL (500g) 1",
+      "net_amount": 20.38,
+      "tax_rate": 7.0,
+      "total_amount": 21.81,
+      "amount": 21.81,
+      "timestamp": "2025-11-20 10:49:06.528544"
+    },
+    {
+      "company": "St\u00fcckpreis",
+      "amount": 25.6,
+      "number": "101818",
+      "date": "",
+      "service_date": "",
+      "description": "Zahlungsreferenznummer",
+      "net_amount": 0,
+      "tax_rate": 19.0,
+      "total_amount": 25.6,
+      "_used_llm": true,
+      "filename": "invoice7.pdf",
+      "timestamp": "2025-11-20 10:49:50.688219"
+    },
+    {
+      "company": "St\u00fcckpreis",
+      "amount": 25.6,
+      "number": "101818",
+      "date": "",
+      "service_date": "",
+      "description": "Zahlungsreferenznummer",
+      "net_amount": 0,
+      "tax_rate": 19.0,
+      "total_amount": 25.6,
+      "line_items": [
+        {
+          "description": "Clinique All About Eyes Rich Augencreme 15ml (1er Pack)",
+          "quantity": 1.0,
+          "unit_price": 21.51,
+          "total": 25.6
+        },
+        {
+          "description": "Aktionsrabatt",
+          "quantity": -3.23,
+          "unit_price": -3.84,
+          "total": -3.84
+        }
+      ],
+      "_used_tables": true,
+      "filename": "invoice7.pdf",
+      "timestamp": "2025-11-20 11:10:11.899710"
+    },
+    {
+      "company": "St\u00fcckpreis",
+      "amount": 25.6,
+      "number": "101818",
+      "date": "",
+      "service_date": "",
+      "description": "Zahlungsreferenznummer",
+      "net_amount": 0,
+      "tax_rate": 19.0,
+      "total_amount": 25.6,
+      "line_items": [
+        {
+          "description": "Clinique All About Eyes Rich Augencreme 15ml (1er Pack)",
+          "quantity": 1.0,
+          "unit_price": 21.51,
+          "total": 25.6
+        },
+        {
+          "description": "Aktionsrabatt",
+          "quantity": -3.23,
+          "unit_price": -3.84,
+          "total": -3.84
+        }
+      ],
+      "_used_tables": true,
+      "filename": "invoice7.pdf",
+      "timestamp": "2025-11-20 11:10:37.529687"
+    },
+    {
+      "company": "St\u00fcckpreis",
+      "amount": 25.6,
+      "number": "101818",
+      "date": "",
+      "service_date": "",
+      "description": "Zahlungsreferenznummer",
+      "net_amount": 0,
+      "tax_rate": 19.0,
+      "total_amount": 25.6,
+      "filename": "invoice7.pdf",
+      "timestamp": "2025-11-20 12:15:07.086212"
+    },
+    {
+      "filename": "invoice7.pdf",
+      "company": "Amazon EU S.a.r.l.",
+      "number": "DE446ZI4VAEUI",
+      "date": "2024-12-27",
+      "service_date": "2024-12-27",
+      "description": "Clinique All About Eyes Augencreme 15ml (1er Pack)",
+      "net_amount": 18.28,
+      "tax_rate": 19.0,
+      "total_amount": 21.76,
+      "amount": 21.76,
+      "timestamp": "2025-11-20 12:17:45.306526"
+    },
+    {
+      "company": "Amazon EU S.a.r.l.",
+      "amount": 25.6,
+      "number": "DE446ZI4VAEUI",
+      "date": "",
+      "service_date": "",
+      "description": "Clinique All About Eyes Augencreme 15ml (1er Pack)",
+      "net_amount": 0,
+      "tax_rate": 19.0,
+      "total_amount": "21.76",
+      "filename": "invoice7.pdf",
+      "timestamp": "2025-11-20 12:17:51.955132"
+    },
+    {
+      "filename": "invoice7.pdf",
+      "company": "Amazon EU S.a.r.l.",
+      "number": "DE446ZI4VAEUI",
+      "date": "2024-12-27",
+      "service_date": "2024-12-27",
+      "description": "Clinique All About Eyes Augencreme 15ml (1er Pack)",
+      "net_amount": 18.28,
+      "tax_rate": 19.0,
+      "total_amount": 21.76,
+      "amount": 21.76,
+      "timestamp": "2025-11-20 12:18:23.065410"
+    },
+    {
+      "company": "Amazon EU S.a.r.l.",
+      "amount": 25.6,
+      "number": "DE446ZI4VAEUI",
+      "date": "",
+      "service_date": "",
+      "description": "Clinique All About Eyes Augencreme 15ml (1er Pack)",
+      "net_amount": 0,
+      "tax_rate": 19.0,
+      "total_amount": "21.76",
+      "filename": "invoice7.pdf",
+      "timestamp": "2025-11-20 12:18:29.414749"
+    },
+    {
+      "company": "Amazon EU S.a.r.l.",
+      "amount": 25.6,
+      "number": "DE446ZI4VAEUI",
+      "date": "",
+      "service_date": "",
+      "description": "Clinique All About Eyes Augencreme 15ml (1er Pack)",
+      "net_amount": 0,
+      "tax_rate": 19.0,
+      "total_amount": "21.76",
+      "filename": "invoice7.pdf",
+      "timestamp": "2025-11-20 12:24:26.583548"
+    },
+    {
+      "filename": "invoice7.pdf",
+      "company": "Amazon EU S.a.r.l.",
+      "number": "DE446ZI4VAEUI",
+      "date": "2024-12-27",
+      "service_date": "2024-12-27",
+      "description": "Clinique All About Eyes Augencreme 15ml (1er Pack)",
+      "net_amount": 18.28,
+      "tax_rate": 19.0,
+      "total_amount": 21.76,
+      "amount": 21.76,
+      "timestamp": "2025-11-20 12:25:08.019531"
+    },
+    {
+      "company": "Amazon EU S.a.r.l.",
+      "amount": 25.6,
+      "number": "DE446ZI4VAEUI",
+      "date": "",
+      "service_date": "",
+      "description": "Clinique All About Eyes Augencreme 15ml (1er Pack)",
+      "net_amount": 0,
+      "tax_rate": 19.0,
+      "total_amount": "21.76",
+      "filename": "invoice7.pdf",
+      "timestamp": "2025-11-20 12:25:15.400032"
+    },
+    {
+      "filename": "invoice7.pdf",
+      "company": "Amazon EU S.a.r.l.",
+      "number": "DE446ZI4VAEUI",
+      "date": "2024-12-27",
+      "service_date": "2024-12-27",
+      "description": "Clinique All About Eyes Augencreme 15ml (1er Pack)",
+      "net_amount": 18.28,
+      "tax_rate": 19.0,
+      "total_amount": 21.76,
+      "amount": 21.76,
+      "timestamp": "2025-11-20 12:25:43.947445"
+    },
+    {
+      "company": "Amazon EU S.a.r.l.",
+      "amount": 25.6,
+      "number": "DE446ZI4VAEUI",
+      "date": "",
+      "service_date": "",
+      "description": "Clinique All About Eyes Augencreme 15ml (1er Pack)",
+      "net_amount": 0,
+      "tax_rate": 19.0,
+      "total_amount": "21.76",
+      "filename": "invoice7.pdf",
+      "timestamp": "2025-11-20 12:25:49.861849"
+    },
+    {
+      "company": "Amazon EU S.a.r.l.",
+      "amount": 25.6,
+      "number": "DE446ZI4VAEUI",
+      "date": "2024-12-27",
+      "service_date": "2024-12-24",
+      "description": "Clinique All About Eyes Rich Augencreme 15ml (1er Pack)",
+      "net_amount": 8.28,
+      "tax_rate": 19.0,
+      "total_amount": "21.76",
+      "filename": "invoice7.pdf",
+      "timestamp": "2025-11-20 12:33:16.738800"
+    },
+    {
+      "filename": "invoice7.pdf",
+      "company": "Amazon EU S.a.r.l.",
+      "number": "DE446ZI4VAEUI",
+      "date": "2024-12-27",
+      "service_date": "2024-12-24",
+      "description": "Clinique All About Eyes Rich Augencreme 15ml (1er Pack)",
+      "net_amount": 18.28,
+      "tax_rate": 19.0,
+      "total_amount": 21.76,
+      "amount": 21.76,
+      "timestamp": "2025-11-20 12:33:41.173197"
+    },
+    {
+      "company": "Amazon EU S.a.r.l.",
+      "amount": 25.6,
+      "number": "DE446ZI4VAEUI",
+      "date": "2024-12-27",
+      "service_date": "2024-12-24",
+      "description": "Clinique All About Eyes Rich Augencreme 15ml (1er Pack)",
+      "net_amount": 8.28,
+      "tax_rate": 19.0,
+      "total_amount": "21.76",
+      "filename": "invoice7.pdf",
+      "timestamp": "2025-11-20 12:33:46.818069"
+    },
+    {
+      "filename": "invoice7.pdf",
+      "company": "Amazon EU S.a.r.l.",
+      "number": "DE446ZI4VAEUI",
+      "date": "2024-12-27",
+      "service_date": "2024-12-24",
+      "description": "Clinique All About Eyes Rich Augencreme 15ml (1er Pack)",
+      "net_amount": 18.28,
+      "tax_rate": 19.0,
+      "total_amount": 21.76,
+      "amount": 21.76,
+      "timestamp": "2025-11-20 12:33:54.509696"
+    },
+    {
+      "company": "Amazon EU S.a.r.l.",
+      "amount": 25.6,
+      "number": "DE446ZI4VAEUI",
+      "date": "2024-12-27",
+      "service_date": "2024-12-24",
+      "description": "Clinique All About Eyes Rich Augencreme 15ml (1er Pack)",
+      "net_amount": "18.28",
+      "tax_rate": 19.0,
+      "total_amount": "21.76",
+      "filename": "invoice7.pdf",
+      "timestamp": "2025-11-20 12:33:59.588206"
+    },
+    {
+      "company": "Amazon EU S.a.r.l.",
+      "amount": 25.6,
+      "number": "DE446ZI4VAEUI",
+      "date": "2024-12-27",
+      "service_date": "2024-12-24",
+      "description": "Clinique All About Eyes Rich Augencreme 15ml (1er Pack)",
+      "net_amount": "18.28",
+      "tax_rate": 19.0,
+      "total_amount": "21.76",
+      "filename": "invoice7.pdf",
+      "timestamp": "2025-11-20 12:45:53.381745"
+    },
+    {
+      "company": "Tausendkraut GmbH",
+      "amount": 21.81,
+      "number": "425021827",
+      "date": "2025-10-20",
+      "service_date": "2025-10-17",
+      "description": "Guayusa BIO Energytee XXL (500g) 1",
+      "net_amount": 20.38,
+      "tax_rate": 7.0,
+      "total_amount": 21.81,
+      "filename": "Tausendkraut_425021827.pdf",
+      "timestamp": "2025-11-20 12:47:59.886408"
+    },
+    {
+      "company": "Kontakt",
+      "amount": 8.45,
+      "number": "ARG243666300",
+      "date": "2025-08-11",
+      "service_date": "2025-08-11",
+      "description": "",
+      "net_amount": 5.93,
+      "tax_rate": 0.0,
+      "total_amount": 8.45,
+      "filename": "invoice6.pdf",
+      "timestamp": "2025-11-20 12:49:30.250650"
+    },
+    {
+      "filename": "invoice6.pdf",
+      "company": "mewell GmbH",
+      "number": "ARG243666300",
+      "date": "2025-08-11",
+      "service_date": "2025-08-10",
+      "description": "Vitamin C hochdosiert - 365 Kapseln - 500mg Vitamin c gepuffert -",
+      "net_amount": 5.93,
+      "tax_rate": 7.0,
+      "total_amount": 8.45,
+      "amount": 8.45,
+      "timestamp": "2025-11-20 12:50:26.278924"
+    },
+    {
+      "company": "Kontakt",
+      "amount": 8.45,
+      "number": "ARG243666300",
+      "date": "2025-08-11",
+      "service_date": "2025-08-11",
+      "description": "",
+      "net_amount": 5.93,
+      "tax_rate": 0.0,
+      "total_amount": 8.45,
+      "filename": "invoice6.pdf",
+      "timestamp": "2025-11-20 12:50:32.571109"
+    },
+    {
+      "filename": "invoice6.pdf",
+      "company": "mewell GmbH",
+      "number": "ARG243666300",
+      "date": "2025-08-11",
+      "service_date": "2025-08-10",
+      "description": "Vitamin C hochdosiert - 365 Kapseln - 500mg Vitamin C gepuffert -",
+      "net_amount": 5.93,
+      "tax_rate": 7.0,
+      "total_amount": 8.45,
+      "amount": 8.45,
+      "timestamp": "2025-11-20 12:51:24.945418"
+    },
+    {
+      "company": "mewell GmbH",
+      "amount": 8.45,
+      "number": "ARG243666300",
+      "date": "2025-08-11",
+      "service_date": "2025-08-10",
+      "description": "",
+      "net_amount": 5.93,
+      "tax_rate": "7.0",
+      "total_amount": 8.45,
+      "filename": "invoice6.pdf",
+      "timestamp": "2025-11-20 12:51:30.526994"
+    },
+    {
+      "filename": "invoice6.pdf",
+      "company": "mewell GmbH",
+      "number": "ARG243666300",
+      "date": "2025-08-11",
+      "service_date": "2025-08-10",
+      "description": "Vitamin C hochdosiert - 365 Kapseln - 500mg Vitamin C gepuffert -",
+      "net_amount": 5.93,
+      "tax_rate": 7.0,
+      "total_amount": 8.45,
+      "amount": 8.45,
+      "timestamp": "2025-11-20 12:51:40.674351"
+    },
+    {
+      "company": "mewell GmbH",
+      "amount": 8.45,
+      "number": "ARG243666300",
+      "date": "2025-08-11",
+      "service_date": "2025-08-10",
+      "description": "",
+      "net_amount": 5.93,
+      "tax_rate": "7.0",
+      "total_amount": 8.45,
+      "filename": "invoice6.pdf",
+      "timestamp": "2025-11-20 12:51:46.091896"
+    },
+    {
+      "filename": "invoice6.pdf",
+      "company": "mewell GmbH",
+      "number": "ARG243666300",
+      "date": "2025-08-11",
+      "service_date": "2025-08-10",
+      "description": "Vitamin C hochdosiert - 365 Kapseln - 500mg Vitamin C gepuffert -",
+      "net_amount": 5.93,
+      "tax_rate": 7.0,
+      "total_amount": 8.45,
+      "amount": 8.45,
+      "timestamp": "2025-11-20 12:51:53.094063"
+    },
+    {
+      "company": "mewell GmbH",
+      "amount": 8.45,
+      "number": "ARG243666300",
+      "date": "2025-08-11",
+      "service_date": "2025-08-10",
+      "description": "",
+      "net_amount": 5.93,
+      "tax_rate": "7.0",
+      "total_amount": 8.45,
+      "filename": "invoice6.pdf",
+      "timestamp": "2025-11-20 12:51:59.870641"
+    },
+    {
+      "company": "Tausendkraut GmbH",
+      "amount": 21.81,
+      "number": "425021827",
+      "date": "2025-10-20",
+      "service_date": "2025-10-17",
+      "description": "Guayusa BIO Energytee XXL (500g) 1",
+      "net_amount": 20.38,
+      "tax_rate": 7.0,
+      "total_amount": 21.81,
+      "filename": "Tausendkraut_425021827.pdf",
+      "timestamp": "2025-11-20 13:03:15.774781"
+    },
+    {
+      "company": "Tausendkraut GmbH",
+      "amount": 21.81,
+      "number": "425021827",
+      "date": "2025-10-20",
+      "service_date": "2025-10-17",
+      "description": "Guayusa BIO Energytee XXL (500g) 1",
+      "net_amount": 20.38,
+      "tax_rate": 7.0,
+      "total_amount": 21.81,
+      "filename": "Tausendkraut_425021827.pdf",
+      "timestamp": "2025-11-20 13:08:53.806074"
+    },
+    {
+      "company": "Bestellinformationen",
+      "amount": 26.9,
+      "number": "DE446ZI4VAEUI",
+      "date": "2025-09-08",
+      "service_date": "2025-09-04",
+      "description": "Luxembourg Sitz der",
+      "net_amount": 5.14,
+      "tax_rate": 7.0,
+      "total_amount": 26.9,
+      "filename": "invoice5.pdf",
+      "timestamp": "2025-11-20 13:12:59.519979"
+    },
+    {
+      "filename": "invoice5.pdf",
+      "company": "Amazon EU S.a.r.l.",
+      "number": "DE446ZI4VAEUI",
+      "date": "2025-09-08",
+      "service_date": "2025-09-04",
+      "description": "ESN Collagen Peptides, Lemon, 300g - made in Germany",
+      "net_amount": 25.14,
+      "tax_rate": 7.0,
+      "total_amount": 26.9,
+      "amount": 26.9,
+      "timestamp": "2025-11-20 13:13:46.871331"
+    },
+    {
+      "company": "Bestellinformationen",
+      "amount": 26.9,
+      "number": "DE446ZI4VAEUI",
+      "date": "2025-09-08",
+      "service_date": "2025-09-04",
+      "description": "Luxembourg Sitz der",
+      "net_amount": 5.14,
+      "tax_rate": 7.0,
+      "total_amount": 26.9,
+      "filename": "invoice5.pdf",
+      "timestamp": "2025-11-20 13:14:20.373368"
+    },
+    {
+      "filename": "invoice5.pdf",
+      "company": "Amazon EU S.a.r.l.",
+      "number": "DE446ZI4VAEUI",
+      "date": "2025-09-08",
+      "service_date": "2025-09-04",
+      "description": "ESN Collagen Peptides, Lemon, 300g - made in Germany",
+      "net_amount": 25.14,
+      "tax_rate": 7.0,
+      "total_amount": 26.9,
+      "amount": 26.9,
+      "timestamp": "2025-11-20 13:14:46.420551"
+    },
+    {
+      "company": "Amazon EU S.a.r.l.",
+      "amount": 26.9,
+      "number": "DE446ZI4VAEUI",
+      "date": "2025-09-08",
+      "service_date": "2025-09-04",
+      "description": "ESN Collagen Peptides, Lemon, 300g - made in Germany",
+      "net_amount": "25.14",
+      "tax_rate": 7.0,
+      "total_amount": 26.9,
+      "filename": "invoice5.pdf",
+      "timestamp": "2025-11-20 13:14:52.435582"
+    },
+    {
+      "invoice_type": "Eingangsrechnung",
+      "company": "TechNord AG",
+      "amount": 5108.94,
+      "number": "",
+      "date": "2025-06-28",
+      "service_date": "2025-06-28",
+      "description": "",
+      "net_amount": 0,
+      "tax_rate": 0,
+      "total_amount": 5108.94,
+      "filename": "rechnung_no_overlap_2_Eingangsrechnung.pdf",
+      "timestamp": "2025-11-26 11:05:42.751509"
+    },
+    {
+      "filename": "rechnung_no_overlap_2_Eingangsrechnung.pdf",
+      "invoice_type": "Eingangsrechnung",
+      "company": "TechNord AG",
+      "number": "INV-2025-1012",
+      "date": "2025-06-28",
+      "service_date": "2025-06-28",
+      "description": "",
+      "net_amount": 0.0,
+      "tax_rate": 0.0,
+      "total_amount": 2427.59,
+      "amount": 2427.59,
+      "timestamp": "2025-11-26 11:06:22.003915"
     }
   ],
   "samples": [
@@ -352,6 +990,371 @@
         "timestamp": "2025-11-17 18:08:06.842022"
       },
       "timestamp": "2025-11-17 18:08:06.848286"
+    },
+    {
+      "original": {
+        "company": "Tausendkraut GmbH",
+        "number": "425021827",
+        "date": "2025-10-20",
+        "service_date": "2025-10-20",
+        "description": "Guayusa BIO Energytee XXL (500g) 1",
+        "net_amount": "20.38",
+        "tax_rate": "7.0",
+        "total_amount": "21.81"
+      },
+      "corrected": {
+        "filename": "Tausendkraut_425021827.pdf",
+        "company": "Tausendkraut GmbH",
+        "number": "425021827",
+        "date": "2025-10-20",
+        "service_date": "2025-10-17",
+        "description": "Guayusa BIO Energytee XXL (500g) 1",
+        "net_amount": 20.38,
+        "tax_rate": 7.0,
+        "total_amount": 21.81,
+        "amount": 21.81,
+        "timestamp": "2025-11-20 10:49:06.528544"
+      },
+      "timestamp": "2025-11-20 10:49:06.534452"
+    },
+    {
+      "original": {
+        "company": "St\u00fcckpreis",
+        "number": "101818",
+        "date": "",
+        "service_date": "",
+        "description": "Zahlungsreferenznummer",
+        "net_amount": "0",
+        "tax_rate": "19.0",
+        "total_amount": "25.6"
+      },
+      "corrected": {
+        "filename": "invoice7.pdf",
+        "company": "Amazon EU S.a.r.l.",
+        "number": "DE446ZI4VAEUI",
+        "date": "2024-12-27",
+        "service_date": "2024-12-27",
+        "description": "Clinique All About Eyes Augencreme 15ml (1er Pack)",
+        "net_amount": 18.28,
+        "tax_rate": 19.0,
+        "total_amount": 21.76,
+        "amount": 21.76,
+        "timestamp": "2025-11-20 12:17:45.306526"
+      },
+      "timestamp": "2025-11-20 12:17:45.339399"
+    },
+    {
+      "original": {
+        "company": "Amazon EU S.a.r.l.",
+        "number": "DE446ZI4VAEUI",
+        "date": "",
+        "service_date": "",
+        "description": "Clinique All About Eyes Augencreme 15ml (1er Pack)",
+        "net_amount": "0",
+        "tax_rate": "19.0",
+        "total_amount": "21.76"
+      },
+      "corrected": {
+        "filename": "invoice7.pdf",
+        "company": "Amazon EU S.a.r.l.",
+        "number": "DE446ZI4VAEUI",
+        "date": "2024-12-27",
+        "service_date": "2024-12-27",
+        "description": "Clinique All About Eyes Augencreme 15ml (1er Pack)",
+        "net_amount": 18.28,
+        "tax_rate": 19.0,
+        "total_amount": 21.76,
+        "amount": 21.76,
+        "timestamp": "2025-11-20 12:18:23.065410"
+      },
+      "timestamp": "2025-11-20 12:18:23.080430"
+    },
+    {
+      "original": {
+        "company": "Amazon EU S.a.r.l.",
+        "number": "DE446ZI4VAEUI",
+        "date": "",
+        "service_date": "",
+        "description": "Clinique All About Eyes Augencreme 15ml (1er Pack)",
+        "net_amount": "0",
+        "tax_rate": "19.0",
+        "total_amount": "21.76"
+      },
+      "corrected": {
+        "filename": "invoice7.pdf",
+        "company": "Amazon EU S.a.r.l.",
+        "number": "DE446ZI4VAEUI",
+        "date": "2024-12-27",
+        "service_date": "2024-12-27",
+        "description": "Clinique All About Eyes Augencreme 15ml (1er Pack)",
+        "net_amount": 18.28,
+        "tax_rate": 19.0,
+        "total_amount": 21.76,
+        "amount": 21.76,
+        "timestamp": "2025-11-20 12:25:08.019531"
+      },
+      "timestamp": "2025-11-20 12:25:08.036888"
+    },
+    {
+      "original": {
+        "company": "Amazon EU S.a.r.l.",
+        "number": "DE446ZI4VAEUI",
+        "date": "",
+        "service_date": "",
+        "description": "Clinique All About Eyes Augencreme 15ml (1er Pack)",
+        "net_amount": "0",
+        "tax_rate": "19.0",
+        "total_amount": "21.76"
+      },
+      "corrected": {
+        "filename": "invoice7.pdf",
+        "company": "Amazon EU S.a.r.l.",
+        "number": "DE446ZI4VAEUI",
+        "date": "2024-12-27",
+        "service_date": "2024-12-27",
+        "description": "Clinique All About Eyes Augencreme 15ml (1er Pack)",
+        "net_amount": 18.28,
+        "tax_rate": 19.0,
+        "total_amount": 21.76,
+        "amount": 21.76,
+        "timestamp": "2025-11-20 12:25:43.947445"
+      },
+      "timestamp": "2025-11-20 12:25:43.952451"
+    },
+    {
+      "original": {
+        "company": "Amazon EU S.a.r.l.",
+        "number": "DE446ZI4VAEUI",
+        "date": "2024-12-27",
+        "service_date": "2024-12-24",
+        "description": "Clinique All About Eyes Rich Augencreme 15ml (1er Pack)",
+        "net_amount": "8.28",
+        "tax_rate": "19.0",
+        "total_amount": "21.76"
+      },
+      "corrected": {
+        "filename": "invoice7.pdf",
+        "company": "Amazon EU S.a.r.l.",
+        "number": "DE446ZI4VAEUI",
+        "date": "2024-12-27",
+        "service_date": "2024-12-24",
+        "description": "Clinique All About Eyes Rich Augencreme 15ml (1er Pack)",
+        "net_amount": 18.28,
+        "tax_rate": 19.0,
+        "total_amount": 21.76,
+        "amount": 21.76,
+        "timestamp": "2025-11-20 12:33:41.173197"
+      },
+      "timestamp": "2025-11-20 12:33:41.189072"
+    },
+    {
+      "original": {
+        "company": "Amazon EU S.a.r.l.",
+        "number": "DE446ZI4VAEUI",
+        "date": "2024-12-27",
+        "service_date": "2024-12-24",
+        "description": "Clinique All About Eyes Rich Augencreme 15ml (1er Pack)",
+        "net_amount": "8.28",
+        "tax_rate": "19.0",
+        "total_amount": "21.76"
+      },
+      "corrected": {
+        "filename": "invoice7.pdf",
+        "company": "Amazon EU S.a.r.l.",
+        "number": "DE446ZI4VAEUI",
+        "date": "2024-12-27",
+        "service_date": "2024-12-24",
+        "description": "Clinique All About Eyes Rich Augencreme 15ml (1er Pack)",
+        "net_amount": 18.28,
+        "tax_rate": 19.0,
+        "total_amount": 21.76,
+        "amount": 21.76,
+        "timestamp": "2025-11-20 12:33:54.509696"
+      },
+      "timestamp": "2025-11-20 12:33:54.521111"
+    },
+    {
+      "original": {
+        "company": "Kontakt",
+        "number": "ARG243666300",
+        "date": "2025-08-11",
+        "service_date": "2025-08-11",
+        "description": "",
+        "net_amount": "5.93",
+        "tax_rate": "0.0",
+        "total_amount": "8.45"
+      },
+      "corrected": {
+        "filename": "invoice6.pdf",
+        "company": "mewell GmbH",
+        "number": "ARG243666300",
+        "date": "2025-08-11",
+        "service_date": "2025-08-10",
+        "description": "Vitamin C hochdosiert - 365 Kapseln - 500mg Vitamin c gepuffert -",
+        "net_amount": 5.93,
+        "tax_rate": 7.0,
+        "total_amount": 8.45,
+        "amount": 8.45,
+        "timestamp": "2025-11-20 12:50:26.278924"
+      },
+      "timestamp": "2025-11-20 12:50:26.306591"
+    },
+    {
+      "original": {
+        "company": "Kontakt",
+        "number": "ARG243666300",
+        "date": "2025-08-11",
+        "service_date": "2025-08-11",
+        "description": "",
+        "net_amount": "5.93",
+        "tax_rate": "0.0",
+        "total_amount": "8.45"
+      },
+      "corrected": {
+        "filename": "invoice6.pdf",
+        "company": "mewell GmbH",
+        "number": "ARG243666300",
+        "date": "2025-08-11",
+        "service_date": "2025-08-10",
+        "description": "Vitamin C hochdosiert - 365 Kapseln - 500mg Vitamin C gepuffert -",
+        "net_amount": 5.93,
+        "tax_rate": 7.0,
+        "total_amount": 8.45,
+        "amount": 8.45,
+        "timestamp": "2025-11-20 12:51:24.945418"
+      },
+      "timestamp": "2025-11-20 12:51:24.978676"
+    },
+    {
+      "original": {
+        "company": "mewell GmbH",
+        "number": "ARG243666300",
+        "date": "2025-08-11",
+        "service_date": "2025-08-10",
+        "description": "",
+        "net_amount": "5.93",
+        "tax_rate": "7.0",
+        "total_amount": "8.45"
+      },
+      "corrected": {
+        "filename": "invoice6.pdf",
+        "company": "mewell GmbH",
+        "number": "ARG243666300",
+        "date": "2025-08-11",
+        "service_date": "2025-08-10",
+        "description": "Vitamin C hochdosiert - 365 Kapseln - 500mg Vitamin C gepuffert -",
+        "net_amount": 5.93,
+        "tax_rate": 7.0,
+        "total_amount": 8.45,
+        "amount": 8.45,
+        "timestamp": "2025-11-20 12:51:40.674351"
+      },
+      "timestamp": "2025-11-20 12:51:40.695239"
+    },
+    {
+      "original": {
+        "company": "mewell GmbH",
+        "number": "ARG243666300",
+        "date": "2025-08-11",
+        "service_date": "2025-08-10",
+        "description": "",
+        "net_amount": "5.93",
+        "tax_rate": "7.0",
+        "total_amount": "8.45"
+      },
+      "corrected": {
+        "filename": "invoice6.pdf",
+        "company": "mewell GmbH",
+        "number": "ARG243666300",
+        "date": "2025-08-11",
+        "service_date": "2025-08-10",
+        "description": "Vitamin C hochdosiert - 365 Kapseln - 500mg Vitamin C gepuffert -",
+        "net_amount": 5.93,
+        "tax_rate": 7.0,
+        "total_amount": 8.45,
+        "amount": 8.45,
+        "timestamp": "2025-11-20 12:51:53.094063"
+      },
+      "timestamp": "2025-11-20 12:51:53.099137"
+    },
+    {
+      "original": {
+        "company": "Bestellinformationen",
+        "number": "DE446ZI4VAEUI",
+        "date": "2025-09-08",
+        "service_date": "2025-09-04",
+        "description": "Luxembourg Sitz der",
+        "net_amount": "5.14",
+        "tax_rate": "7.0",
+        "total_amount": "26.9"
+      },
+      "corrected": {
+        "filename": "invoice5.pdf",
+        "company": "Amazon EU S.a.r.l.",
+        "number": "DE446ZI4VAEUI",
+        "date": "2025-09-08",
+        "service_date": "2025-09-04",
+        "description": "ESN Collagen Peptides, Lemon, 300g - made in Germany",
+        "net_amount": 25.14,
+        "tax_rate": 7.0,
+        "total_amount": 26.9,
+        "amount": 26.9,
+        "timestamp": "2025-11-20 13:13:46.871331"
+      },
+      "timestamp": "2025-11-20 13:13:46.900198"
+    },
+    {
+      "original": {
+        "company": "Bestellinformationen",
+        "number": "DE446ZI4VAEUI",
+        "date": "2025-09-08",
+        "service_date": "2025-09-04",
+        "description": "Luxembourg Sitz der",
+        "net_amount": "5.14",
+        "tax_rate": "7.0",
+        "total_amount": "26.9"
+      },
+      "corrected": {
+        "filename": "invoice5.pdf",
+        "company": "Amazon EU S.a.r.l.",
+        "number": "DE446ZI4VAEUI",
+        "date": "2025-09-08",
+        "service_date": "2025-09-04",
+        "description": "ESN Collagen Peptides, Lemon, 300g - made in Germany",
+        "net_amount": 25.14,
+        "tax_rate": 7.0,
+        "total_amount": 26.9,
+        "amount": 26.9,
+        "timestamp": "2025-11-20 13:14:46.420551"
+      },
+      "timestamp": "2025-11-20 13:14:46.454594"
+    },
+    {
+      "original": {
+        "company": "TechNord AG",
+        "number": "",
+        "date": "2025-06-28",
+        "service_date": "2025-06-28",
+        "description": "",
+        "net_amount": "0",
+        "tax_rate": "0",
+        "total_amount": "5108.94"
+      },
+      "corrected": {
+        "filename": "rechnung_no_overlap_2_Eingangsrechnung.pdf",
+        "invoice_type": "Eingangsrechnung",
+        "company": "TechNord AG",
+        "number": "INV-2025-1012",
+        "date": "2025-06-28",
+        "service_date": "2025-06-28",
+        "description": "",
+        "net_amount": 0.0,
+        "tax_rate": 0.0,
+        "total_amount": 2427.59,
+        "amount": 2427.59,
+        "timestamp": "2025-11-26 11:06:22.003915"
+      },
+      "timestamp": "2025-11-26 11:06:22.009908"
     }
   ],
   "corrections": [
@@ -360,8 +1363,8 @@
       "corrected_text": "2025-10-17",
       "field_type": "service_date",
       "company_context": "Tausendkraut GmbH",
-      "correction_count": 3,
-      "confidence_score": 0.6000000000000001,
+      "correction_count": 4,
+      "confidence_score": 0.8,
       "timestamp": "2025-11-11 20:38:05.146425"
     },
     {
@@ -387,36 +1390,108 @@
       "corrected_text": "Amazon EU S.a.r.l.",
       "field_type": "company",
       "company_context": "Amazon EU S.a.r.l.",
-      "correction_count": 2,
-      "confidence_score": 0.4,
-      "timestamp": "2025-11-11 20:39:29.330583"
+      "correction_count": 3,
+      "confidence_score": 1.0,
+      "timestamp": "2025-11-20 12:17:45.306526"
     },
     {
       "original_text": "101818",
       "corrected_text": "DE446ZI4VAEUI",
       "field_type": "number",
       "company_context": "Amazon EU S.a.r.l.",
-      "correction_count": 2,
-      "confidence_score": 0.4,
-      "timestamp": "2025-11-11 20:39:29.330583"
+      "correction_count": 3,
+      "confidence_score": 1.0,
+      "timestamp": "2025-11-20 12:17:45.325268"
     },
     {
       "original_text": "Zahlungsreferenznummer",
-      "corrected_text": "Clinique All About Eyes Rich ugencreme 15ml (1er Pack)",
+      "corrected_text": "Clinique All About Eyes Augencreme 15ml (1er Pack)",
       "field_type": "description",
       "company_context": "Amazon EU S.a.r.l.",
-      "correction_count": 1,
-      "confidence_score": 0.2,
-      "timestamp": "2025-11-11 20:40:40.780218"
+      "correction_count": 2,
+      "confidence_score": 0.75,
+      "timestamp": "2025-11-20 12:17:45.327173"
     },
     {
       "original_text": "25.6",
       "corrected_text": "21.76",
       "field_type": "total_amount",
       "company_context": "Amazon EU S.a.r.l.",
+      "correction_count": 2,
+      "confidence_score": 0.75,
+      "timestamp": "2025-11-20 12:17:45.327173"
+    },
+    {
+      "original_text": "8.28",
+      "corrected_text": "18.28",
+      "field_type": "net_amount",
+      "company_context": "Amazon EU S.a.r.l.",
+      "correction_count": 2,
+      "confidence_score": 0.75,
+      "timestamp": "2025-11-20 12:33:54.509696"
+    },
+    {
+      "original_text": "Kontakt",
+      "corrected_text": "mewell GmbH",
+      "field_type": "company",
+      "company_context": "mewell GmbH",
+      "correction_count": 2,
+      "confidence_score": 0.75,
+      "timestamp": "2025-11-20 12:51:24.945418"
+    },
+    {
+      "original_text": "2025-08-11",
+      "corrected_text": "2025-08-10",
+      "field_type": "service_date",
+      "company_context": "mewell GmbH",
+      "correction_count": 2,
+      "confidence_score": 0.75,
+      "timestamp": "2025-11-20 12:51:24.959238"
+    },
+    {
+      "original_text": "0.0",
+      "corrected_text": "7.0",
+      "field_type": "tax_rate",
+      "company_context": "mewell GmbH",
+      "correction_count": 2,
+      "confidence_score": 0.75,
+      "timestamp": "2025-11-20 12:51:24.968500"
+    },
+    {
+      "original_text": "Bestellinformationen",
+      "corrected_text": "Amazon EU S.a.r.l.",
+      "field_type": "company",
+      "company_context": "Amazon EU S.a.r.l.",
+      "correction_count": 2,
+      "confidence_score": 0.75,
+      "timestamp": "2025-11-20 13:14:46.420551"
+    },
+    {
+      "original_text": "Luxembourg Sitz der",
+      "corrected_text": "ESN Collagen Peptides, Lemon, 300g - made in Germany",
+      "field_type": "description",
+      "company_context": "Amazon EU S.a.r.l.",
+      "correction_count": 2,
+      "confidence_score": 0.75,
+      "timestamp": "2025-11-20 13:14:46.437747"
+    },
+    {
+      "original_text": "5.14",
+      "corrected_text": "25.14",
+      "field_type": "net_amount",
+      "company_context": "Amazon EU S.a.r.l.",
+      "correction_count": 2,
+      "confidence_score": 0.75,
+      "timestamp": "2025-11-20 13:14:46.437747"
+    },
+    {
+      "original_text": "5108.94",
+      "corrected_text": "2427.59",
+      "field_type": "total_amount",
+      "company_context": "TechNord AG",
       "correction_count": 1,
-      "confidence_score": 0.2,
-      "timestamp": "2025-11-11 20:40:40.783244"
+      "confidence_score": 0.5,
+      "timestamp": "2025-11-26 11:06:22.004046"
     }
   ]
 }

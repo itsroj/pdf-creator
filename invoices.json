@@ -1,276 +1,1145 @@
 {
   "invoices": [
     {
-      "filename": "Tausendkraut_425021827.pdf",
-      "company": "Tausendkraut GmbHWaldbrunner H\u00f6he",
-      "amount": 20.38,
-      "number": "425021827",
-      "date": "2025-10-20",
-      "timestamp": "2025-11-10 20:35:50.431317"
-    },
-    {
-      "filename": "Rechnung_153879764_INV.pdf",
-      "company": "Parfumdreams",
-      "amount": 32.95,
-      "number": "153879764",
-      "date": "2025-10-20",
-      "timestamp": "2025-11-10 20:36:11.939291"
-    },
-    {
-      "filename": "Rechnungskorrektur-153488353.pdf",
-      "company": "parfumdreams",
-      "amount": 30.56,
-      "number": "153488353",
-      "date": "2025-09-26",
-      "timestamp": "2025-11-10 20:36:52.643718"
-    },
-    {
-      "filename": "Tausendkraut_425021827.pdf",
-      "company": "Tausendkraut GmbH",
-      "number": "425021827",
-      "date": "2025-10-20",
-      "service_date": "2025-10-17",
-      "description": "Versandkosten",
-      "net_amount": 20.38,
-      "tax_rate": 7.0,
-      "total_amount": 21.81,
-      "amount": 21.81,
-      "timestamp": "2025-11-10 20:51:23.760255"
-    },
-    {
-      "filename": "Rechnung_153879764_INV.pdf",
-      "company": "Julia Kanter",
-      "number": "153879764",
-      "date": "2025-10-20",
-      "service_date": "2025-10-19",
-      "description": "Amtsgericht Stuttgart HRB",
-      "net_amount": 27.69,
-      "tax_rate": 0.0,
-      "total_amount": 32.95,
-      "amount": 32.95,
-      "timestamp": "2025-11-10 20:57:49.098157"
-    },
-    {
-      "company": "Parf\u00fcmerie Akzente GmbH",
-      "amount": 32.95,
-      "number": "153879764",
-      "date": "2025-10-20",
-      "service_date": "2025-10-19",
-      "description": "NIVEA D\u00fcfte Damend\u00fcfte Eau de Toilette Spray",
-      "net_amount": 27.69,
-      "tax_rate": 19.0,
-      "total_amount": 32.95,
-      "filename": "Rechnung_153879764_INV.pdf",
-      "timestamp": "2025-11-10 21:19:48.558875"
-    },
-    {
-      "filename": "Rechnung_153879764_INV.pdf",
-      "company": "Parf\u00fcmerie Akzente GmbH",
-      "number": "153879764",
-      "date": "2025-10-20",
-      "service_date": "2025-10-19",
-      "description": "NIVEA D\u00fcfte Damend\u00fcfte Eau de Toilette Spray",
-      "net_amount": 27.69,
-      "tax_rate": 19.0,
-      "total_amount": 32.95,
-      "amount": 32.95,
-      "timestamp": "2025-11-10 21:19:58.474074"
-    },
-    {
-      "company": "Parf\u00fcmerie Akzente GmbH",
-      "amount": 30.56,
-      "number": "153488353",
-      "date": "2025-09-26",
-      "service_date": "",
-      "description": "Free Gel Cream",
+      "company": "M\u00fcller & Sohn GmbH",
+      "amount": 3119.64,
+      "number": "",
+      "date": "2025-10-06",
+      "service_date": "2025-10-06",
+      "description": "",
       "net_amount": 0,
-      "tax_rate": 19.0,
-      "total_amount": 30.56,
-      "filename": "Rechnungskorrektur-153488353.pdf",
-      "timestamp": "2025-11-10 21:20:13.985672"
+      "tax_rate": 0,
+      "total_amount": 3119.64,
+      "filename": "rechnung_no_overlap_1_Eingangsrechnung.pdf",
+      "timestamp": "2025-11-24 17:03:22.889698"
     },
     {
-      "filename": "Rechnungskorrektur-153488353.pdf",
-      "company": "Parf\u00fcmerie Akzente GmbH",
-      "number": "153488353",
-      "date": "2025-09-26",
-      "service_date": "2025-09-01",
-      "description": "Kiehl's Oil Free-Gel Cream",
+      "company": "M\u00fcller & Sohn GmbH",
+      "amount": 3119.64,
+      "number": "",
+      "date": "2025-10-06",
+      "service_date": "2025-10-06",
+      "description": "",
+      "net_amount": 0,
+      "tax_rate": 0,
+      "total_amount": 3119.64,
+      "filename": "rechnung_no_overlap_1_Eingangsrechnung.pdf",
+      "timestamp": "2025-11-24 17:03:32.113148"
+    },
+    {
+      "filename": "rechnung_no_overlap_1_Eingangsrechnung.pdf",
+      "company": "M\u00fcller & Sohn GmbH",
+      "number": "INV-2025-1005",
+      "date": "2025-10-06",
+      "service_date": "2025-10-06",
+      "description": "Unbenannte Produkte",
       "net_amount": 0.0,
+      "tax_rate": 0.0,
+      "total_amount": 1029.57,
+      "amount": 1029.57,
+      "timestamp": "2025-11-24 17:04:09.608361"
+    },
+    {
+      "company": "M\u00fcller & Sohn GmbH",
+      "amount": 3119.64,
+      "number": "",
+      "date": "2025-10-06",
+      "service_date": "2025-10-06",
+      "description": "",
+      "net_amount": 0,
+      "tax_rate": 0,
+      "total_amount": "1029.57",
+      "filename": "rechnung_no_overlap_1_Eingangsrechnung.pdf",
+      "timestamp": "2025-11-24 17:04:20.336091"
+    },
+    {
+      "filename": "rechnung_no_overlap_1_Eingangsrechnung.pdf",
+      "company": "M\u00fcller & Sohn GmbH",
+      "number": "INV-2025-1005",
+      "date": "2025-10-06",
+      "service_date": "2025-10-06",
+      "description": "Unbenannte Produkte",
+      "net_amount": 0.0,
+      "tax_rate": 0.0,
+      "total_amount": 1029.57,
+      "amount": 1029.57,
+      "timestamp": "2025-11-24 17:04:38.106293"
+    },
+    {
+      "company": "M\u00fcller & Sohn GmbH",
+      "amount": 3119.64,
+      "number": "",
+      "date": "2025-10-06",
+      "service_date": "2025-10-06",
+      "description": "",
+      "net_amount": 0,
+      "tax_rate": 0,
+      "total_amount": "1029.57",
+      "filename": "rechnung_no_overlap_1_Eingangsrechnung.pdf",
+      "timestamp": "2025-11-24 17:04:43.429569"
+    },
+    {
+      "filename": "rechnung_no_overlap_1_Eingangsrechnung.pdf",
+      "company": "M\u00fcller & Sohn GmbH",
+      "number": "INV-2025-1005",
+      "date": "2025-10-06",
+      "service_date": "2025-10-06",
+      "description": "Unbenannte Produkte",
+      "net_amount": 0.0,
+      "tax_rate": 0.0,
+      "total_amount": 1029.57,
+      "amount": 1029.57,
+      "timestamp": "2025-11-24 17:04:51.284026"
+    },
+    {
+      "company": "M\u00fcller & Sohn GmbH",
+      "amount": 3119.64,
+      "number": "",
+      "date": "2025-10-06",
+      "service_date": "2025-10-06",
+      "description": "",
+      "net_amount": 0,
+      "tax_rate": 0,
+      "total_amount": "1029.57",
+      "filename": "rechnung_no_overlap_1_Eingangsrechnung.pdf",
+      "timestamp": "2025-11-24 17:04:57.307633"
+    },
+    {
+      "company": "M\u00fcller & Sohn GmbH",
+      "amount": 3119.64,
+      "number": "INV-2025-1005",
+      "date": "2025-10-06",
+      "service_date": "2025-10-06",
+      "description": "",
+      "net_amount": 0,
+      "tax_rate": 0,
+      "total_amount": "1029.57",
+      "filename": "rechnung_no_overlap_1_Eingangsrechnung.pdf",
+      "timestamp": "2025-11-24 17:08:29.305327"
+    },
+    {
+      "filename": "rechnung_no_overlap_1_Eingangsrechnung.pdf",
+      "company": "M\u00fcller & Sohn GmbH",
+      "number": "INV-2025-1005",
+      "date": "2025-10-06",
+      "service_date": "2025-10-06",
+      "description": "Unbenannte Produkte",
+      "net_amount": 0.0,
+      "tax_rate": 0.0,
+      "total_amount": 1029.57,
+      "amount": 1029.57,
+      "timestamp": "2025-11-24 17:09:00.518787"
+    },
+    {
+      "company": "",
+      "amount": 0,
+      "number": "",
+      "date": "",
+      "service_date": "",
+      "description": "",
+      "net_amount": 0,
+      "tax_rate": 0,
+      "total_amount": 0,
+      "filename": "invoice.pdf",
+      "timestamp": "2025-11-24 17:09:08.214090"
+    },
+    {
+      "company": "M\u00fcller & Sohn GmbH",
+      "amount": 3119.64,
+      "number": "INV-2025-1005",
+      "date": "2025-10-06",
+      "service_date": "2025-10-06",
+      "description": "Lebensmittel",
+      "net_amount": 0,
+      "tax_rate": 0,
+      "total_amount": "1029.57",
+      "filename": "rechnung_no_overlap_1_Eingangsrechnung.pdf",
+      "timestamp": "2025-11-24 17:20:30.311058"
+    },
+    {
+      "filename": "rechnung_no_overlap_1_Eingangsrechnung.pdf",
+      "company": "M\u00fcller & Sohn GmbH",
+      "number": "INV-2025-1005",
+      "date": "2025-10-06",
+      "service_date": "2025-10-06",
+      "description": "Unbenannte Produkte",
+      "net_amount": 0.0,
+      "tax_rate": 0.0,
+      "total_amount": 1029.57,
+      "amount": 1029.57,
+      "timestamp": "2025-11-24 17:20:50.480120"
+    },
+    {
+      "filename": "invoice.pdf",
+      "company": "Natural Elements GmbH",
+      "number": "NEDE9707554",
+      "date": "2025-10-10",
+      "service_date": "",
+      "description": "Vitamine",
+      "net_amount": 15.69,
+      "tax_rate": 7.0,
+      "total_amount": 16.79,
+      "amount": 16.79,
+      "timestamp": "2025-11-24 17:23:54.139834"
+    },
+    {
+      "company": "",
+      "amount": 0,
+      "number": "",
+      "date": "",
+      "service_date": "",
+      "description": "Vitamine",
+      "net_amount": 0,
+      "tax_rate": 0,
+      "total_amount": 0,
+      "filename": "invoice.pdf",
+      "timestamp": "2025-11-24 17:24:19.424457"
+    },
+    {
+      "company": "M\u00fcller & Sohn GmbH",
+      "amount": 3119.64,
+      "number": "INV-2025-1005",
+      "date": "2025-10-06",
+      "service_date": "2025-10-06",
+      "description": "Unbenannte Produkte",
+      "net_amount": 0,
+      "tax_rate": 0,
+      "total_amount": "1029.57",
+      "filename": "rechnung_no_overlap_1_Eingangsrechnung.pdf",
+      "internal_filename": "20251124_173100_rechnung_no_overlap_1_Eingangsrechnung.pdf",
+      "timestamp": "2025-11-24 17:31:00.121389"
+    },
+    {
+      "company": "M\u00fcller & Sohn GmbH",
+      "amount": 3119.64,
+      "number": "INV-2025-1005",
+      "date": "2025-10-06",
+      "service_date": "2025-10-06",
+      "description": "Unbenannte Produkte",
+      "net_amount": 0,
+      "tax_rate": 0,
+      "total_amount": "1029.57",
+      "filename": "rechnung_no_overlap_1_Eingangsrechnung.pdf",
+      "internal_filename": "20251124_173533_rechnung_no_overlap_1_Eingangsrechnung.pdf",
+      "timestamp": "2025-11-24 17:35:33.884245"
+    },
+    {
+      "filename": "20251124_173533_rechnung_no_overlap_1_Eingangsrechnung.pdf",
+      "company": "M\u00fcller & Sohn GmbH",
+      "number": "INV-2025-1005",
+      "date": "2025-10-06",
+      "service_date": "2025-10-06",
+      "description": "Unbenannte Produkte",
+      "net_amount": 0.0,
+      "tax_rate": 0.0,
+      "total_amount": 1029.57,
+      "amount": 1029.57,
+      "timestamp": "2025-11-24 17:35:39.039477"
+    },
+    {
+      "company": "Dein Team von Natural Elements",
+      "amount": 16.79,
+      "number": "NEDE9707554",
+      "date": "2025-10-08",
+      "service_date": "2025-10-08",
+      "description": "Vitamine",
+      "net_amount": 15.69,
+      "tax_rate": 0.0,
+      "total_amount": 16.79,
+      "filename": "invoice.pdf",
+      "internal_filename": "20251124_173542_invoice.pdf",
+      "timestamp": "2025-11-24 17:35:45.225696"
+    },
+    {
+      "filename": "20251124_173542_invoice.pdf",
+      "company": "Natural Elements GmbH",
+      "number": "NEDE9707554",
+      "date": "2025-10-08",
+      "service_date": "2025-10-08",
+      "description": "Vitamine",
+      "net_amount": 15.69,
+      "tax_rate": 7.0,
+      "total_amount": 16.79,
+      "amount": 16.79,
+      "timestamp": "2025-11-24 17:36:10.720260"
+    },
+    {
+      "company": "Natural Elements GmbH",
+      "amount": 16.79,
+      "number": "NEDE9707554",
+      "date": "2025-10-08",
+      "service_date": "2025-10-08",
+      "description": "Vitamine",
+      "net_amount": 15.69,
+      "tax_rate": "7.0",
+      "total_amount": 16.79,
+      "filename": "invoice.pdf",
+      "internal_filename": "20251124_173616_invoice.pdf",
+      "timestamp": "2025-11-24 17:36:18.371425"
+    },
+    {
+      "filename": "20251124_173616_invoice.pdf",
+      "company": "Natural Elements GmbH",
+      "number": "NEDE9707554",
+      "date": "2025-10-08",
+      "service_date": "2025-10-08",
+      "description": "Vitamine",
+      "net_amount": 15.69,
+      "tax_rate": 7.0,
+      "total_amount": 16.79,
+      "amount": 16.79,
+      "timestamp": "2025-11-24 17:36:23.772084"
+    },
+    {
+      "company": "TechNord AG",
+      "amount": 5108.94,
+      "number": "INV-2025-1012",
+      "date": "2025-06-28",
+      "service_date": "2025-06-28",
+      "description": "Vitamine",
+      "net_amount": 0,
+      "tax_rate": 0,
+      "total_amount": 5108.94,
+      "filename": "rechnung_no_overlap_2_Eingangsrechnung.pdf",
+      "internal_filename": "20251124_173638_rechnung_no_overlap_2_Eingangsrechnung.pdf",
+      "timestamp": "2025-11-24 17:36:38.513419"
+    },
+    {
+      "filename": "20251124_173638_rechnung_no_overlap_2_Eingangsrechnung.pdf",
+      "company": "TechNord AG",
+      "number": "INV-2025-1012",
+      "date": "2025-06-28",
+      "service_date": "2025-06-28",
+      "description": "Produkte",
+      "net_amount": 0.0,
+      "tax_rate": 0.0,
+      "total_amount": 2427.59,
+      "amount": 2427.59,
+      "timestamp": "2025-11-24 17:37:07.214587"
+    },
+    {
+      "company": "Beschreibung",
+      "amount": 5161.36,
+      "number": "INV-2025-1020",
+      "date": "2025-07-09",
+      "service_date": "2025-07-09",
+      "description": "Unbenannte Produkte",
+      "net_amount": 0,
+      "tax_rate": 0,
+      "total_amount": 5161.36,
+      "filename": "rechnung_no_overlap_3_Eingangsrechnung.pdf",
+      "internal_filename": "20251124_173827_rechnung_no_overlap_3_Eingangsrechnung.pdf",
+      "timestamp": "2025-11-24 17:38:28.006570"
+    },
+    {
+      "filename": "20251124_173827_rechnung_no_overlap_3_Eingangsrechnung.pdf",
+      "company": "BlumenHaus Kleefeld",
+      "number": "INV-2025-1020",
+      "date": "2025-07-09",
+      "service_date": "2025-07-09",
+      "description": "Unbenannte Produkte",
+      "net_amount": 0.0,
+      "tax_rate": 0.0,
+      "total_amount": 1192.61,
+      "amount": 1192.61,
+      "timestamp": "2025-11-24 17:38:58.603981"
+    },
+    {
+      "company": "Beschreibung",
+      "amount": 5161.36,
+      "number": "INV-2025-1020",
+      "date": "2025-07-09",
+      "service_date": "2025-07-09",
+      "description": "Unbenannte Produkte",
+      "net_amount": 0,
+      "tax_rate": 0,
+      "total_amount": "1192.61",
+      "filename": "rechnung_no_overlap_3_Eingangsrechnung.pdf",
+      "internal_filename": "20251124_173904_rechnung_no_overlap_3_Eingangsrechnung.pdf",
+      "timestamp": "2025-11-24 17:39:04.773705"
+    },
+    {
+      "filename": "20251124_173904_rechnung_no_overlap_3_Eingangsrechnung.pdf",
+      "company": "BlumenHaus Kleefeld",
+      "number": "INV-2025-1020",
+      "date": "2025-07-09",
+      "service_date": "2025-07-09",
+      "description": "Unbenannte Produkte",
+      "net_amount": 0.0,
+      "tax_rate": 0.0,
+      "total_amount": 1192.61,
+      "amount": 1192.61,
+      "timestamp": "2025-11-24 17:39:23.866134"
+    },
+    {
+      "company": "Menge Einzelpreis Betrag",
+      "amount": 5247.1,
+      "number": "INV-2025-1021",
+      "date": "2025-09-05",
+      "service_date": "2025-09-05",
+      "description": "Vitamine",
+      "net_amount": 0,
+      "tax_rate": 0,
+      "total_amount": 5247.1,
+      "filename": "rechnung_no_overlap_4_Eingangsrechnung.pdf",
+      "internal_filename": "20251124_173930_rechnung_no_overlap_4_Eingangsrechnung.pdf",
+      "timestamp": "2025-11-24 17:39:30.226090"
+    },
+    {
+      "filename": "20251124_173930_rechnung_no_overlap_4_Eingangsrechnung.pdf",
+      "company": "AutoService Richter",
+      "number": "INV-2025-1021",
+      "date": "2025-09-05",
+      "service_date": "2025-09-05",
+      "description": "Produkte",
+      "net_amount": 0.0,
+      "tax_rate": 0.0,
+      "total_amount": 3694.57,
+      "amount": 3694.57,
+      "timestamp": "2025-11-24 17:39:58.646397"
+    },
+    {
+      "company": "AutoService Richter",
+      "amount": 5247.1,
+      "number": "INV-2025-1021",
+      "date": "2025-09-05",
+      "service_date": "2025-09-05",
+      "description": "Vitamine",
+      "net_amount": 0,
+      "tax_rate": 0,
+      "total_amount": "3694.57",
+      "filename": "rechnung_no_overlap_4_Eingangsrechnung.pdf",
+      "internal_filename": "20251124_174125_rechnung_no_overlap_4_Eingangsrechnung.pdf",
+      "timestamp": "2025-11-24 17:41:25.951419"
+    },
+    {
+      "filename": "20251124_174125_rechnung_no_overlap_4_Eingangsrechnung.pdf",
+      "company": "AutoService Richter",
+      "number": "INV-2025-1021",
+      "date": "2025-09-05",
+      "service_date": "2025-09-05",
+      "description": "Produkte",
+      "net_amount": 0.0,
+      "tax_rate": 0.0,
+      "total_amount": 3694.57,
+      "amount": 3694.57,
+      "timestamp": "2025-11-24 17:43:41.178700"
+    },
+    {
+      "company": "Menge Einzelpreis Betrag",
+      "amount": 3694.57,
+      "number": "INV-2025-1021",
+      "date": "2025-09-05",
+      "service_date": "2025-09-05",
+      "description": "Unbenannte Produkte",
+      "net_amount": 0,
+      "tax_rate": 0,
+      "total_amount": 3694.57,
+      "filename": "rechnung_no_overlap_4_Eingangsrechnung.pdf",
+      "internal_filename": "20251124_174911_rechnung_no_overlap_4_Eingangsrechnung.pdf",
+      "timestamp": "2025-11-24 17:49:11.361286"
+    },
+    {
+      "filename": "20251124_174911_rechnung_no_overlap_4_Eingangsrechnung.pdf",
+      "company": "AutoService Richter",
+      "number": "INV-2025-1021",
+      "date": "2025-09-05",
+      "service_date": "2025-09-05",
+      "description": "Unbenannte Produkte",
+      "net_amount": 0.0,
+      "tax_rate": 0.0,
+      "total_amount": 3694.57,
+      "amount": 3694.57,
+      "timestamp": "2025-11-24 17:49:27.071530"
+    },
+    {
+      "company": "TechNord AG",
+      "amount": 2427.59,
+      "number": "INV-2025-1012",
+      "date": "2025-06-28",
+      "service_date": "2025-06-28",
+      "description": "Unbenannte Produkte",
+      "net_amount": 0,
+      "tax_rate": 0,
+      "total_amount": 2427.59,
+      "filename": "rechnung_no_overlap_2_Eingangsrechnung.pdf",
+      "internal_filename": "20251124_174933_rechnung_no_overlap_2_Eingangsrechnung.pdf",
+      "timestamp": "2025-11-24 17:49:33.077687"
+    },
+    {
+      "filename": "20251124_174933_rechnung_no_overlap_2_Eingangsrechnung.pdf",
+      "company": "TechNord AG",
+      "number": "INV-2025-1012",
+      "date": "2025-06-28",
+      "service_date": "2025-06-28",
+      "description": "Unbenannte Produkte",
+      "net_amount": 0.0,
+      "tax_rate": 0.0,
+      "total_amount": 2427.59,
+      "amount": 2427.59,
+      "timestamp": "2025-11-24 17:49:39.684255"
+    },
+    {
+      "company": "Bestellinformationen",
+      "amount": 20260743.0,
+      "number": "LU551L2OVAEUI",
+      "date": "2025-10-16",
+      "service_date": "2025-10-16",
+      "description": "Unbenannte Produkte",
+      "net_amount": 4.57,
       "tax_rate": 19.0,
-      "total_amount": 30.56,
-      "amount": 30.56,
-      "timestamp": "2025-11-10 21:20:51.658638"
+      "total_amount": 20260743.0,
+      "filename": "invoice-2.pdf",
+      "internal_filename": "20251124_181506_invoice-2.pdf",
+      "timestamp": "2025-11-24 18:15:06.229456"
+    },
+    {
+      "company": "Dein Team von Natural Elements",
+      "amount": 4921739377494.0,
+      "number": "NEDE9707554",
+      "date": "2025-10-08",
+      "service_date": "2025-10-08",
+      "description": "Unbenannte Produkte",
+      "net_amount": 15.69,
+      "tax_rate": 0.0,
+      "total_amount": 4921739377494.0,
+      "filename": "invoice.pdf",
+      "internal_filename": "20251124_182908_invoice.pdf",
+      "timestamp": "2025-11-24 18:29:10.107030"
+    },
+    {
+      "filename": "20251124_182908_invoice.pdf",
+      "company": "Natural Elements GmbH",
+      "number": "NEDE9707554",
+      "date": "2025-10-08",
+      "service_date": "2025-10-08",
+      "description": "Vitamine",
+      "net_amount": 15.69,
+      "tax_rate": 7.0,
+      "total_amount": 16.79,
+      "amount": 16.79,
+      "timestamp": "2025-11-24 18:29:39.529490"
+    },
+    {
+      "company": "M\u00fcller & Sohn GmbH",
+      "amount": 1029.57,
+      "number": "INV-2025-1005",
+      "date": "2025-10-06",
+      "service_date": "2025-10-06",
+      "description": "Unbenannte Produkte",
+      "net_amount": 0,
+      "tax_rate": 0,
+      "total_amount": 1029.57,
+      "filename": "rechnung_no_overlap_1_Eingangsrechnung.pdf",
+      "internal_filename": "20251124_183010_rechnung_no_overlap_1_Eingangsrechnung.pdf",
+      "timestamp": "2025-11-24 18:30:10.105779"
+    },
+    {
+      "filename": "20251124_183010_rechnung_no_overlap_1_Eingangsrechnung.pdf",
+      "company": "M\u00fcller & Sohn GmbH",
+      "number": "INV-2025-1005",
+      "date": "2025-10-06",
+      "service_date": "2025-10-06",
+      "description": "Unbenannte Produkte",
+      "net_amount": 0.0,
+      "tax_rate": 0.0,
+      "total_amount": 1029.57,
+      "amount": 1029.57,
+      "timestamp": "2025-11-24 18:30:56.132173"
+    },
+    {
+      "company": "Bestellinformationen",
+      "amount": 20260743.0,
+      "number": "LU551L2OVAEUI",
+      "date": "2025-10-16",
+      "service_date": "2025-10-16",
+      "description": "Unbenannte Produkte",
+      "net_amount": 4.57,
+      "tax_rate": 19.0,
+      "total_amount": 20260743.0,
+      "filename": "invoice-2.pdf",
+      "internal_filename": "20251124_183101_invoice-2.pdf",
+      "timestamp": "2025-11-24 18:31:01.029075"
     }
   ],
   "samples": [
     {
       "original": {
-        "company": "",
-        "amount": 0,
+        "company": "M\u00fcller & Sohn GmbH",
         "number": "",
-        "date": ""
-      },
-      "corrected": {
-        "filename": "Tausendkraut_425021827.pdf",
-        "company": "Tausendkraut GmbHWaldbrunner H\u00f6he",
-        "amount": 20.38,
-        "number": "425021827",
-        "date": "2025-10-20",
-        "timestamp": "2025-11-10 20:35:50.431317"
-      },
-      "timestamp": "2025-11-10 20:35:50.431317"
-    },
-    {
-      "original": {
-        "company": "",
-        "amount": 0,
-        "number": "",
-        "date": ""
-      },
-      "corrected": {
-        "filename": "Rechnung_153879764_INV.pdf",
-        "company": "Parfumdreams",
-        "amount": 32.95,
-        "number": "153879764",
-        "date": "2025-10-20",
-        "timestamp": "2025-11-10 20:36:11.939291"
-      },
-      "timestamp": "2025-11-10 20:36:11.941046"
-    },
-    {
-      "original": {
-        "company": "",
-        "amount": 0,
-        "number": "",
-        "date": ""
-      },
-      "corrected": {
-        "filename": "Rechnungskorrektur-153488353.pdf",
-        "company": "parfumdreams",
-        "amount": 30.56,
-        "number": "153488353",
-        "date": "2025-09-26",
-        "timestamp": "2025-11-10 20:36:52.643718"
-      },
-      "timestamp": "2025-11-10 20:36:52.645114"
-    },
-    {
-      "original": {
-        "company": "",
-        "amount": 0,
-        "number": "",
-        "date": "",
-        "service_date": "",
+        "date": "2025-10-06",
+        "service_date": "2025-10-06",
         "description": "",
-        "net_amount": 0,
-        "tax_rate": 0,
-        "total_amount": 0
-      },
-      "corrected": {
-        "filename": "Tausendkraut_425021827.pdf",
-        "company": "Tausendkraut GmbH",
-        "number": "425021827",
-        "date": "2025-10-20",
-        "service_date": "2025-10-17",
-        "description": "Versandkosten",
-        "net_amount": 20.38,
-        "tax_rate": 7.0,
-        "total_amount": 21.81,
-        "amount": 21.81,
-        "timestamp": "2025-11-10 20:51:23.760255"
-      },
-      "timestamp": "2025-11-10 20:51:23.764204"
-    },
-    {
-      "original": {
-        "company": "",
-        "amount": 0,
-        "number": "",
-        "date": "",
-        "service_date": "",
-        "description": "",
-        "net_amount": 0,
-        "tax_rate": 0,
-        "total_amount": 0
-      },
-      "corrected": {
-        "filename": "Rechnung_153879764_INV.pdf",
-        "company": "Julia Kanter",
-        "number": "153879764",
-        "date": "2025-10-20",
-        "service_date": "2025-10-19",
-        "description": "Amtsgericht Stuttgart HRB",
-        "net_amount": 27.69,
-        "tax_rate": 0.0,
-        "total_amount": 32.95,
-        "amount": 32.95,
-        "timestamp": "2025-11-10 20:57:49.098157"
-      },
-      "timestamp": "2025-11-10 20:57:49.099826"
-    },
-    {
-      "original": {
-        "company": "Parf\u00fcmerie Akzente GmbH",
-        "number": "153879764",
-        "date": "2025-10-20",
-        "service_date": "2025-10-19",
-        "description": "NIVEA D\u00fcfte Damend\u00fcfte Eau de Toilette Spray",
-        "net_amount": "27.69",
-        "tax_rate": "19.0",
-        "total_amount": "32.95"
-      },
-      "corrected": {
-        "filename": "Rechnung_153879764_INV.pdf",
-        "company": "Parf\u00fcmerie Akzente GmbH",
-        "number": "153879764",
-        "date": "2025-10-20",
-        "service_date": "2025-10-19",
-        "description": "NIVEA D\u00fcfte Damend\u00fcfte Eau de Toilette Spray",
-        "net_amount": 27.69,
-        "tax_rate": 19.0,
-        "total_amount": 32.95,
-        "amount": 32.95,
-        "timestamp": "2025-11-10 21:19:58.474074"
-      },
-      "timestamp": "2025-11-10 21:19:58.475187"
-    },
-    {
-      "original": {
-        "company": "Parf\u00fcmerie Akzente GmbH",
-        "number": "153488353",
-        "date": "2025-09-26",
-        "service_date": "",
-        "description": "Free Gel Cream",
         "net_amount": "0",
-        "tax_rate": "19.0",
-        "total_amount": "30.56"
+        "tax_rate": "0",
+        "total_amount": "3119.64"
       },
       "corrected": {
-        "filename": "Rechnungskorrektur-153488353.pdf",
-        "company": "Parf\u00fcmerie Akzente GmbH",
-        "number": "153488353",
-        "date": "2025-09-26",
-        "service_date": "2025-09-01",
-        "description": "Kiehl's Oil Free-Gel Cream",
+        "filename": "rechnung_no_overlap_1_Eingangsrechnung.pdf",
+        "company": "M\u00fcller & Sohn GmbH",
+        "number": "INV-2025-1005",
+        "date": "2025-10-06",
+        "service_date": "2025-10-06",
+        "description": "Unbenannte Produkte",
         "net_amount": 0.0,
-        "tax_rate": 19.0,
-        "total_amount": 30.56,
-        "amount": 30.56,
-        "timestamp": "2025-11-10 21:20:51.658638"
+        "tax_rate": 0.0,
+        "total_amount": 1029.57,
+        "amount": 1029.57,
+        "timestamp": "2025-11-24 17:04:09.608361"
       },
-      "timestamp": "2025-11-10 21:20:51.662820"
+      "timestamp": "2025-11-24 17:04:09.610290"
+    },
+    {
+      "original": {
+        "company": "M\u00fcller & Sohn GmbH",
+        "number": "",
+        "date": "2025-10-06",
+        "service_date": "2025-10-06",
+        "description": "",
+        "net_amount": "0",
+        "tax_rate": "0",
+        "total_amount": "1029.57"
+      },
+      "corrected": {
+        "filename": "rechnung_no_overlap_1_Eingangsrechnung.pdf",
+        "company": "M\u00fcller & Sohn GmbH",
+        "number": "INV-2025-1005",
+        "date": "2025-10-06",
+        "service_date": "2025-10-06",
+        "description": "Unbenannte Produkte",
+        "net_amount": 0.0,
+        "tax_rate": 0.0,
+        "total_amount": 1029.57,
+        "amount": 1029.57,
+        "timestamp": "2025-11-24 17:04:38.106293"
+      },
+      "timestamp": "2025-11-24 17:04:38.107880"
+    },
+    {
+      "original": {
+        "company": "M\u00fcller & Sohn GmbH",
+        "number": "",
+        "date": "2025-10-06",
+        "service_date": "2025-10-06",
+        "description": "",
+        "net_amount": "0",
+        "tax_rate": "0",
+        "total_amount": "1029.57"
+      },
+      "corrected": {
+        "filename": "rechnung_no_overlap_1_Eingangsrechnung.pdf",
+        "company": "M\u00fcller & Sohn GmbH",
+        "number": "INV-2025-1005",
+        "date": "2025-10-06",
+        "service_date": "2025-10-06",
+        "description": "Unbenannte Produkte",
+        "net_amount": 0.0,
+        "tax_rate": 0.0,
+        "total_amount": 1029.57,
+        "amount": 1029.57,
+        "timestamp": "2025-11-24 17:04:51.284026"
+      },
+      "timestamp": "2025-11-24 17:04:51.285456"
+    },
+    {
+      "original": {
+        "company": "M\u00fcller & Sohn GmbH",
+        "number": "INV-2025-1005",
+        "date": "2025-10-06",
+        "service_date": "2025-10-06",
+        "description": "",
+        "net_amount": "0",
+        "tax_rate": "0",
+        "total_amount": "1029.57"
+      },
+      "corrected": {
+        "filename": "rechnung_no_overlap_1_Eingangsrechnung.pdf",
+        "company": "M\u00fcller & Sohn GmbH",
+        "number": "INV-2025-1005",
+        "date": "2025-10-06",
+        "service_date": "2025-10-06",
+        "description": "Unbenannte Produkte",
+        "net_amount": 0.0,
+        "tax_rate": 0.0,
+        "total_amount": 1029.57,
+        "amount": 1029.57,
+        "timestamp": "2025-11-24 17:09:00.518787"
+      },
+      "timestamp": "2025-11-24 17:09:00.520096"
+    },
+    {
+      "original": {
+        "company": "M\u00fcller & Sohn GmbH",
+        "number": "INV-2025-1005",
+        "date": "2025-10-06",
+        "service_date": "2025-10-06",
+        "description": "Lebensmittel",
+        "net_amount": "0",
+        "tax_rate": "0",
+        "total_amount": "1029.57"
+      },
+      "corrected": {
+        "filename": "rechnung_no_overlap_1_Eingangsrechnung.pdf",
+        "company": "M\u00fcller & Sohn GmbH",
+        "number": "INV-2025-1005",
+        "date": "2025-10-06",
+        "service_date": "2025-10-06",
+        "description": "Unbenannte Produkte",
+        "net_amount": 0.0,
+        "tax_rate": 0.0,
+        "total_amount": 1029.57,
+        "amount": 1029.57,
+        "timestamp": "2025-11-24 17:20:50.480120"
+      },
+      "timestamp": "2025-11-24 17:20:50.481183"
+    },
+    {
+      "original": {
+        "company": "",
+        "number": "",
+        "date": "",
+        "service_date": "",
+        "description": "Unbenannte Produkte",
+        "net_amount": "0",
+        "tax_rate": "0",
+        "total_amount": "0"
+      },
+      "corrected": {
+        "filename": "invoice.pdf",
+        "company": "Natural Elements GmbH",
+        "number": "NEDE9707554",
+        "date": "2025-10-10",
+        "service_date": "",
+        "description": "Vitamine",
+        "net_amount": 15.69,
+        "tax_rate": 7.0,
+        "total_amount": 16.79,
+        "amount": 16.79,
+        "timestamp": "2025-11-24 17:23:54.139834"
+      },
+      "timestamp": "2025-11-24 17:23:54.142234"
+    },
+    {
+      "original": {
+        "company": "M\u00fcller & Sohn GmbH",
+        "number": "INV-2025-1005",
+        "date": "2025-10-06",
+        "service_date": "2025-10-06",
+        "description": "Unbenannte Produkte",
+        "net_amount": "0",
+        "tax_rate": "0",
+        "total_amount": "1029.57"
+      },
+      "corrected": {
+        "filename": "20251124_173533_rechnung_no_overlap_1_Eingangsrechnung.pdf",
+        "company": "M\u00fcller & Sohn GmbH",
+        "number": "INV-2025-1005",
+        "date": "2025-10-06",
+        "service_date": "2025-10-06",
+        "description": "Unbenannte Produkte",
+        "net_amount": 0.0,
+        "tax_rate": 0.0,
+        "total_amount": 1029.57,
+        "amount": 1029.57,
+        "timestamp": "2025-11-24 17:35:39.039477"
+      },
+      "timestamp": "2025-11-24 17:35:39.040993"
+    },
+    {
+      "original": {
+        "company": "Dein Team von Natural Elements",
+        "number": "NEDE9707554",
+        "date": "2025-10-08",
+        "service_date": "2025-10-08",
+        "description": "Vitamine",
+        "net_amount": "15.69",
+        "tax_rate": "0.0",
+        "total_amount": "16.79"
+      },
+      "corrected": {
+        "filename": "20251124_173542_invoice.pdf",
+        "company": "Natural Elements GmbH",
+        "number": "NEDE9707554",
+        "date": "2025-10-08",
+        "service_date": "2025-10-08",
+        "description": "Vitamine",
+        "net_amount": 15.69,
+        "tax_rate": 7.0,
+        "total_amount": 16.79,
+        "amount": 16.79,
+        "timestamp": "2025-11-24 17:36:10.720260"
+      },
+      "timestamp": "2025-11-24 17:36:10.726063"
+    },
+    {
+      "original": {
+        "company": "Natural Elements GmbH",
+        "number": "NEDE9707554",
+        "date": "2025-10-08",
+        "service_date": "2025-10-08",
+        "description": "Vitamine",
+        "net_amount": "15.69",
+        "tax_rate": "7.0",
+        "total_amount": "16.79"
+      },
+      "corrected": {
+        "filename": "20251124_173616_invoice.pdf",
+        "company": "Natural Elements GmbH",
+        "number": "NEDE9707554",
+        "date": "2025-10-08",
+        "service_date": "2025-10-08",
+        "description": "Vitamine",
+        "net_amount": 15.69,
+        "tax_rate": 7.0,
+        "total_amount": 16.79,
+        "amount": 16.79,
+        "timestamp": "2025-11-24 17:36:23.772084"
+      },
+      "timestamp": "2025-11-24 17:36:23.773488"
+    },
+    {
+      "original": {
+        "company": "TechNord AG",
+        "number": "INV-2025-1012",
+        "date": "2025-06-28",
+        "service_date": "2025-06-28",
+        "description": "Vitamine",
+        "net_amount": "0",
+        "tax_rate": "0",
+        "total_amount": "5108.94"
+      },
+      "corrected": {
+        "filename": "20251124_173638_rechnung_no_overlap_2_Eingangsrechnung.pdf",
+        "company": "TechNord AG",
+        "number": "INV-2025-1012",
+        "date": "2025-06-28",
+        "service_date": "2025-06-28",
+        "description": "Produkte",
+        "net_amount": 0.0,
+        "tax_rate": 0.0,
+        "total_amount": 2427.59,
+        "amount": 2427.59,
+        "timestamp": "2025-11-24 17:37:07.214587"
+      },
+      "timestamp": "2025-11-24 17:37:07.218548"
+    },
+    {
+      "original": {
+        "company": "Beschreibung",
+        "number": "INV-2025-1020",
+        "date": "2025-07-09",
+        "service_date": "2025-07-09",
+        "description": "Unbenannte Produkte",
+        "net_amount": "0",
+        "tax_rate": "0",
+        "total_amount": "5161.36"
+      },
+      "corrected": {
+        "filename": "20251124_173827_rechnung_no_overlap_3_Eingangsrechnung.pdf",
+        "company": "BlumenHaus Kleefeld",
+        "number": "INV-2025-1020",
+        "date": "2025-07-09",
+        "service_date": "2025-07-09",
+        "description": "Unbenannte Produkte",
+        "net_amount": 0.0,
+        "tax_rate": 0.0,
+        "total_amount": 1192.61,
+        "amount": 1192.61,
+        "timestamp": "2025-11-24 17:38:58.603981"
+      },
+      "timestamp": "2025-11-24 17:38:58.609835"
+    },
+    {
+      "original": {
+        "company": "Beschreibung",
+        "number": "INV-2025-1020",
+        "date": "2025-07-09",
+        "service_date": "2025-07-09",
+        "description": "Unbenannte Produkte",
+        "net_amount": "0",
+        "tax_rate": "0",
+        "total_amount": "1192.61"
+      },
+      "corrected": {
+        "filename": "20251124_173904_rechnung_no_overlap_3_Eingangsrechnung.pdf",
+        "company": "BlumenHaus Kleefeld",
+        "number": "INV-2025-1020",
+        "date": "2025-07-09",
+        "service_date": "2025-07-09",
+        "description": "Unbenannte Produkte",
+        "net_amount": 0.0,
+        "tax_rate": 0.0,
+        "total_amount": 1192.61,
+        "amount": 1192.61,
+        "timestamp": "2025-11-24 17:39:23.866134"
+      },
+      "timestamp": "2025-11-24 17:39:23.869945"
+    },
+    {
+      "original": {
+        "company": "Menge Einzelpreis Betrag",
+        "number": "INV-2025-1021",
+        "date": "2025-09-05",
+        "service_date": "2025-09-05",
+        "description": "Vitamine",
+        "net_amount": "0",
+        "tax_rate": "0",
+        "total_amount": "5247.1"
+      },
+      "corrected": {
+        "filename": "20251124_173930_rechnung_no_overlap_4_Eingangsrechnung.pdf",
+        "company": "AutoService Richter",
+        "number": "INV-2025-1021",
+        "date": "2025-09-05",
+        "service_date": "2025-09-05",
+        "description": "Produkte",
+        "net_amount": 0.0,
+        "tax_rate": 0.0,
+        "total_amount": 3694.57,
+        "amount": 3694.57,
+        "timestamp": "2025-11-24 17:39:58.646397"
+      },
+      "timestamp": "2025-11-24 17:39:58.656140"
+    },
+    {
+      "original": {
+        "company": "AutoService Richter",
+        "number": "INV-2025-1021",
+        "date": "2025-09-05",
+        "service_date": "2025-09-05",
+        "description": "Vitamine",
+        "net_amount": "0",
+        "tax_rate": "0",
+        "total_amount": "3694.57"
+      },
+      "corrected": {
+        "filename": "20251124_174125_rechnung_no_overlap_4_Eingangsrechnung.pdf",
+        "company": "AutoService Richter",
+        "number": "INV-2025-1021",
+        "date": "2025-09-05",
+        "service_date": "2025-09-05",
+        "description": "Produkte",
+        "net_amount": 0.0,
+        "tax_rate": 0.0,
+        "total_amount": 3694.57,
+        "amount": 3694.57,
+        "timestamp": "2025-11-24 17:43:41.178700"
+      },
+      "timestamp": "2025-11-24 17:43:41.180405"
+    },
+    {
+      "original": {
+        "company": "Menge Einzelpreis Betrag",
+        "number": "INV-2025-1021",
+        "date": "2025-09-05",
+        "service_date": "2025-09-05",
+        "description": "Unbenannte Produkte",
+        "net_amount": "0",
+        "tax_rate": "0",
+        "total_amount": "3694.57"
+      },
+      "corrected": {
+        "filename": "20251124_174911_rechnung_no_overlap_4_Eingangsrechnung.pdf",
+        "company": "AutoService Richter",
+        "number": "INV-2025-1021",
+        "date": "2025-09-05",
+        "service_date": "2025-09-05",
+        "description": "Unbenannte Produkte",
+        "net_amount": 0.0,
+        "tax_rate": 0.0,
+        "total_amount": 3694.57,
+        "amount": 3694.57,
+        "timestamp": "2025-11-24 17:49:27.071530"
+      },
+      "timestamp": "2025-11-24 17:49:27.076204"
+    },
+    {
+      "original": {
+        "company": "TechNord AG",
+        "number": "INV-2025-1012",
+        "date": "2025-06-28",
+        "service_date": "2025-06-28",
+        "description": "Unbenannte Produkte",
+        "net_amount": "0",
+        "tax_rate": "0",
+        "total_amount": "2427.59"
+      },
+      "corrected": {
+        "filename": "20251124_174933_rechnung_no_overlap_2_Eingangsrechnung.pdf",
+        "company": "TechNord AG",
+        "number": "INV-2025-1012",
+        "date": "2025-06-28",
+        "service_date": "2025-06-28",
+        "description": "Unbenannte Produkte",
+        "net_amount": 0.0,
+        "tax_rate": 0.0,
+        "total_amount": 2427.59,
+        "amount": 2427.59,
+        "timestamp": "2025-11-24 17:49:39.684255"
+      },
+      "timestamp": "2025-11-24 17:49:39.687105"
+    },
+    {
+      "original": {
+        "company": "Dein Team von Natural Elements",
+        "number": "NEDE9707554",
+        "date": "2025-10-08",
+        "service_date": "2025-10-08",
+        "description": "Unbenannte Produkte",
+        "net_amount": "15.69",
+        "tax_rate": "0.0",
+        "total_amount": "4921739377494.0"
+      },
+      "corrected": {
+        "filename": "20251124_182908_invoice.pdf",
+        "company": "Natural Elements GmbH",
+        "number": "NEDE9707554",
+        "date": "2025-10-08",
+        "service_date": "2025-10-08",
+        "description": "Vitamine",
+        "net_amount": 15.69,
+        "tax_rate": 7.0,
+        "total_amount": 16.79,
+        "amount": 16.79,
+        "timestamp": "2025-11-24 18:29:39.529490"
+      },
+      "timestamp": "2025-11-24 18:29:39.539110"
+    },
+    {
+      "original": {
+        "company": "M\u00fcller & Sohn GmbH",
+        "number": "INV-2025-1005",
+        "date": "2025-10-06",
+        "service_date": "2025-10-06",
+        "description": "Unbenannte Produkte",
+        "net_amount": "0",
+        "tax_rate": "0",
+        "total_amount": "1029.57"
+      },
+      "corrected": {
+        "filename": "20251124_183010_rechnung_no_overlap_1_Eingangsrechnung.pdf",
+        "company": "M\u00fcller & Sohn GmbH",
+        "number": "INV-2025-1005",
+        "date": "2025-10-06",
+        "service_date": "2025-10-06",
+        "description": "Unbenannte Produkte",
+        "net_amount": 0.0,
+        "tax_rate": 0.0,
+        "total_amount": 1029.57,
+        "amount": 1029.57,
+        "timestamp": "2025-11-24 18:30:56.132173"
+      },
+      "timestamp": "2025-11-24 18:30:56.133561"
     }
   ],
   "corrections": [
     {
-      "original_text": "Free Gel Cream",
-      "corrected_text": "Kiehl's Oil Free-Gel Cream",
-      "field_type": "description",
-      "company_context": "Parf\u00fcmerie Akzente GmbH",
+      "original_text": "3119.64",
+      "corrected_text": "1029.57",
+      "field_type": "total_amount",
+      "company_context": "M\u00fcller & Sohn GmbH",
       "correction_count": 1,
-      "confidence_score": 0.2,
-      "timestamp": "2025-11-10 21:20:51.658638"
+      "confidence_score": 0.7,
+      "timestamp": "2025-11-24 17:04:09.608466"
+    },
+    {
+      "original_text": "Lebensmittel",
+      "corrected_text": "Unbenannte Produkte",
+      "field_type": "description",
+      "company_context": "M\u00fcller & Sohn GmbH",
+      "correction_count": 1,
+      "confidence_score": 0.7,
+      "timestamp": "2025-11-24 17:20:50.480154"
+    },
+    {
+      "original_text": "Unbenannte Produkte",
+      "corrected_text": "Vitamine",
+      "field_type": "description",
+      "company_context": "Natural Elements GmbH",
+      "correction_count": 2,
+      "confidence_score": 1.0,
+      "timestamp": "2025-11-24 18:29:39.532558"
+    },
+    {
+      "original_text": "Dein Team von Natural Elements",
+      "corrected_text": "Natural Elements GmbH",
+      "field_type": "company",
+      "company_context": "Natural Elements GmbH",
+      "correction_count": 2,
+      "confidence_score": 1.0,
+      "timestamp": "2025-11-24 18:29:39.529612"
+    },
+    {
+      "original_text": "0.0",
+      "corrected_text": "7.0",
+      "field_type": "tax_rate",
+      "company_context": "Natural Elements GmbH",
+      "correction_count": 2,
+      "confidence_score": 1.0,
+      "timestamp": "2025-11-24 18:29:39.534586"
+    },
+    {
+      "original_text": "Vitamine",
+      "corrected_text": "Produkte",
+      "field_type": "description",
+      "company_context": "TechNord AG",
+      "correction_count": 3,
+      "confidence_score": 1.0,
+      "timestamp": "2025-11-24 17:43:41.178724"
+    },
+    {
+      "original_text": "5108.94",
+      "corrected_text": "2427.59",
+      "field_type": "total_amount",
+      "company_context": "TechNord AG",
+      "correction_count": 1,
+      "confidence_score": 0.7,
+      "timestamp": "2025-11-24 17:37:07.216416"
+    },
+    {
+      "original_text": "Beschreibung",
+      "corrected_text": "BlumenHaus Kleefeld",
+      "field_type": "company",
+      "company_context": "BlumenHaus Kleefeld",
+      "correction_count": 2,
+      "confidence_score": 1.0,
+      "timestamp": "2025-11-24 17:39:23.866222"
+    },
+    {
+      "original_text": "5161.36",
+      "corrected_text": "1192.61",
+      "field_type": "total_amount",
+      "company_context": "BlumenHaus Kleefeld",
+      "correction_count": 1,
+      "confidence_score": 0.7,
+      "timestamp": "2025-11-24 17:38:58.606810"
+    },
+    {
+      "original_text": "Menge Einzelpreis Betrag",
+      "corrected_text": "AutoService Richter",
+      "field_type": "company",
+      "company_context": "AutoService Richter",
+      "correction_count": 2,
+      "confidence_score": 1.0,
+      "timestamp": "2025-11-24 17:49:27.071681"
+    },
+    {
+      "original_text": "5247.1",
+      "corrected_text": "3694.57",
+      "field_type": "total_amount",
+      "company_context": "AutoService Richter",
+      "correction_count": 1,
+      "confidence_score": 0.7,
+      "timestamp": "2025-11-24 17:39:58.653868"
+    },
+    {
+      "original_text": "4921739377494.0",
+      "corrected_text": "16.79",
+      "field_type": "total_amount",
+      "company_context": "Natural Elements GmbH",
+      "correction_count": 1,
+      "confidence_score": 0.7,
+      "timestamp": "2025-11-24 18:29:39.536317"
     }
   ]
 }

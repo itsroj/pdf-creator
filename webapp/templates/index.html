@@ -1,17 +1,426 @@
-<!DOCTYPE html>
-<html lang="de">
-<head>
-    <meta charset="UTF-8">
-    <title>Rechnungsverarbeitung</title>
-    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
-</head>
-<body>
-    <div class="container">
-        <h1>PDF Rechnungsverarbeitung</h1>
-        <form action="/upload" method="post" enctype="multipart/form-data">
-            <input type="file" name="file" accept=".pdf" required>
-            <button type="submit">Hochladen & Analysieren</button>
-        </form>
+<!DOCTYPE html><!DOCTYPE html>
+
+<html lang="de"><html lang="de">
+
+<head><head>
+
+    <meta charset="UTF-8">    <meta charset="UTF-8">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1">    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <title>🤖 PDF Rechnungsverarbeitung mit KI</title>    <title>🤖 PDF Rechnungsverarbeitung mit KI</title>
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet">    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet">
+
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+
+    <style>    <style>
+
+        .upload-area {        .upload-area {
+
+            border: 3px dashed #007bff;            border: 3px dashed #007bff;
+
+            border-radius: 15px;            border-radius: 15px;
+
+            padding: 50px;            padding: 50px;
+
+            text-align: center;            text-align: center;
+
+            background: linear-gradient(135deg, #f8f9fa, #e9ecef);            background: linear-gradient(135deg, #f8f9fa, #e9ecef);
+
+            transition: all 0.3s ease;            transition: all 0.3s ease;
+
+            cursor: pointer;        }
+
+        }        .upload-area:hover {
+
+        .upload-area:hover {            border-color: #28a745;
+
+            border-color: #28a745;            background: linear-gradient(135deg, #e8f5e8, #d4edda);
+
+            background: linear-gradient(135deg, #e8f5e8, #d4edda);        }
+
+        }        .feature-card {
+
+        .feature-card {            transition: transform 0.2s ease;
+
+            transition: transform 0.2s ease;        }
+
+        }        .feature-card:hover {
+
+        .feature-card:hover {            transform: translateY(-5px);
+
+            transform: translateY(-5px);        }
+
+        }        .stats-card {
+
+        .stats-card {            background: linear-gradient(135deg, #007bff, #0056b3);
+
+            background: linear-gradient(135deg, #007bff, #0056b3);            color: white;
+
+            color: white;        }
+
+        }    </style>
+
+    </style></head>
+
+</head><body class="bg-light">
+
+<body class="bg-light">    <div class="container mt-5">
+
+    <div class="container mt-5">        <!-- Header -->
+
+        <!-- Header -->        <div class="row mb-5">
+
+        <div class="row mb-5">            <div class="col-12 text-center">
+
+            <div class="col-12 text-center">                <h1 class="display-4 mb-3">🤖 <strong>KI-gestützte</strong> PDF Rechnungsverarbeitung</h1>
+
+                <h1 class="display-4 mb-3">🤖 <strong>KI-gestützte</strong> PDF Rechnungsverarbeitung</h1>                <p class="lead text-muted">Intelligente Extraktion • Automatisches Lernen • Höhere Accuracy</p>
+
+                <p class="lead text-muted">Intelligente Extraktion • Automatisches Lernen • Höhere Accuracy</p>            </div>
+
+            </div>        </div>
+
+        </div>
+
+        <!-- Flash Messages -->
+
+        <!-- Flash Messages -->        {% with messages = get_flashed_messages(with_categories=true) %}
+
+        {% with messages = get_flashed_messages(with_categories=true) %}            {% if messages %}
+
+            {% if messages %}                {% for category, message in messages %}
+
+                {% for category, message in messages %}                    <div class="alert alert-{{ 'danger' if category == 'error' else 'success' if category == 'success' else 'warning' }} alert-dismissible fade show">
+
+                    <div class="alert alert-{{ 'danger' if category == 'error' else 'success' if category == 'success' else 'warning' }} alert-dismissible fade show">                        {{ message }}
+
+                        {{ message }}                        <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
+
+                        <button type="button" class="btn-close" data-bs-dismiss="alert"></button>                    </div>
+
+                    </div>                {% endfor %}
+
+                {% endfor %}            {% endif %}
+
+            {% endif %}        {% endwith %}
+
+        {% endwith %}
+
+        <!-- Upload Area -->
+
+        <!-- Upload Area -->        <div class="row justify-content-center mb-5">
+
+        <div class="row justify-content-center mb-5">            <div class="col-md-8">
+
+            <div class="col-md-8">                <div class="card shadow-lg">
+
+                <div class="card shadow-lg">                    <div class="card-header bg-primary text-white text-center">
+
+                    <div class="card-header bg-primary text-white text-center">                        <h4 class="mb-0">📄 PDF Rechnung hochladen</h4>
+
+                        <h4 class="mb-0">📄 PDF Rechnung hochladen</h4>                    </div>
+
+                    </div>                    <div class="card-body">
+
+                    <div class="card-body">                        <form action="/upload" method="post" enctype="multipart/form-data" id="uploadForm">
+
+                        <form action="/upload" method="post" enctype="multipart/form-data" id="uploadForm">                            <div class="upload-area" id="uploadArea">
+
+                            <div class="upload-area" id="uploadArea" onclick="document.getElementById('fileInput').click()">                                <div class="mb-3">
+
+                                <div class="mb-3">                                    <i class="fas fa-cloud-upload-alt fa-3x text-primary mb-3"></i>
+
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" fill="currentColor" class="bi bi-cloud-upload text-primary mb-3" viewBox="0 0 16 16">                                    <h5>Datei hier ablegen oder klicken zum Auswählen</h5>
+
+                                        <path fill-rule="evenodd" d="M4.406 1.342A5.53 5.53 0 0 1 8 0c2.69 0 4.923 2 5.166 4.579C14.758 4.804 16 6.137 16 7.773 16 9.569 14.502 11 12.687 11H10a.5.5 0 0 1 0-1h2.688C13.979 10 15 8.988 15 7.773c0-1.216-1.02-2.228-2.313-2.228h-.5v-.5C12.188 2.825 10.328 1 8 1a4.53 4.53 0 0 0-2.941 1.1c-.757.652-1.153 1.438-1.153 2.055v.448l-.445.049C2.064 4.805 1 5.952 1 7.318 1 8.785 2.23 10 3.781 10H6a.5.5 0 0 1 0 1H3.781C1.708 11 0 9.366 0 7.318c0-1.763 1.266-3.223 2.942-3.593.143-.863.698-1.723 1.464-2.383z"/>                                    <input type="file" name="file" accept=".pdf" required class="form-control-file d-none" id="fileInput">
+
+                                        <path fill-rule="evenodd" d="M7.646 4.146a.5.5 0 0 1 .708 0l3 3a.5.5 0 0 1-.708.708L8.5 5.707V14.5a.5.5 0 0 1-1 0V5.707L5.354 7.854a.5.5 0 1 1-.708-.708l3-3z"/>                                    <small class="text-muted">Nur PDF-Dateien • Max. 10MB</small>
+
+                                    </svg>                                </div>
+
+                                    <h5>Datei hier ablegen oder klicken zum Auswählen</h5>                                <div id="fileName" class="mt-2"></div>
+
+                                    <input type="file" name="file" accept=".pdf" required class="form-control-file d-none" id="fileInput" onchange="updateFileName()">                            </div>
+
+                                    <small class="text-muted">Nur PDF-Dateien • Max. 10MB</small>                            <div class="text-center mt-4">
+
+                                </div>                                <button type="submit" class="btn btn-success btn-lg px-5" disabled id="uploadBtn">
+
+                                <div id="fileName" class="mt-2 text-success"></div>                                    🚀 Hochladen & KI-Analyse starten
+
+                            </div>                                </button>
+
+                            <div class="text-center mt-4">                            </div>
+
+                                <button type="submit" class="btn btn-success btn-lg px-5" id="uploadBtn">                        </form>
+
+                                    🚀 Hochladen & KI-Analyse starten                    </div>
+
+                                </button>                </div>
+
+                            </div>            </div>
+
+                        </form>        </div>
+
+                    </div>
+
+                </div>        <!-- Features -->
+
+            </div>        <div class="row mb-5">
+
+        </div>            <div class="col-md-4 mb-3">
+
+                <div class="card h-100 feature-card shadow">
+
+        <!-- Features -->                    <div class="card-body text-center">
+
+        <div class="row mb-5">                        <div class="text-primary mb-3">
+
+            <div class="col-md-4 mb-3">                            <i class="fas fa-robot fa-2x"></i>
+
+                <div class="card h-100 feature-card shadow">                        </div>
+
+                    <div class="card-body text-center">                        <h5 class="card-title">🧠 KI-Learning</h5>
+
+                        <div class="text-primary mb-3">                        <p class="card-text">Lernt aus deinen Korrekturen und wird automatisch besser</p>
+
+                            <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" fill="currentColor" class="bi bi-robot" viewBox="0 0 16 16">                    </div>
+
+                                <path d="M6 12.5a.5.5 0 0 1 .5-.5h3a.5.5 0 0 1 0 1h-3a.5.5 0 0 1-.5-.5ZM3 8.062C3 6.76 4.235 5.765 5.53 5.886a26.58 26.58 0 0 0 4.94 0C11.765 5.765 13 6.76 13 8.062v1.157a.933.933 0 0 1-.765.935c-.845.147-2.34.346-4.235.346-1.895 0-3.39-.2-4.235-.346A.933.933 0 0 1 3 9.219V8.062Zm4.542-.827a.25.25 0 0 0-.217.068l-.92.9a24.767 24.767 0 0 1-1.871-.183.25.25 0 0 0-.068.495c.55.076 1.232.149 2.02.193a.25.25 0 0 0 .189-.071l.754-.736.847 1.71a.25.25 0 0 0 .404.062l.932-.97a25.286 25.286 0 0 0 1.922-.188.25.25 0 0 0-.068-.495c-.538.074-1.207.145-1.98.189a.25.25 0 0 0-.166.076l-.754.785-.842-1.7a.25.25 0 0 0-.182-.135Z"/>                </div>
+
+                                <path d="M8.5 1.866a1 1 0 1 0-1 0V3h-2A4.5 4.5 0 0 0 1 7.5V8a1 1 0 0 0-1 1v2a1 1 0 0 0 1 1v1a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2v-1a1 1 0 0 0 1-1V9a1 1 0 0 0-1-1v-.5A4.5 4.5 0 0 0 10.5 3h-2V1.866ZM14 7.5V13a1 1 0 0 1-1 1H3a1 1 0 0 1-1-1V7.5A3.5 3.5 0 0 1 5.5 4h5A3.5 3.5 0 0 1 14 7.5Z"/>            </div>
+
+                            </svg>            <div class="col-md-4 mb-3">
+
+                        </div>                <div class="card h-100 feature-card shadow">
+
+                        <h5 class="card-title">🧠 KI-Learning</h5>                    <div class="card-body text-center">
+
+                        <p class="card-text">Lernt aus deinen Korrekturen und wird automatisch besser</p>                        <div class="text-success mb-3">
+
+                    </div>                            <i class="fas fa-search fa-2x"></i>
+
+                </div>                        </div>
+
+            </div>                        <h5 class="card-title">🔍 OCR-Extraktion</h5>
+
+            <div class="col-md-4 mb-3">                        <p class="card-text">Automatische Erkennung von Lieferant, Betrag, Rechnungsnummer</p>
+
+                <div class="card h-100 feature-card shadow">                    </div>
+
+                    <div class="card-body text-center">                </div>
+
+                        <div class="text-success mb-3">            </div>
+
+                            <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" fill="currentColor" class="bi bi-lightning-charge" viewBox="0 0 16 16">            <div class="col-md-4 mb-3">
+
+                                <path d="M11.251.068a.5.5 0 0 1 .227.58L9.677 6.5H13a.5.5 0 0 1 .364.843l-8 8.5a.5.5 0 0 1-.842-.49L6.323 9.5H3a.5.5 0 0 1-.364-.843l8-8.5a.5.5 0 0 1 .615-.09z"/>                <div class="card h-100 feature-card shadow">
+
+                            </svg>                    <div class="card-body text-center">
+
+                        </div>                        <div class="text-info mb-3">
+
+                        <h5 class="card-title">⚡ Schnell & Genau</h5>                            <i class="fas fa-chart-line fa-2x"></i>
+
+                        <p class="card-text">Extrahiert alle wichtigen Rechnungsdaten in Sekunden</p>                        </div>
+
+                    </div>                        <h5 class="card-title">📊 Statistiken</h5>
+
+                </div>                        <p class="card-text">Live-Tracking der KI-Performance und Training-Fortschritt</p>
+
+            </div>                    </div>
+
+            <div class="col-md-4 mb-3">                </div>
+
+                <div class="card h-100 feature-card shadow">            </div>
+
+                    <div class="card-body text-center">        </div>
+
+                        <div class="text-info mb-3">
+
+                            <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" fill="currentColor" class="bi bi-file-earmark-spreadsheet" viewBox="0 0 16 16">        <!-- Live Stats -->
+
+                                <path d="M14 14V4.5L9.5 0H4a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h8a2 2 0 0 0 2-2zM9.5 3A1.5 1.5 0 0 0 11 4.5h2V9H3V2a1 1 0 0 1 1-1h5.5v2zM3 12v-2h2v2H3zm0 1h2v2H4a1 1 0 0 1-1-1v-1zm3 2v-2h3v2H6zm4 0v-2h3v1a1 1 0 0 1-1 1h-2zm3-3h-3v-2h3v2zm-7 0v-2h3v2H6z"/>        <div class="row">
+
+                            </svg>            <div class="col-12">
+
+                        </div>                <div class="card stats-card shadow">
+
+                        <h5 class="card-title">📊 Excel Export</h5>                    <div class="card-header">
+
+                        <p class="card-text">Exportiere alle Rechnungen direkt nach Excel oder CSV</p>                        <h5 class="mb-0 text-center">📈 Live Training-Statistiken</h5>
+
+                    </div>                    </div>
+
+                </div>                    <div class="card-body">
+
+            </div>                        <div class="row text-center" id="liveStats">
+
+        </div>                            <div class="col-md-3">
+
+                                <h3 class="mb-1" id="totalInvoices">-</h3>
+
+        <!-- Stats -->                                <small>Verarbeitete Rechnungen</small>
+
+        {% if stats %}                            </div>
+
+        <div class="row mb-5">                            <div class="col-md-3">
+
+            <div class="col-12">                                <h3 class="mb-1" id="corrections">-</h3>
+
+                <div class="card stats-card shadow">                                <small>Korrekturen</small>
+
+                    <div class="card-body">                            </div>
+
+                        <h4 class="text-center mb-4">📈 Statistiken</h4>                            <div class="col-md-3">
+
+                        <div class="row text-center">                                <h3 class="mb-1" id="accuracy">-</h3>
+
+                            <div class="col-md-4">                                <small>Geschätzte Accuracy</small>
+
+                                <h2>{{ stats.total_invoices }}</h2>                            </div>
+
+                                <p>Verarbeitete Rechnungen</p>                            <div class="col-md-3">
+
+                            </div>                                <h3 class="mb-1" id="activeModels">-</h3>
+
+                            <div class="col-md-4">                                <small>Aktive ML-Muster</small>
+
+                                <h2>{{ stats.total_corrections }}</h2>                            </div>
+
+                                <p>Korrekturen / Training</p>                        </div>
+
+                            </div>                    </div>
+
+                            <div class="col-md-4">                </div>
+
+                                <h2>{{ "%.1f"|format(stats.accuracy) }}%</h2>            </div>
+
+                                <p>KI-Genauigkeit</p>        </div>
+
+                            </div>
+
+                        </div>        <!-- Footer -->
+
+                    </div>        <div class="text-center mt-5 mb-3">
+
+                </div>            <small class="text-muted">
+
+            </div>                Powered by Python • Flask • Bootstrap • Machine Learning
+
+        </div>            </small>
+
+        {% endif %}        </div>
+
     </div>
+
+        <!-- Footer -->
+
+        <div class="text-center text-muted mb-4">    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
+
+            <p>Entwickelt für das Softwaretechniklabor • Hochschule Fulda 2025</p>    <script>
+
+        </div>        // File Upload Handling
+
+    </div>        const uploadArea = document.getElementById('uploadArea');
+
+        const fileInput = document.getElementById('fileInput');
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>        const fileName = document.getElementById('fileName');
+
+    <script>        const uploadBtn = document.getElementById('uploadBtn');
+
+        function updateFileName() {
+
+            const input = document.getElementById('fileInput');        // Click to select file
+
+            const display = document.getElementById('fileName');        uploadArea.addEventListener('click', () => fileInput.click());
+
+            if (input.files.length > 0) {
+
+                display.textContent = '✓ Ausgewählt: ' + input.files[0].name;        // File selected
+
+            }        fileInput.addEventListener('change', (e) => {
+
+        }            const file = e.target.files[0];
+
+            if (file) {
+
+        // Drag & Drop Support                fileName.innerHTML = `<strong>📄 ${file.name}</strong> <span class="text-success">(${(file.size/1024/1024).toFixed(2)} MB)</span>`;
+
+        const uploadArea = document.getElementById('uploadArea');                uploadBtn.disabled = false;
+
+                        uploadArea.style.borderColor = '#28a745';
+
+        uploadArea.addEventListener('dragover', (e) => {            }
+
+            e.preventDefault();        });
+
+            uploadArea.style.borderColor = '#28a745';
+
+        });        // Drag and Drop
+
+                uploadArea.addEventListener('dragover', (e) => {
+
+        uploadArea.addEventListener('dragleave', (e) => {            e.preventDefault();
+
+            e.preventDefault();            uploadArea.style.borderColor = '#28a745';
+
+            uploadArea.style.borderColor = '#007bff';        });
+
+        });
+
+                uploadArea.addEventListener('dragleave', (e) => {
+
+        uploadArea.addEventListener('drop', (e) => {            e.preventDefault();
+
+            e.preventDefault();            uploadArea.style.borderColor = '#007bff';
+
+            uploadArea.style.borderColor = '#007bff';        });
+
+            const fileInput = document.getElementById('fileInput');
+
+            fileInput.files = e.dataTransfer.files;        uploadArea.addEventListener('drop', (e) => {
+
+            updateFileName();            e.preventDefault();
+
+        });            const files = e.dataTransfer.files;
+
+    </script>            if (files.length > 0 && files[0].type === 'application/pdf') {
+
+</body>                fileInput.files = files;
+
+</html>                fileInput.dispatchEvent(new Event('change'));
+
+            }
+        });
+
+        // Load live statistics
+        async function loadLiveStats() {
+            try {
+                const response = await fetch('/training_stats');
+                const stats = await response.json();
+                
+                document.getElementById('totalInvoices').textContent = stats.total_invoices || 0;
+                document.getElementById('corrections').textContent = stats.corrections || 0;
+                document.getElementById('accuracy').textContent = (stats.estimated_accuracy || 70) + '%';
+                document.getElementById('activeModels').textContent = stats.active_models || 0;
+            } catch (error) {
+                console.error('Fehler beim Laden der Statistiken:', error);
+            }
+        }
+
+        // Load stats on page load and every 10 seconds
+        loadLiveStats();
+        setInterval(loadLiveStats, 10000);
+
+        // Form submission with loading
+        document.getElementById('uploadForm').addEventListener('submit', (e) => {
+            uploadBtn.innerHTML = '⏳ Verarbeitung läuft...';
+            uploadBtn.disabled = true;
+        });
+    </script>
 </body>
 </html>

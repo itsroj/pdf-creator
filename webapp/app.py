@@ -38,6 +38,14 @@ class SimpleDB:
         self.data["invoices"].append(invoice)
         self.save()
     
+    def delete_invoice(self, index):
+        """Löscht eine Rechnung anhand des Index"""
+        if 0 <= index < len(self.data["invoices"]):
+            deleted = self.data["invoices"].pop(index)
+            self.save()
+            return deleted
+        return None
+    
     def add_sample(self, original, corrected):
         sample = {"original": original, "corrected": corrected, "timestamp": str(datetime.now())}
         self.data["samples"].append(sample)
@@ -53,19 +61,21 @@ class SimpleDB:
                 break
         
         if existing:
-            # Erhöhe Häufigkeit und Confidence
+            # Erhöhe Häufigkeit und Confidence (SCHNELLER LERNEN!)
             existing["correction_count"] += 1
-            existing["confidence_score"] = min(1.0, existing["correction_count"] * 0.2)
+            # Neue Formel: 1x = 0.5, 2x = 0.75, 3x = 0.9, 4x+ = 1.0
+            existing["confidence_score"] = min(1.0, 0.25 + (existing["correction_count"] * 0.25))
             existing["corrected_text"] = corrected_text  # Update mit neuester Korrektur
+            existing["timestamp"] = str(datetime.now())
         else:
-            # Neue Korrektur
+            # Neue Korrektur (SOFORT HOHE CONFIDENCE!)
             correction = {
                 "original_text": original_text,
                 "corrected_text": corrected_text,
                 "field_type": field_type,
                 "company_context": company_context,
                 "correction_count": 1,
-                "confidence_score": 0.2,
+                "confidence_score": 0.5,  # War 0.2, jetzt 0.5 - wird sofort als Suggestion angezeigt!
                 "timestamp": str(datetime.now())
             }
             self.data["corrections"].append(correction)
@@ -75,29 +85,51 @@ class SimpleDB:
         """Wendet gelernte Korrekturen auf extrahierte Daten an"""
         corrected_data = data.copy()
         suggestions = {}
+        applied_corrections = []  # Für Logging
+        
+        print(f"\n🔍 DEBUG: apply_corrections() aufgerufen mit {len(data)} Feldern")
+        print(f"📊 Korrekturen in DB: {len(self.data.get('corrections', []))}")
         
         for field_type in data.keys():
             field_value = str(data[field_type]).strip()
             if not field_value or field_value == "0":
                 continue
+            
+            print(f"  → Prüfe Feld '{field_type}' = '{field_value}'")
                 
             # Suche nach passenden Korrekturen
             best_match = None
             for correction in self.data["corrections"]:
                 if correction["field_type"] == field_type:
                     # Exact match oder ähnlichkeit prüfen
-                    if (correction["original_text"].lower() == field_value.lower() or
-                        self._text_similarity(correction["original_text"], field_value) > 0.8):
+                    similarity = self._text_similarity(correction["original_text"], field_value)
+                    is_exact = correction["original_text"].lower() == field_value.lower()
+                    
+                    print(f"    📋 Korrektur gefunden: '{correction['original_text']}' → '{correction['corrected_text']}'")
+                    print(f"       Confidence: {correction['confidence_score']}, Similarity: {similarity:.2f}, Exact: {is_exact}")
+                    
+                    if is_exact or similarity > 0.7:  # War 0.8, jetzt 0.7
                         if not best_match or correction["confidence_score"] > best_match["confidence_score"]:
                             best_match = correction
+                            print(f"       ✅ Best match aktualisiert!")
             
             if best_match:
-                if best_match["confidence_score"] >= 0.8:
+                print(f"    ⭐ Best match für '{field_type}': Confidence {best_match['confidence_score']}")
+                if best_match["confidence_score"] >= 0.75:  # War 0.8, jetzt 0.75 - schneller auto-korrigieren
                     # Auto-Korrektur bei hoher Confidence
                     corrected_data[field_type] = best_match["corrected_text"]
-                elif best_match["confidence_score"] >= 0.4:
+                    applied_corrections.append(f"{field_type}: {field_value} → {best_match['corrected_text']}")
+                    print(f"    🤖 AUTO-KORREKTUR angewendet!")
+                elif best_match["confidence_score"] >= 0.4:  # Bleibt 0.4 - Suggestions
                     # Suggestion bei mittlerer Confidence
                     suggestions[field_type] = best_match["corrected_text"]
+                    print(f"    💡 Suggestion gespeichert!")
+        
+        # Logging für Debugging
+        if applied_corrections:
+            print(f"🤖 KI hat automatisch korrigiert: {', '.join(applied_corrections)}")
+        if suggestions:
+            print(f"💡 KI-Vorschläge verfügbar für: {', '.join(suggestions.keys())}")
         
         return corrected_data, suggestions
     
@@ -146,6 +178,7 @@ def extract_pdf_text(pdf_path):
 
 def extract_data(text):
     data = {
+        "invoice_type": "Eingangsrechnung",  # Default: Eingangsrechnung
         "company": "", "amount": 0, "number": "", "date": "",
         "service_date": "", "description": "", "net_amount": 0, 
         "tax_rate": 0, "total_amount": 0
@@ -153,6 +186,7 @@ def extract_data(text):
     
     # Firmenname extrahieren - intelligente PDF-Format-Erkennung
     company_patterns = [
+        r'(Amazon\s+EU\s+S\.[aà]\.r\.L?\.?)',  # NEU: Amazon-Pattern (mit Encoding-Varianten)
         r'([A-ZÄÖÜ][a-zA-ZÄÖÜäöüß&.\s]{5,40}(?:GmbH|AG|UG|OHG|KG|e\.V\.|Inc\.|Ltd\.|Corp\.))',
         r'^([A-ZÄÖÜ][a-zA-ZÄÖÜäöüß&.\s]{5,40}(?:GmbH|AG|UG|OHG|KG|e\.V\.|Inc\.|Ltd\.|Corp\.))\s*$',
         r'^([A-ZÄÖÜ][a-zA-ZÄÖÜäöüß&.\s]{5,40})\s*$'
@@ -223,12 +257,13 @@ def extract_data(text):
 
     # Nettobetrag
     net_patterns = [
+        r'Zwischensumme[:\s\n]*\(ohne[^)]+\)[:\s\n]*(?:USt\.[^€]+)?(\d+[.,]\d{2})\s*€',  # NEU: Amazon-Format
         r'(?:Netto|Net).*?(\d+[.,]\d{2})\s*€?',
         r'(?:Summe netto|Zwischensumme).*?(\d+[.,]\d{2})\s*€?',
         r'(\d+[.,]\d{2})\s*€?\s*(?:netto|net)',
     ]
     for pattern in net_patterns:
-        net_match = re.search(pattern, text, re.IGNORECASE)
+        net_match = re.search(pattern, text, re.IGNORECASE | re.DOTALL)
         if net_match:
             net_str = net_match.group(1).replace(',', '.')
             data["net_amount"] = float(net_str)
@@ -262,15 +297,28 @@ def extract_data(text):
             data["number"] = number_match.group(1).strip()
             break    # Rechnungsdatum
     date_patterns = [
+        r'Rechnungsdatum[/\s\n]*Lieferdatum[:\s]*(\d{1,2}\s+\w+\s+\d{4})',  # NEU: Amazon-Format "27 Dezember 2024"
         r'(?:Rechnungsdatum|Datum|Date).*?(\d{1,2}[.\-/]\d{1,2}[.\-/]\d{4})',
+        r'(\d{1,2}\s+(?:Januar|Februar|März|April|Mai|Juni|Juli|August|September|Oktober|November|Dezember)\s+\d{4})',  # NEU: Textdatum
         r'(\d{1,2}[.\-/]\d{1,2}[.\-/]\d{4})',
         r'(\d{4}[.\-/]\d{1,2}[.\-/]\d{1,2})'
     ]
+    
+    month_map = {'januar': '01', 'februar': '02', 'märz': '03', 'april': '04', 'mai': '05', 'juni': '06',
+                 'juli': '07', 'august': '08', 'september': '09', 'oktober': '10', 'november': '11', 'dezember': '12'}
+    
     for pattern in date_patterns:
-        date_match = re.search(pattern, text)
+        date_match = re.search(pattern, text, re.IGNORECASE)
         if date_match:
             date_str = date_match.group(1)
-            if date_str[2] in '.-/':  # DD.MM.YYYY
+            # Prüfe ob Textdatum (z.B. "27 Dezember 2024")
+            if re.match(r'\d{1,2}\s+\w+\s+\d{4}', date_str):
+                parts = date_str.split()
+                day = parts[0].zfill(2)
+                month = month_map.get(parts[1].lower(), '01')
+                year = parts[2]
+                data["date"] = f"{year}-{month}-{day}"
+            elif date_str[2] in '.-/':  # DD.MM.YYYY
                 parts = re.split(r'[.\-/]', date_str)
                 data["date"] = f"{parts[2]}-{parts[1].zfill(2)}-{parts[0].zfill(2)}"
             else:  # YYYY.MM.DD
@@ -279,6 +327,7 @@ def extract_data(text):
 
     # Leistungsdatum
     service_patterns = [
+        r'Bestelldatum[:\s]*(\d{1,2}\s+\w+\s+\d{4})',  # NEU: Amazon "Bestelldatum 24 Dezember 2024"
         r'(?:Leistungsdatum|Leistung vom).*?(\d{1,2}[.\-/]\d{1,2}[.\-/]\d{4})',
         r'(?:Ihre Bestellung vom|Bestelldatum).*?(\d{1,2}[.\-/]\d{1,2}[.\-/]\d{4})',
         r'(?:Service|Lieferdatum).*?(\d{1,2}[.\-/]\d{1,2}[.\-/]\d{4})',
@@ -293,15 +342,29 @@ def extract_data(text):
             service_match = re.search(pattern, text, re.IGNORECASE)
             if service_match:
                 service_str = service_match.group(1)
-                if service_str[2] in '.-/':  # DD.MM.YYYY
+                # Prüfe ob Textdatum
+                if re.match(r'\d{1,2}\s+\w+\s+\d{4}', service_str):
+                    parts = service_str.split()
+                    day = parts[0].zfill(2)
+                    month = month_map.get(parts[1].lower(), '01')
+                    year = parts[2]
+                    data["service_date"] = f"{year}-{month}-{day}"
+                elif service_str[2] in '.-/':  # DD.MM.YYYY
                     parts = re.split(r'[.\-/]', service_str)
                     data["service_date"] = f"{parts[2]}-{parts[1].zfill(2)}-{parts[0].zfill(2)}"
                 else:  # YYYY.MM.DD
                     data["service_date"] = service_str.replace('.', '-').replace('/', '-')
                 break
+        
+        # Fallback: Wenn kein Leistungsdatum gefunden, nutze Rechnungsdatum
+        if not data["service_date"] and data["date"]:
+            data["service_date"] = data["date"]
     
     # Beschreibung (Produktname) - optimiert für beide PDF-Formate
     description_patterns = [
+        # NEU: Amazon-Format - Produkt nach "Verkauft von"
+        r'(Clinique[^\n]{10,80})',  # Spezifisch für Clinique-Produkte
+        r'Verkauft von[^\n]+\n\s*([^\n]{20,80})\s+\d',
         # Format 1: | getrennte Produktzeilen (parfumdreams)
         r'([A-ZÄÖÜ][A-Za-zÄÖÜäöüß\s\|\%\+]{10,100})\s*\|$',
         r'([A-ZÄÖÜ][A-Za-zÄÖÜäöüß\s\|\%\+]{10,80})\s*\|.*?ArtNr',
@@ -602,16 +665,25 @@ RESULT_TEMPLATE = '''<!DOCTYPE html>
 <div class="form-section">
 <h6>🏢 Grunddaten</h6>
 <div class="row">
+<div class="col-6 mb-2"><label>📑 Rechnungstyp:</label>
+<select name="invoice_type" class="form-control" required>
+<option value="Eingangsrechnung" {% if result.data.get('invoice_type', 'Eingangsrechnung') == 'Eingangsrechnung' %}selected{% endif %}>📥 Eingangsrechnung</option>
+<option value="Ausgangsrechnung" {% if result.data.get('invoice_type') == 'Ausgangsrechnung' %}selected{% endif %}>📤 Ausgangsrechnung</option>
+</select>
+</div>
 <div class="col-6 mb-2"><label>Firma:</label>
 <input name="company" class="form-control" value="{{ result.data.company }}" required></div>
-<div class="col-6 mb-2"><label>� Rechnungsnummer:</label>
-<input name="number" class="form-control" value="{{ result.data.number }}"></div>
 </div>
 <div class="row">
+<div class="col-6 mb-2"><label>🔢 Rechnungsnummer:</label>
+<input name="number" class="form-control" value="{{ result.data.number }}"></div>
 <div class="col-6 mb-2"><label>📅 Rechnungsdatum:</label>
 <input name="date" type="date" class="form-control" value="{{ result.data.date }}"></div>
+</div>
+<div class="row">
 <div class="col-6 mb-2"><label>🛠️ Leistungsdatum:</label>
 <input name="service_date" type="date" class="form-control" value="{{ result.data.service_date }}"></div>
+<div class="col-6 mb-2"></div>
 </div>
 </div>
 
@@ -647,6 +719,16 @@ DATA_TEMPLATE = '''<!DOCTYPE html>
 </head><body style="background: linear-gradient(135deg, #667eea, #764ba2)">
 <div class="container mt-5"><div class="card p-4">
 <h2>📊 Alle verarbeiteten PDFs</h2>
+{% with messages = get_flashed_messages(with_categories=true) %}
+  {% if messages %}
+    {% for category, message in messages %}
+      <div class="alert alert-{{ category }} alert-dismissible fade show" role="alert">
+        {{ message }}
+        <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
+      </div>
+    {% endfor %}
+  {% endif %}
+{% endwith %}
 <div class="mb-3">
 <a href="/export/excel" class="btn btn-success">📊 Excel Download</a>
 <a href="/export/csv" class="btn btn-info">📋 CSV Download</a>
@@ -654,18 +736,21 @@ DATA_TEMPLATE = '''<!DOCTYPE html>
 </div>
 <div class="table-responsive">
 <table class="table table-striped table-sm">
-<thead><tr><th>📄 Datei</th><th>🏢 Firma</th><th>� Nummer</th><th>� R-Datum</th><th>�️ L-Datum</th><th>📝 Beschreibung</th><th>💰 Netto</th><th>📊 MwSt</th><th><strong>💰 Gesamt</strong></th></tr></thead>
+<thead><tr><th>🗑️</th><th>� Typ</th><th>�📄 Datei</th><th>🏢 Firma</th><th>🔢 Nummer</th><th>📅 R-Datum</th><th>🗓️ L-Datum</th><th>📝 Beschreibung</th><th>💰 Netto</th><th>📊 MwSt</th><th><strong>💰 Gesamt</strong></th></tr></thead>
 <tbody>
 {% for invoice in invoices %}
-<tr><td style="font-size: 0.8em;">{{ invoice.get('filename', '')[:20] }}{% if invoice.get('filename', '')|length > 20 %}...{% endif %}</td>
+<tr>
+<td><form method="POST" action="/delete_invoice/{{ loop.index0 }}" style="display:inline;" onsubmit="return confirm('Rechnung wirklich löschen?')"><button type="submit" class="btn btn-danger btn-sm" title="Löschen">🗑️</button></form></td>
+<td style="font-size: 0.75em;">{% if invoice.get('invoice_type') == 'Ausgangsrechnung' %}📤{% else %}📥{% endif %}</td>
+<td style="font-size: 0.8em;">{{ invoice.get('filename', '')[:20] }}{% if invoice.get('filename', '')|length > 20 %}...{% endif %}</td>
 <td>{{ invoice.get('company', '')[:25] }}{% if invoice.get('company', '')|length > 25 %}...{% endif %}</td>
 <td>{{ invoice.get('number', '') }}</td>
 <td style="font-size: 0.8em;">{{ invoice.get('date', '') }}</td>
 <td style="font-size: 0.8em;">{{ invoice.get('service_date', '') }}</td>
 <td style="font-size: 0.8em;">{{ invoice.get('description', '')[:30] }}{% if invoice.get('description', '')|length > 30 %}...{% endif %}</td>
-<td>{{ "%.2f"|format(invoice.get('net_amount', 0) or 0) }}€</td>
-<td>{{ "%.1f"|format(invoice.get('tax_rate', 0) or 0) }}%</td>
-<td><strong>{{ "%.2f"|format(invoice.get('total_amount', 0) or 0) }}€</strong></td></tr>
+<td>{% set net = invoice.get('net_amount', 0) %}{{ "%.2f"|format(net|float if net else 0) }}€</td>
+<td>{% set tax = invoice.get('tax_rate', 0) %}{{ "%.1f"|format(tax|float if tax else 0) }}%</td>
+<td><strong>{% set total = invoice.get('total_amount', 0) %}{{ "%.2f"|format(total|float if total else 0) }}€</strong></td></tr>
 {% endfor %}
 </tbody></table>
 </div>
@@ -751,6 +836,7 @@ def correct():
     # Korrigierte Daten
     corrected_data = {
         "filename": request.form["filename"],
+        "invoice_type": request.form.get("invoice_type", "Eingangsrechnung"),  # NEU: Rechnungstyp
         "company": request.form["company"],
         "number": request.form["number"],
         "date": request.form["date"],
@@ -786,7 +872,7 @@ def correct():
     db.add_sample(original_data, corrected_data)
     
     if corrections_made > 0:
-        flash(f"✅ Rechnung gespeichert und {corrections_made} Korrekturen für KI-Training gelernt!")
+        flash(f"✅ Rechnung gespeichert! KI hat {corrections_made} Korrektur(en) gelernt und wird sie künftig anwenden.")
     else:
         flash("✅ Rechnung gespeichert!")
     
@@ -822,6 +908,15 @@ def training():
 def data():
     return render_template_string(DATA_TEMPLATE, invoices=db.data["invoices"])
 
+@app.route("/delete_invoice/<int:index>", methods=["POST"])
+def delete_invoice(index):
+    deleted = db.delete_invoice(index)
+    if deleted:
+        flash(f"✅ Rechnung '{deleted.get('filename', 'Unbekannt')}' wurde gelöscht!", "success")
+    else:
+        flash("❌ Rechnung konnte nicht gelöscht werden!", "danger")
+    return redirect("/data")
+
 @app.route("/export/excel")
 def export_excel():
     filename = "rechnungen_export.xlsx"
@@ -843,4 +938,4 @@ if __name__ == "__main__":
     print("🚀 PDF zu Excel/CSV Converter")
     print("🌐 URL: http://127.0.0.1:5001")
     print("📋 Features: PDF-Upload, OCR, Excel/CSV Export, KI-Training")
-    app.run(debug=True, port=5001, host="0.0.0.0")
+    app.run(debug=False, port=5001, host="0.0.0.0")
