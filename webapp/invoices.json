@@ -944,6 +944,62 @@
       "total_amount": 1192.61,
       "amount": 1192.61,
       "timestamp": "2025-11-28 19:04:59.810844"
+    },
+    {
+      "invoice_type": "Eingangsrechnung",
+      "company": "Bestellinformationen",
+      "amount": 5.44,
+      "number": "101818",
+      "date": "2025-10-16",
+      "service_date": "2025-10-16",
+      "description": "Zahlungsreferenznummer",
+      "net_amount": 4.57,
+      "tax_rate": 19.0,
+      "total_amount": 5.44,
+      "filename": "invoice-2.pdf",
+      "timestamp": "2025-11-28 19:26:05.758185"
+    },
+    {
+      "filename": "invoice-2.pdf",
+      "invoice_type": "Eingangsrechnung",
+      "company": "Amazon EU S.\u00e0 r.L.",
+      "number": "LU551L20VAEUI",
+      "date": "2025-10-16",
+      "service_date": "2025-10-16",
+      "description": "Steckdosenleiste",
+      "net_amount": 4.57,
+      "tax_rate": 19.0,
+      "total_amount": 5.44,
+      "amount": 5.44,
+      "timestamp": "2025-11-28 19:27:58.257342"
+    },
+    {
+      "invoice_type": "Eingangsrechnung",
+      "company": "LUGIUM GmbH",
+      "amount": 19.99,
+      "number": "R2025",
+      "date": "2025-10-02",
+      "service_date": "2025-10-01",
+      "description": "Kleinmachnow",
+      "net_amount": 19.0,
+      "tax_rate": 19.0,
+      "total_amount": 19.99,
+      "filename": "invoice-3.pdf",
+      "timestamp": "2025-11-28 19:35:23.045660"
+    },
+    {
+      "filename": "invoice-3.pdf",
+      "invoice_type": "Eingangsrechnung",
+      "company": "LUGIUM GmbH",
+      "number": "R2025",
+      "date": "2025-10-02",
+      "service_date": "2025-10-01",
+      "description": "Schleppleine",
+      "net_amount": 19.0,
+      "tax_rate": 19.0,
+      "total_amount": 19.99,
+      "amount": 19.99,
+      "timestamp": "2025-11-28 19:38:31.012906"
     }
   ],
   "samples": [
@@ -1575,6 +1631,60 @@
         "timestamp": "2025-11-28 19:04:59.810844"
       },
       "timestamp": "2025-11-28 19:04:59.822040"
+    },
+    {
+      "original": {
+        "company": "Bestellinformationen",
+        "number": "101818",
+        "date": "2025-10-16",
+        "service_date": "2025-10-16",
+        "description": "Zahlungsreferenznummer",
+        "net_amount": "4.57",
+        "tax_rate": "19.0",
+        "total_amount": "5.44"
+      },
+      "corrected": {
+        "filename": "invoice-2.pdf",
+        "invoice_type": "Eingangsrechnung",
+        "company": "Amazon EU S.\u00e0 r.L.",
+        "number": "LU551L20VAEUI",
+        "date": "2025-10-16",
+        "service_date": "2025-10-16",
+        "description": "Steckdosenleiste",
+        "net_amount": 4.57,
+        "tax_rate": 19.0,
+        "total_amount": 5.44,
+        "amount": 5.44,
+        "timestamp": "2025-11-28 19:27:58.257342"
+      },
+      "timestamp": "2025-11-28 19:27:58.270943"
+    },
+    {
+      "original": {
+        "company": "LUGIUM GmbH",
+        "number": "R2025",
+        "date": "2025-10-02",
+        "service_date": "2025-10-01",
+        "description": "Kleinmachnow",
+        "net_amount": "19.0",
+        "tax_rate": "19.0",
+        "total_amount": "19.99"
+      },
+      "corrected": {
+        "filename": "invoice-3.pdf",
+        "invoice_type": "Eingangsrechnung",
+        "company": "LUGIUM GmbH",
+        "number": "R2025",
+        "date": "2025-10-02",
+        "service_date": "2025-10-01",
+        "description": "Schleppleine",
+        "net_amount": 19.0,
+        "tax_rate": 19.0,
+        "total_amount": 19.99,
+        "amount": 19.99,
+        "timestamp": "2025-11-28 19:38:31.012906"
+      },
+      "timestamp": "2025-11-28 19:38:31.022700"
     }
   ],
   "corrections": [
@@ -1616,21 +1726,21 @@
     },
     {
       "original_text": "101818",
-      "corrected_text": "LU551L2OVAEUI",
+      "corrected_text": "LU551L20VAEUI",
       "field_type": "number",
       "company_context": "Amazon EU S.a.r.l.",
-      "correction_count": 4,
+      "correction_count": 5,
       "confidence_score": 1.0,
-      "timestamp": "2025-11-26 11:45:03.712615"
+      "timestamp": "2025-11-28 19:27:58.263060"
     },
     {
       "original_text": "Zahlungsreferenznummer",
       "corrected_text": "Steckdosenleiste",
       "field_type": "description",
       "company_context": "Amazon EU S.a.r.l.",
-      "correction_count": 3,
+      "correction_count": 4,
       "confidence_score": 1.0,
-      "timestamp": "2025-11-26 11:45:03.717440"
+      "timestamp": "2025-11-28 19:27:58.266008"
     },
     {
       "original_text": "25.6",
@@ -1679,12 +1789,12 @@
     },
     {
       "original_text": "Bestellinformationen",
-      "corrected_text": "Amazon EU S.a.r.l.",
+      "corrected_text": "Amazon EU S.\u00e0 r.L.",
       "field_type": "company",
       "company_context": "Amazon EU S.a.r.l.",
-      "correction_count": 2,
-      "confidence_score": 0.75,
-      "timestamp": "2025-11-20 13:14:46.420551"
+      "correction_count": 3,
+      "confidence_score": 1.0,
+      "timestamp": "2025-11-28 19:27:58.257512"
     },
     {
       "original_text": "Luxembourg Sitz der",
@@ -1730,6 +1840,15 @@
       "correction_count": 1,
       "confidence_score": 0.7,
       "timestamp": "2025-11-28 19:04:59.815305"
+    },
+    {
+      "original_text": "Kleinmachnow",
+      "corrected_text": "Schleppleine",
+      "field_type": "description",
+      "company_context": "LUGIUM GmbH",
+      "correction_count": 1,
+      "confidence_score": 0.7,
+      "timestamp": "2025-11-28 19:38:31.013069"
     }
   ]
 }

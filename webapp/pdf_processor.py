@@ -1,13 +1,42 @@
 """
 PDF Processing Module - Handles PDF text extraction, data parsing, and highlighting
+Uses pdfplumber for better table/layout extraction and PyMuPDF for highlighting
 """
-import fitz  # PyMuPDF
+import fitz  # PyMuPDF (für Highlighting)
+import pdfplumber  # Für bessere Text- und Tabellenerkennung
 import re
 import base64
 
 
 def extract_pdf_text(pdf_path):
-    """Extract text from PDF file"""
+    """Extract text from PDF file using pdfplumber for better layout preservation"""
+    try:
+        # Versuche zuerst mit pdfplumber (bessere Struktur)
+        with pdfplumber.open(pdf_path) as pdf:
+            text = ""
+            for page in pdf.pages:
+                # Extrahiere Text mit Layout-Information
+                page_text = page.extract_text()
+                if page_text:
+                    text += page_text + "\n"
+                
+                # Optional: Extrahiere auch Tabellen separat
+                tables = page.extract_tables()
+                if tables:
+                    for table in tables:
+                        # Konvertiere Tabelle zu Text
+                        for row in table:
+                            if row:
+                                text += " | ".join([str(cell) if cell else "" for cell in row]) + "\n"
+            
+            return text if text else _extract_with_pymupdf(pdf_path)
+    except Exception as e:
+        print(f"pdfplumber Fehler: {e}, verwende PyMuPDF als Fallback")
+        return _extract_with_pymupdf(pdf_path)
+
+
+def _extract_with_pymupdf(pdf_path):
+    """Fallback: Extract text using PyMuPDF"""
     try:
         doc = fitz.open(pdf_path)
         text = ""
@@ -16,7 +45,7 @@ def extract_pdf_text(pdf_path):
         doc.close()
         return text
     except Exception as e:
-        print(f"PDF Textextraktion Fehler: {e}")
+        print(f"PyMuPDF Textextraktion Fehler: {e}")
         return ""
 
 
