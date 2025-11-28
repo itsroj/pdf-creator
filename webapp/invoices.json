@@ -832,6 +832,118 @@
       "total_amount": 2427.59,
       "amount": 2427.59,
       "timestamp": "2025-11-26 11:06:22.003915"
+    },
+    {
+      "invoice_type": "Eingangsrechnung",
+      "company": "TechNord AG",
+      "amount": 5108.94,
+      "number": "",
+      "date": "2025-06-28",
+      "service_date": "2025-06-28",
+      "description": "",
+      "net_amount": 0,
+      "tax_rate": 0,
+      "total_amount": 5108.94,
+      "filename": "rechnung_no_overlap_2_Eingangsrechnung.pdf",
+      "timestamp": "2025-11-26 11:20:31.145224"
+    },
+    {
+      "filename": "rechnung_no_overlap_2_Eingangsrechnung.pdf",
+      "invoice_type": "Eingangsrechnung",
+      "company": "TechNord AG",
+      "number": "",
+      "date": "2025-06-28",
+      "service_date": "2025-06-28",
+      "description": "",
+      "net_amount": 0.0,
+      "tax_rate": 0.0,
+      "total_amount": 2427.59,
+      "amount": 2427.59,
+      "timestamp": "2025-11-26 11:20:55.481478"
+    },
+    {
+      "invoice_type": "Eingangsrechnung",
+      "company": "Bestellinformationen",
+      "amount": 5.44,
+      "number": "101818",
+      "date": "2025-10-16",
+      "service_date": "2025-10-16",
+      "description": "Zahlungsreferenznummer",
+      "net_amount": 4.57,
+      "tax_rate": 19.0,
+      "total_amount": 5.44,
+      "filename": "invoice-2.pdf",
+      "timestamp": "2025-11-26 11:44:14.714517"
+    },
+    {
+      "filename": "invoice-2.pdf",
+      "invoice_type": "Eingangsrechnung",
+      "company": "Bestellinformationen",
+      "number": "LU551L2OVAEUI",
+      "date": "2025-10-16",
+      "service_date": "2025-10-16",
+      "description": "Steckdosenleiste",
+      "net_amount": 4.57,
+      "tax_rate": 19.0,
+      "total_amount": 5.44,
+      "amount": 5.44,
+      "timestamp": "2025-11-26 11:45:03.712419"
+    },
+    {
+      "invoice_type": "Eingangsrechnung",
+      "company": "TechNord AG",
+      "amount": 5108.94,
+      "number": "",
+      "date": "2025-06-28",
+      "service_date": "2025-06-28",
+      "description": "",
+      "net_amount": 0,
+      "tax_rate": 0,
+      "total_amount": "2427.59",
+      "filename": "rechnung_no_overlap_2_Eingangsrechnung.pdf",
+      "timestamp": "2025-11-28 18:39:07.427929"
+    },
+    {
+      "filename": "rechnung_no_overlap_2_Eingangsrechnung.pdf",
+      "invoice_type": "Eingangsrechnung",
+      "company": "TechNord AG",
+      "number": "INV-2025-1012",
+      "date": "2025-06-28",
+      "service_date": "2025-06-28",
+      "description": "",
+      "net_amount": 0.0,
+      "tax_rate": 0.0,
+      "total_amount": 2427.59,
+      "amount": 2427.59,
+      "timestamp": "2025-11-28 18:39:32.113396"
+    },
+    {
+      "invoice_type": "Eingangsrechnung",
+      "company": "Beschreibung",
+      "amount": 5161.36,
+      "number": "",
+      "date": "2025-07-09",
+      "service_date": "2025-07-09",
+      "description": "",
+      "net_amount": 0,
+      "tax_rate": 0,
+      "total_amount": 5161.36,
+      "filename": "rechnung_no_overlap_3_Eingangsrechnung.pdf",
+      "timestamp": "2025-11-28 19:04:22.387601"
+    },
+    {
+      "filename": "rechnung_no_overlap_3_Eingangsrechnung.pdf",
+      "invoice_type": "Eingangsrechnung",
+      "company": "BlumenHaus Kleefeld",
+      "number": "",
+      "date": "2025-07-09",
+      "service_date": "2025-07-09",
+      "description": "",
+      "net_amount": 0.0,
+      "tax_rate": 0.0,
+      "total_amount": 1192.61,
+      "amount": 1192.61,
+      "timestamp": "2025-11-28 19:04:59.810844"
     }
   ],
   "samples": [
@@ -1355,6 +1467,114 @@
         "timestamp": "2025-11-26 11:06:22.003915"
       },
       "timestamp": "2025-11-26 11:06:22.009908"
+    },
+    {
+      "original": {
+        "company": "TechNord AG",
+        "number": "",
+        "date": "2025-06-28",
+        "service_date": "2025-06-28",
+        "description": "",
+        "net_amount": "0",
+        "tax_rate": "0",
+        "total_amount": "5108.94"
+      },
+      "corrected": {
+        "filename": "rechnung_no_overlap_2_Eingangsrechnung.pdf",
+        "invoice_type": "Eingangsrechnung",
+        "company": "TechNord AG",
+        "number": "",
+        "date": "2025-06-28",
+        "service_date": "2025-06-28",
+        "description": "",
+        "net_amount": 0.0,
+        "tax_rate": 0.0,
+        "total_amount": 2427.59,
+        "amount": 2427.59,
+        "timestamp": "2025-11-26 11:20:55.481478"
+      },
+      "timestamp": "2025-11-26 11:20:55.490619"
+    },
+    {
+      "original": {
+        "company": "Bestellinformationen",
+        "number": "101818",
+        "date": "2025-10-16",
+        "service_date": "2025-10-16",
+        "description": "Zahlungsreferenznummer",
+        "net_amount": "4.57",
+        "tax_rate": "19.0",
+        "total_amount": "5.44"
+      },
+      "corrected": {
+        "filename": "invoice-2.pdf",
+        "invoice_type": "Eingangsrechnung",
+        "company": "Bestellinformationen",
+        "number": "LU551L2OVAEUI",
+        "date": "2025-10-16",
+        "service_date": "2025-10-16",
+        "description": "Steckdosenleiste",
+        "net_amount": 4.57,
+        "tax_rate": 19.0,
+        "total_amount": 5.44,
+        "amount": 5.44,
+        "timestamp": "2025-11-26 11:45:03.712419"
+      },
+      "timestamp": "2025-11-26 11:45:03.722643"
+    },
+    {
+      "original": {
+        "company": "TechNord AG",
+        "number": "",
+        "date": "2025-06-28",
+        "service_date": "2025-06-28",
+        "description": "",
+        "net_amount": "0",
+        "tax_rate": "0",
+        "total_amount": "2427.59"
+      },
+      "corrected": {
+        "filename": "rechnung_no_overlap_2_Eingangsrechnung.pdf",
+        "invoice_type": "Eingangsrechnung",
+        "company": "TechNord AG",
+        "number": "INV-2025-1012",
+        "date": "2025-06-28",
+        "service_date": "2025-06-28",
+        "description": "",
+        "net_amount": 0.0,
+        "tax_rate": 0.0,
+        "total_amount": 2427.59,
+        "amount": 2427.59,
+        "timestamp": "2025-11-28 18:39:32.113396"
+      },
+      "timestamp": "2025-11-28 18:39:32.117525"
+    },
+    {
+      "original": {
+        "company": "Beschreibung",
+        "number": "",
+        "date": "2025-07-09",
+        "service_date": "2025-07-09",
+        "description": "",
+        "net_amount": "0",
+        "tax_rate": "0",
+        "total_amount": "5161.36"
+      },
+      "corrected": {
+        "filename": "rechnung_no_overlap_3_Eingangsrechnung.pdf",
+        "invoice_type": "Eingangsrechnung",
+        "company": "BlumenHaus Kleefeld",
+        "number": "",
+        "date": "2025-07-09",
+        "service_date": "2025-07-09",
+        "description": "",
+        "net_amount": 0.0,
+        "tax_rate": 0.0,
+        "total_amount": 1192.61,
+        "amount": 1192.61,
+        "timestamp": "2025-11-28 19:04:59.810844"
+      },
+      "timestamp": "2025-11-28 19:04:59.822040"
     }
   ],
   "corrections": [
@@ -1396,21 +1616,21 @@
     },
     {
       "original_text": "101818",
-      "corrected_text": "DE446ZI4VAEUI",
+      "corrected_text": "LU551L2OVAEUI",
       "field_type": "number",
       "company_context": "Amazon EU S.a.r.l.",
-      "correction_count": 3,
+      "correction_count": 4,
       "confidence_score": 1.0,
-      "timestamp": "2025-11-20 12:17:45.325268"
+      "timestamp": "2025-11-26 11:45:03.712615"
     },
     {
       "original_text": "Zahlungsreferenznummer",
-      "corrected_text": "Clinique All About Eyes Augencreme 15ml (1er Pack)",
+      "corrected_text": "Steckdosenleiste",
       "field_type": "description",
       "company_context": "Amazon EU S.a.r.l.",
-      "correction_count": 2,
-      "confidence_score": 0.75,
-      "timestamp": "2025-11-20 12:17:45.327173"
+      "correction_count": 3,
+      "confidence_score": 1.0,
+      "timestamp": "2025-11-26 11:45:03.717440"
     },
     {
       "original_text": "25.6",
@@ -1489,9 +1709,27 @@
       "corrected_text": "2427.59",
       "field_type": "total_amount",
       "company_context": "TechNord AG",
+      "correction_count": 2,
+      "confidence_score": 0.75,
+      "timestamp": "2025-11-26 11:20:55.481713"
+    },
+    {
+      "original_text": "Beschreibung",
+      "corrected_text": "BlumenHaus Kleefeld",
+      "field_type": "company",
+      "company_context": "BlumenHaus Kleefeld",
       "correction_count": 1,
-      "confidence_score": 0.5,
-      "timestamp": "2025-11-26 11:06:22.004046"
+      "confidence_score": 0.7,
+      "timestamp": "2025-11-28 19:04:59.811193"
+    },
+    {
+      "original_text": "5161.36",
+      "corrected_text": "1192.61",
+      "field_type": "total_amount",
+      "company_context": "BlumenHaus Kleefeld",
+      "correction_count": 1,
+      "confidence_score": 0.7,
+      "timestamp": "2025-11-28 19:04:59.815305"
     }
   ]
 }
