@@ -116,10 +116,20 @@ def correct():
         corrected_value = str(corrected_data.get(field_type, "")).strip()
         
         # Nur trainieren wenn sich etwas geändert hat und beide Werte vorhanden sind
-        if (original_value and corrected_value and 
-            original_value != corrected_value and 
-            original_value != "0" and corrected_value != "0"):
+        if original_value and corrected_value and original_value != corrected_value:
+            # Spezialbehandlung für numerische Felder
+            if field_type in ["net_amount", "tax_rate", "total_amount"]:
+                # Bei numerischen Feldern: erlaube 0 als Original (z.B. 0 -> 19), aber nicht als Korrektur
+                if corrected_value == "0" or corrected_value == "0.0":
+                    continue  # Überspringe wenn Korrektur 0 ist
+                # Wenn Original 0 ist und Korrektur nicht 0, dann trainieren
+                # Wenn beide nicht 0 sind, auch trainieren
+            else:
+                # Bei Text-Feldern: überspringe wenn Original 0 ist (invalid)
+                if original_value == "0":
+                    continue
             
+            # Korrektur lernen
             db.add_correction(original_value, corrected_value, field_type, company_context)
             corrections_made += 1
     
@@ -195,5 +205,5 @@ def export_csv():
 if __name__ == "__main__":
     print("🚀 PDF zu Excel/CSV Converter")
     print("🌐 URL: http://127.0.0.1:5001")
-    print("📋 Features: PDF-Upload, OCR, Excel/CSV Export, KI-Training")
+    print("📋 Features: PDF-Upload, Text-Extraktion, Excel/CSV Export, KI-Training")
     app.run(debug=False, port=5001, host="0.0.0.0")
