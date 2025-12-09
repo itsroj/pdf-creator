@@ -1,6 +1,6 @@
 """
-PDF Processing Module - Handles PDF text extraction, data parsing, and highlighting
-Uses pdfplumber for better table/layout extraction and PyMuPDF for highlighting
+PDF-Verarbeitungsmodul - Behandelt PDF-Textextraktion, Datenanalyse und Highlighting
+Nutzt pdfplumber für bessere Tabellen/Layout-Extraktion und PyMuPDF für Highlighting
 """
 import fitz  # PyMuPDF (für Highlighting)
 import pdfplumber  # Für bessere Text- und Tabellenerkennung
@@ -9,7 +9,7 @@ import base64
 
 
 def extract_pdf_text(pdf_path):
-    """Extract text from PDF file using pdfplumber for better layout preservation"""
+    """Extrahiert Text aus PDF-Datei mittels pdfplumber für bessere Layout-Erhaltung"""
     try:
         # Versuche zuerst mit pdfplumber (bessere Struktur)
         with pdfplumber.open(pdf_path) as pdf:
@@ -36,7 +36,7 @@ def extract_pdf_text(pdf_path):
 
 
 def _extract_with_pymupdf(pdf_path):
-    """Fallback: Extract text using PyMuPDF"""
+    """Fallback: Extrahiert Text mittels PyMuPDF"""
     try:
         doc = fitz.open(pdf_path)
         text = ""
@@ -50,7 +50,7 @@ def _extract_with_pymupdf(pdf_path):
 
 
 def extract_data(text):
-    """Extract invoice data from PDF text using regex patterns"""
+    """Extrahiert Rechnungsdaten aus PDF-Text mittels Regex-Patterns"""
     data = {
         "invoice_type": "Eingangsrechnung",  # Default: Eingangsrechnung
         "company": "", "amount": 0, "number": "", "date": "",
@@ -236,7 +236,7 @@ def extract_data(text):
 
 
 def pdf_to_image_with_highlighting(pdf_path, search_terms):
-    """Convert PDF to image with highlighted search terms"""
+    """Konvertiert PDF zu Bild mit hervorgehobenen Suchbegriffen"""
     try:
         doc = fitz.open(pdf_path)
         page = doc[0]
