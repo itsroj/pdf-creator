@@ -1350,6 +1350,34 @@
       "total_amount": 5.44,
       "amount": 5.44,
       "timestamp": "2025-12-08 18:11:19.793437"
+    },
+    {
+      "invoice_type": "Eingangsrechnung",
+      "company": "Amazon EU S.a.r.L.",
+      "amount": 5.44,
+      "number": "LU551L2OVAEUI",
+      "date": "2025-10-16",
+      "service_date": "2025-10-16",
+      "description": "Steckdosenleiste",
+      "net_amount": 4.57,
+      "tax_rate": 0,
+      "total_amount": 5.44,
+      "filename": "invoice-2.pdf",
+      "timestamp": "2025-12-09 19:41:12.381374"
+    },
+    {
+      "filename": "invoice-2.pdf",
+      "invoice_type": "Eingangsrechnung",
+      "company": "Amazon EU S.a.r.L.",
+      "number": "LU551L2OVAEUI",
+      "date": "2025-10-16",
+      "service_date": "2025-10-16",
+      "description": "Steckdosenleiste",
+      "net_amount": 4.57,
+      "tax_rate": 19.0,
+      "total_amount": 5.44,
+      "amount": 5.44,
+      "timestamp": "2025-12-09 19:41:20.431358"
     }
   ],
   "samples": [
@@ -2547,9 +2575,9 @@
       "corrected_text": "19.0",
       "field_type": "tax_rate",
       "company_context": "Amazon EU S.a.r.L.",
-      "correction_count": 5,
+      "correction_count": 6,
       "confidence_score": 1.0,
-      "timestamp": "2025-12-08 18:11:19.793467"
+      "timestamp": "2025-12-09 19:41:20.431478"
     }
   ]
 }

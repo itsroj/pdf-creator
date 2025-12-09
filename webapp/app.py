@@ -136,9 +136,6 @@ def correct():
     # Speichere korrigierte Rechnung
     db.add_invoice(corrected_data)
     
-    # Legacy: Alte Trainings-Methode für Kompatibilität
-    db.add_sample(original_data, corrected_data)
-    
     if corrections_made > 0:
         flash(f"✅ Rechnung gespeichert! KI hat {corrections_made} Korrektur(en) gelernt und wird sie künftig anwenden.")
     else:
