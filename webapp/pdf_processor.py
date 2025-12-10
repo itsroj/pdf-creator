@@ -58,6 +58,13 @@ def extract_data(text):
         "tax_rate": 0, "total_amount": 0
     }
     
+    # Confidence Scores für jedes Feld (0.0 - 1.0)
+    confidence = {
+        "company": 0.0, "total_amount": 0.0, "number": 0.0, "date": 0.0,
+        "service_date": 0.0, "description": 0.0, "net_amount": 0.0, 
+        "tax_rate": 0.0, "invoice_type": 1.0  # Default immer 100%
+    }
+    
     # Hilfsfunktion: Firmenname in Zeilen suchen
     def find_company_in_lines(lines_to_search, patterns, exclude_terms):
         for pattern in patterns:
@@ -87,9 +94,11 @@ def extract_data(text):
     # Suche: Oben für Tausendkraut, unten für Parfumdreams, dann Fallback oben
     if is_tausendkraut:
         data["company"] = find_company_in_lines(lines[:15], company_patterns, exclude_top)
+        confidence["company"] = 0.95 if data["company"] else 0.0
     else:
         data["company"] = (find_company_in_lines(lines[-25:], company_patterns, exclude_bottom) or 
                           find_company_in_lines(lines[:15], company_patterns, exclude_top))
+        confidence["company"] = 0.90 if data["company"] else 0.0
     
     # Gesamtbetrag - größter gefundener Betrag
     total_patterns = [
@@ -108,6 +117,9 @@ def extract_data(text):
         max_amount = max(all_amounts)
         data["total_amount"] = max_amount
         data["amount"] = max_amount
+        # Confidence basiert auf wie viele Patterns den gleichen Wert fanden
+        same_count = all_amounts.count(max_amount)
+        confidence["total_amount"] = min(0.95, 0.60 + (same_count * 0.15))
 
     # Nettobetrag
     net_patterns = [
@@ -121,6 +133,7 @@ def extract_data(text):
         if net_match:
             net_str = net_match.group(1).replace(',', '.')
             data["net_amount"] = float(net_str)
+            confidence["net_amount"] = 0.85  # Mittlere Confidence für Netto
             break
 
     # Steuersatz - verbesserte Suche  
@@ -137,6 +150,7 @@ def extract_data(text):
             tax_rate = float(tax_match.group(1))
             if 0 <= tax_rate <= 25:  # Plausibilitätsprüfung
                 data["tax_rate"] = tax_rate
+                confidence["tax_rate"] = 0.90  # Hohe Confidence für MwSt
                 break
 
     # Rechnungsnummer
@@ -149,6 +163,11 @@ def extract_data(text):
         number_match = re.search(pattern, text, re.IGNORECASE)
         if number_match:
             data["number"] = number_match.group(1).strip()
+            # Confidence: Höher wenn explizit mit "Rechnung Nr." gefunden
+            if pattern == number_patterns[0] or pattern == number_patterns[1]:
+                confidence["number"] = 0.95
+            else:
+                confidence["number"] = 0.70  # Niedrigere Confidence für reine Zahlensuche
             break
     
     # Rechnungsdatum
@@ -177,6 +196,11 @@ def extract_data(text):
         date_match = re.search(pattern, text, re.IGNORECASE)
         if date_match:
             data["date"] = parse_date(date_match.group(1))
+            # Confidence: Höher wenn explizit "Rechnungsdatum" gefunden
+            if "Rechnungsdatum" in pattern or "Datum" in pattern:
+                confidence["date"] = 0.95
+            else:
+                confidence["date"] = 0.75
             break
 
     # Leistungsdatum
@@ -190,15 +214,18 @@ def extract_data(text):
     
     if "rechnungsdatum entspricht dem leistungsdatum" in text.lower() and data["date"]:
         data["service_date"] = data["date"]
+        confidence["service_date"] = 0.95  # Sehr sicher wenn explizit genannt
     else:
         for pattern in service_patterns:
             service_match = re.search(pattern, text, re.IGNORECASE)
             if service_match:
                 data["service_date"] = parse_date(service_match.group(1))
+                confidence["service_date"] = 0.85
                 break
         # Fallback
         if not data["service_date"] and data["date"]:
             data["service_date"] = data["date"]
+            confidence["service_date"] = 0.60  # Niedrigere Confidence für Fallback
     
     # Beschreibung (Produktname)
     description_patterns = [
@@ -230,9 +257,11 @@ def extract_data(text):
             if (len(description) > 8 and 
                 not re.search(r'(Versandkosten|Porto|Lieferung|Bezeichnung|Einh\.|Menge|Preis|€|Rechnung|Bestellung|ArtNr|MwSt|Einzelpreis|Gesamtpreis|Amtsgericht|Fehmarn|Sehr|Newsletter)', description, re.IGNORECASE)):
                 data["description"] = description[:80]
+                # Confidence: Niedrigere Confidence für Beschreibungen (oft schwierig)
+                confidence["description"] = 0.70
                 break
     
-    return data
+    return data, confidence
 
 
 def pdf_to_image_with_highlighting(pdf_path, search_terms):

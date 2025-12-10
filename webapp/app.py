@@ -41,10 +41,17 @@ def upload():
     
     # PDF verarbeiten
     text = extract_pdf_text(filepath)
-    raw_data = extract_data(text)
+    raw_data, confidence_scores = extract_data(text)
     
     # Wende gelernte Korrekturen an
     data, suggestions = db.apply_corrections(raw_data)
+    
+    # Füge Vorschläge direkt in data ein, wenn Feld leer/0 ist
+    for field, suggestion in suggestions.items():
+        if not data.get(field) or data.get(field) == 0 or data.get(field) == "0":
+            data[field] = suggestion
+            # Setze Confidence auf mittleren Wert für KI-Vorschläge
+            confidence_scores[field] = 0.75  # 75% für KI-Vorschläge
     
     # Speichere in DB
     invoice_data = data.copy()
@@ -67,6 +74,7 @@ def upload():
         "filename": filename, 
         "data": data, 
         "suggestions": suggestions,
+        "confidence": confidence_scores,  # NEU: Confidence Scores hinzugefügt
         "text": text[:500] + "..." if len(text) > 500 else text,
         "pdf_image": pdf_image, 
         "highlights": highlights, 

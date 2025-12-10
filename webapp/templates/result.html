@@ -30,18 +30,6 @@
                 <div class="col-7">
                     <h5>✏️ Extrahierte Rechnungsdaten (editierbar)</h5>
 
-                    {% if result.suggestions %}
-                    <div class="alert alert-info" role="alert">
-                        <h6>🤖 KI-Verbesserungsvorschläge:</h6>
-                        <ul class="mb-0">
-                            {% for field, suggestion in result.suggestions.items() %}
-                            <li><strong>{{ field }}:</strong> {{ suggestion }}</li>
-                            {% endfor %}
-                        </ul>
-                        <small>Diese Vorschläge basieren auf vorherigen Korrekturen.</small>
-                    </div>
-                    {% endif %}
-
                     <form method="post" action="/correct">
                         <input type="hidden" name="filename" value="{{ result.filename }}">
 
@@ -64,38 +52,94 @@
                                         <option value="Ausgangsrechnung" {% if result.data.get('invoice_type') == 'Ausgangsrechnung' %}selected{% endif %}>📤 Ausgangsrechnung</option>
                                     </select>
                                 </div>
-                                <div class="col-6 mb-2"><label>Firma:</label>
-                                    <input name="company" class="form-control" value="{{ result.data.company }}" required></div>
+                                <div class="col-6 mb-2">
+                                    <label>Firma:
+                                        {% set conf = result.confidence.company * 100 %}
+                                        <span class="badge {% if conf >= 85 %}bg-success{% elif conf >= 60 %}bg-warning{% else %}bg-danger{% endif %}" style="font-size: 0.7em;">
+                                            {{ "%.0f"|format(conf) }}% sicher
+                                        </span>
+                                    </label>
+                                    <input name="company" class="form-control" value="{{ result.data.company }}" required>
+                                </div>
                             </div>
                             <div class="row">
-                                <div class="col-6 mb-2"><label>🔢 Rechnungsnummer:</label>
-                                    <input name="number" class="form-control" value="{{ result.data.number }}"></div>
-                                <div class="col-6 mb-2"><label>📅 Rechnungsdatum:</label>
-                                    <input name="date" type="date" class="form-control" value="{{ result.data.date }}"></div>
+                                <div class="col-6 mb-2">
+                                    <label>🔢 Rechnungsnummer:
+                                        {% set conf = result.confidence.number * 100 %}
+                                        <span class="badge {% if conf >= 85 %}bg-success{% elif conf >= 60 %}bg-warning{% else %}bg-danger{% endif %}" style="font-size: 0.7em;">
+                                            {{ "%.0f"|format(conf) }}% sicher
+                                        </span>
+                                    </label>
+                                    <input name="number" class="form-control" value="{{ result.data.number }}">
+                                </div>
+                                <div class="col-6 mb-2">
+                                    <label>📅 Rechnungsdatum:
+                                        {% set conf = result.confidence.date * 100 %}
+                                        <span class="badge {% if conf >= 85 %}bg-success{% elif conf >= 60 %}bg-warning{% else %}bg-danger{% endif %}" style="font-size: 0.7em;">
+                                            {{ "%.0f"|format(conf) }}% sicher
+                                        </span>
+                                    </label>
+                                    <input name="date" type="date" class="form-control" value="{{ result.data.date }}">
+                                </div>
                             </div>
                             <div class="row">
-                                <div class="col-6 mb-2"><label>🛠️ Leistungsdatum:</label>
-                                    <input name="service_date" type="date" class="form-control" value="{{ result.data.service_date }}"></div>
+                                <div class="col-6 mb-2">
+                                    <label>🛠️ Leistungsdatum:
+                                        {% set conf = result.confidence.service_date * 100 %}
+                                        <span class="badge {% if conf >= 85 %}bg-success{% elif conf >= 60 %}bg-warning{% else %}bg-danger{% endif %}" style="font-size: 0.7em;">
+                                            {{ "%.0f"|format(conf) }}% sicher
+                                        </span>
+                                    </label>
+                                    <input name="service_date" type="date" class="form-control" value="{{ result.data.service_date }}">
+                                </div>
                                 <div class="col-6 mb-2"></div>
                             </div>
                         </div>
 
                         <div class="form-section">
                             <h6>📝 Leistung</h6>
-                            <div class="mb-2"><label>Beschreibung:</label>
-                                <textarea name="description" class="form-control" rows="2" placeholder="Beschreibung der Leistung...">{{ result.data.description }}</textarea></div>
+                            <div class="mb-2">
+                                <label>Beschreibung:
+                                    {% set conf = result.confidence.description * 100 %}
+                                    <span class="badge {% if conf >= 85 %}bg-success{% elif conf >= 60 %}bg-warning{% else %}bg-danger{% endif %}" style="font-size: 0.7em;">
+                                        {{ "%.0f"|format(conf) }}% sicher
+                                    </span>
+                                </label>
+                                <textarea name="description" class="form-control" rows="2" placeholder="Beschreibung der Leistung...">{{ result.data.description }}</textarea>
+                            </div>
                         </div>
 
                         <div class="form-section">
                             <h6>💰 Finanzen</h6>
                             <div class="row">
-                                <div class="col-6 mb-2"><label>Nettobetrag (€):</label>
-                                    <input name="net_amount" type="number" step="0.01" class="form-control" value="{{ result.data.net_amount }}"></div>
-                                <div class="col-6 mb-2"><label>Steuersatz (%):</label>
-                                    <input name="tax_rate" type="number" step="0.1" class="form-control" value="{{ result.data.tax_rate }}"></div>
+                                <div class="col-6 mb-2">
+                                    <label>Nettobetrag (€):
+                                        {% set conf = result.confidence.net_amount * 100 %}
+                                        <span class="badge {% if conf >= 85 %}bg-success{% elif conf >= 60 %}bg-warning{% else %}bg-danger{% endif %}" style="font-size: 0.7em;">
+                                            {{ "%.0f"|format(conf) }}% sicher
+                                        </span>
+                                    </label>
+                                    <input name="net_amount" type="number" step="0.01" class="form-control" value="{{ result.data.net_amount }}">
+                                </div>
+                                <div class="col-6 mb-2">
+                                    <label>Steuersatz (%):
+                                        {% set conf = result.confidence.tax_rate * 100 %}
+                                        <span class="badge {% if conf >= 85 %}bg-success{% elif conf >= 60 %}bg-warning{% else %}bg-danger{% endif %}" style="font-size: 0.7em;">
+                                            {{ "%.0f"|format(conf) }}% sicher
+                                        </span>
+                                    </label>
+                                    <input name="tax_rate" type="number" step="0.1" class="form-control" value="{{ result.data.tax_rate }}">
+                                </div>
                             </div>
-                            <div class="mb-2"><label><strong>💵 Gesamtbetrag (€):</strong></label>
-                                <input name="total_amount" type="number" step="0.01" class="form-control" value="{{ result.data.total_amount }}" required style="font-weight: bold; font-size: 1.1em;"></div>
+                            <div class="mb-2">
+                                <label><strong>💵 Gesamtbetrag (€):</strong>
+                                    {% set conf = result.confidence.total_amount * 100 %}
+                                    <span class="badge {% if conf >= 85 %}bg-success{% elif conf >= 60 %}bg-warning{% else %}bg-danger{% endif %}" style="font-size: 0.7em;">
+                                        {{ "%.0f"|format(conf) }}% sicher
+                                    </span>
+                                </label>
+                                <input name="total_amount" type="number" step="0.01" class="form-control" value="{{ result.data.total_amount }}" required style="font-weight: bold; font-size: 1.1em;">
+                            </div>
                         </div>
 
                         <button type="submit" class="btn btn-success w-100 mt-3">✅ Speichern & KI trainieren</button>
