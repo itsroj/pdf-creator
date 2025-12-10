@@ -1,0 +1,55 @@
+{
+  "exclude_lists": {
+    "company_top": [
+      "Versandkosten",
+      "Porto",
+      "Lieferung",
+      "Straße",
+      "str.",
+      "Platz",
+      "Weg",
+      "Höhe",
+      "Gasse",
+      "Alle",
+      "Kunde",
+      "Leuchter",
+      "Stückpreis",
+      "Bestellinformationen"
+    ],
+    "company_bottom": [
+      "Straße",
+      "str.",
+      "Platz",
+      "Weg",
+      "Höhe",
+      "Gasse",
+      "Deutschland",
+      "Deutsche Bank",
+      "Amtsgericht",
+      "Stückpreis",
+      "Bestellinformationen"
+    ],
+    "description": [
+      "Versandkosten",
+      "Porto",
+      "Lieferung",
+      "Bezeichnung",
+      "Einh.",
+      "Menge",
+      "Preis",
+      "€",
+      "Rechnung",
+      "Bestellung",
+      "ArtNr",
+      "MwSt",
+      "Einzelpreis",
+      "Gesamtpreis",
+      "Amtsgericht",
+      "Fehmarn",
+      "Sehr",
+      "Newsletter",
+      "Zahlungsreferenznummer"
+    ]
+  },
+  "note": "Diese Wörter werden bei der Extraktion ignoriert. PLZ-Muster (5-stellige Zahlen) werden zusätzlich im Code behandelt."
+}

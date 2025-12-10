@@ -162,3 +162,23 @@ class SimpleDB:
         """Exportiert Rechnungen in eine CSV-Datei"""
         df = pd.DataFrame(self.data["invoices"])
         df.to_csv(filename, index=False)
+    
+    def get_frequently_corrected_words(self, field_type, min_corrections=3):
+        """
+        Findet Wörter die häufig korrigiert werden (False-Positives)
+        Gibt Liste von Wörtern zurück, die mindestens min_corrections mal korrigiert wurden
+        """
+        word_corrections = {}
+        
+        for correction in self.data["corrections"]:
+            if correction["field_type"] == field_type:
+                original = correction["original_text"].strip()
+                # Nur wenn Original-Text zu etwas anderem korrigiert wurde (nicht nur Formatierung)
+                if original and original != correction["corrected_text"]:
+                    if original not in word_corrections:
+                        word_corrections[original] = 0
+                    word_corrections[original] += correction["correction_count"]
+        
+        # Filtere Wörter die oft genug korrigiert wurden
+        frequent_words = [word for word, count in word_corrections.items() if count >= min_corrections]
+        return frequent_words

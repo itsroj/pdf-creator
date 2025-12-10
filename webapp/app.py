@@ -7,7 +7,7 @@ from flask import Flask, request, render_template, redirect, flash, send_file
 import os
 from datetime import datetime
 from werkzeug.utils import secure_filename
-from pdf_processor import extract_pdf_text, extract_data, pdf_to_image_with_highlighting
+from pdf_processor import extract_pdf_text, extract_data, pdf_to_image_with_highlighting, update_exclude_list
 from database import SimpleDB
 
 app = Flask(__name__)
@@ -143,6 +143,21 @@ def correct():
     
     # Speichere korrigierte Rechnung
     db.add_invoice(corrected_data)
+    
+    # 🤖 AUTO-LEARNING: Analysiere häufig korrigierte Wörter und füge sie zur Exclude-Liste hinzu
+    # Prüfe nach jedem 5. Speichervorgang
+    if len(db.data["invoices"]) % 5 == 0:
+        # Firmenname: Finde oft korrigierte False-Positives
+        company_false_positives = db.get_frequently_corrected_words("company", min_corrections=3)
+        if company_false_positives:
+            # Bestimme ob Wort eher oben oder unten im Dokument vorkommt (vereinfacht: beide Listen)
+            update_exclude_list("company_top", company_false_positives)
+            update_exclude_list("company_bottom", company_false_positives)
+        
+        # Beschreibung: Finde oft korrigierte False-Positives
+        description_false_positives = db.get_frequently_corrected_words("description", min_corrections=3)
+        if description_false_positives:
+            update_exclude_list("description", description_false_positives)
     
     if corrections_made > 0:
         flash(f"✅ Rechnung gespeichert! KI hat {corrections_made} Korrektur(en) gelernt und wird sie künftig anwenden.")

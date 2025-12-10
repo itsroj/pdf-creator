@@ -6,10 +6,66 @@ import fitz  # PyMuPDF (für Highlighting)
 import pdfplumber  # Für bessere Text- und Tabellenerkennung
 import re
 import base64
+import json
+import os
+
+# Lade Konfiguration
+def load_config():
+    """Lädt die Konfigurationsdatei mit Exclude-Listen"""
+    config_path = os.path.join(os.path.dirname(__file__), 'config.json')
+    try:
+        with open(config_path, 'r', encoding='utf-8') as f:
+            return json.load(f)
+    except Exception as e:
+        print(f"Warnung: Konnte config.json nicht laden: {e}")
+        # Fallback auf leere Listen
+        return {"exclude_lists": {"company_top": [], "company_bottom": [], "description": []}}
+
+def save_config(config):
+    """Speichert die Konfiguration zurück in die Datei"""
+    config_path = os.path.join(os.path.dirname(__file__), 'config.json')
+    try:
+        with open(config_path, 'w', encoding='utf-8') as f:
+            json.dump(config, f, indent=2, ensure_ascii=False)
+        return True
+    except Exception as e:
+        print(f"Fehler beim Speichern der Config: {e}")
+        return False
+
+def update_exclude_list(list_name, new_words):
+    """
+    Fügt neue Wörter zur Exclude-Liste hinzu (Auto-Learning)
+    list_name: 'company_top', 'company_bottom', oder 'description'
+    new_words: Liste von Wörtern die hinzugefügt werden sollen
+    """
+    global CONFIG
+    config = load_config()
+    
+    if list_name not in config['exclude_lists']:
+        print(f"Warnung: Unbekannte Liste '{list_name}'")
+        return False
+    
+    added_words = []
+    for word in new_words:
+        if word not in config['exclude_lists'][list_name]:
+            config['exclude_lists'][list_name].append(word)
+            added_words.append(word)
+    
+    if added_words:
+        if save_config(config):
+            CONFIG = config  # Aktualisiere globale Config
+            print(f"✅ Auto-Learning: {len(added_words)} Wörter zu '{list_name}' hinzugefügt: {added_words}")
+            return True
+    
+    return False
+
+CONFIG = load_config()
 
 
 def extract_pdf_text(pdf_path):
     """Extrahiert Text aus PDF-Datei mittels pdfplumber für bessere Layout-Erhaltung"""
+    filename = os.path.basename(pdf_path)
+    
     try:
         # Versuche zuerst mit pdfplumber (bessere Struktur)
         with pdfplumber.open(pdf_path) as pdf:
@@ -29,23 +85,37 @@ def extract_pdf_text(pdf_path):
                             if row:
                                 text += " | ".join([str(cell) if cell else "" for cell in row]) + "\n"
             
-            return text if text else _extract_with_pymupdf(pdf_path)
+            if not text or len(text.strip()) < 50:
+                print(f"⚠️  PDF-Fallback für '{filename}': pdfplumber konnte keinen/wenig Text extrahieren ({len(text)} Zeichen)")
+                return _extract_with_pymupdf(pdf_path, filename)
+            
+            print(f"✅ '{filename}': Erfolgreich mit pdfplumber extrahiert ({len(text)} Zeichen)")
+            return text
     except Exception as e:
-        print(f"pdfplumber Fehler: {e}, verwende PyMuPDF als Fallback")
-        return _extract_with_pymupdf(pdf_path)
+        print(f"⚠️  PDF-Fallback für '{filename}': pdfplumber Fehler ({type(e).__name__}: {str(e)})")
+        return _extract_with_pymupdf(pdf_path, filename)
 
 
-def _extract_with_pymupdf(pdf_path):
+def _extract_with_pymupdf(pdf_path, filename=None):
     """Fallback: Extrahiert Text mittels PyMuPDF"""
+    if not filename:
+        filename = os.path.basename(pdf_path)
+    
     try:
         doc = fitz.open(pdf_path)
         text = ""
         for page in doc:
             text += page.get_text() + "\n"
         doc.close()
+        
+        if text and len(text.strip()) >= 50:
+            print(f"✅ '{filename}': PyMuPDF-Fallback erfolgreich ({len(text)} Zeichen)")
+        else:
+            print(f"❌ '{filename}': PyMuPDF-Fallback lieferte keinen/wenig Text ({len(text)} Zeichen) - möglicherweise gescanntes PDF")
+        
         return text
     except Exception as e:
-        print(f"PyMuPDF Textextraktion Fehler: {e}")
+        print(f"❌ '{filename}': PyMuPDF Textextraktion fehlgeschlagen ({type(e).__name__}: {str(e)})")
         return ""
 
 
@@ -85,8 +155,12 @@ def extract_data(text):
         r'^([A-ZÄÖÜ][a-zA-ZÄÖÜäöüß&.\s]{5,40}(?:GmbH|AG|UG|OHG|KG|e\.V\.|Inc\.|Ltd\.|Corp\.))\s*$',
         r'^([A-ZÄÖÜ][a-zA-ZÄÖÜäöüß&.\s]{5,40})\s*$'
     ]
-    exclude_top = r'(Versandkosten|Porto|Lieferung|\d{5}|Straße|str\.|Platz|Weg|Höhe|Gasse|Alle|Kunde|Leuchter)'
-    exclude_bottom = r'(\d{5}|Straße|str\.|Platz|Weg|Höhe|Gasse|Deutschland|Deutsche Bank|Amtsgericht)'
+    
+    # Lade Exclude-Listen aus Config + PLZ-Pattern
+    exclude_top_list = CONFIG['exclude_lists']['company_top'] + [r'\d{5}']
+    exclude_bottom_list = CONFIG['exclude_lists']['company_bottom'] + [r'\d{5}']
+    exclude_top = r'(' + '|'.join(exclude_top_list) + ')'
+    exclude_bottom = r'(' + '|'.join(exclude_bottom_list) + ')'
     
     lines = text.split('\n')
     is_tausendkraut = any('tausendkraut' in line.lower() for line in lines[:20])
@@ -254,8 +328,9 @@ def extract_data(text):
             description = ' '.join(description.split())
             
             # Strikte Validierung: Muss echter Produktname sein
+            exclude_description = '|'.join(CONFIG['exclude_lists']['description'])
             if (len(description) > 8 and 
-                not re.search(r'(Versandkosten|Porto|Lieferung|Bezeichnung|Einh\.|Menge|Preis|€|Rechnung|Bestellung|ArtNr|MwSt|Einzelpreis|Gesamtpreis|Amtsgericht|Fehmarn|Sehr|Newsletter)', description, re.IGNORECASE)):
+                not re.search(f'({exclude_description})', description, re.IGNORECASE)):
                 data["description"] = description[:80]
                 # Confidence: Niedrigere Confidence für Beschreibungen (oft schwierig)
                 confidence["description"] = 0.70
