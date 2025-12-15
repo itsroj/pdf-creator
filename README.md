@@ -1,6 +1,6 @@
 # PDF-Creator - Automatische Rechnungserfassung mit KI-Lernsystem
 
-## 🚀 Setup
+## 🚀 Installation
 ```bash
 pip install -r requirements.txt
 cd webapp && python3 app.py
@@ -10,15 +10,18 @@ cd webapp && python3 app.py
 ## 📋 Projektbeschreibung
 Entwicklung einer Webanwendung zur automatischen Erfassung und Verarbeitung von PDF-Eingangs- und Ausgangsrechnungen. Die Anwendung extrahiert Daten aus text-basierten PDFs mittels Regex-Pattern-Matching und nutzt ein selbstlernendes System (Confidence-Based Learning) zur kontinuierlichen Verbesserung der Extraktionsgenauigkeit.
 
-## ✨ Features
+## ✨ Funktionen
 - **📄 PDF-Extraktion**: Hybrid-Ansatz mit pdfplumber (primär) und PyMuPDF (Fallback)
-- **🎯 Intelligente Datenextraktion**: Über 50 Regex-Pattern für robuste Erkennung verschiedener Formate
-- **🤖 Selbstlernendes KI-System**: Confidence-Based Learning (70% → 95% → 100%)
+- **🎯 Intelligente Datenextraktion**: Über 50 Regex-Muster für robuste Erkennung verschiedener Formate
+- **🤖 Selbstlernendes KI-System**: Vertrauensbasiertes Lernen (70% → 95% → 100%) mit Auto-Learning
 - **🏢 Firmenspezifisches Lernen**: Korrekturen werden kontext-abhängig gespeichert
-- **🖼️ Visuelles Highlighting**: Farbige Markierung extrahierter Daten im PDF
+- **🖼️ Visuelles Highlighting**: Farbige Markierung extrahierter Daten im PDF mit Zoom-Funktion
+- **📊 Sortierbare Tabellen**: Datenseite mit Sortierfunktion für alle Spalten
+- **💯 Vertrauenswerte**: Individueller Sicherheitswert für jedes extrahierte Feld
+- **🔧 Dynamische Konfiguration**: Ausschlusslisten in `config.json` - keine Code-Änderungen nötig
 - **📊 Excel/CSV-Export**: Strukturierter Datenexport mit pandas
 - **💾 JSON-Datenbank**: Selbstentwickelte SimpleDB-Klasse für Datenpersistenz
-- **🎨 Webinterface**: Bootstrap-basierte Benutzeroberfläche mit Flask
+- **🎨 Weboberfläche**: Bootstrap-basierte Benutzeroberfläche mit Flask
 
 ## 👥 Team
 - Rojda Polat
@@ -30,23 +33,24 @@ Entwicklung einer Webanwendung zur automatischen Erfassung und Verarbeitung von 
 - **Web-Framework**: Flask 2.3.3
 - **PDF-Verarbeitung**: PyMuPDF 1.26.6, pdfplumber 0.11.4
 - **Text-Extraktion**: Regex-basiert (KEIN OCR - nur text-basierte PDFs)
-- **KI/ML**: Deterministisches Confidence-Based Learning (regelbasiert, kein neuronales Netz)
+- **KI/ML**: Deterministisches vertrauensbasiertes Lernen (regelbasiert, kein neuronales Netz)
 - **Datenbank**: Selbstentwickelte JSON-basierte SimpleDB-Klasse
 - **Export**: pandas 2.0.3, openpyxl 3.1.2
-- **Frontend**: Bootstrap 5.1.3, Jinja2-Templates
+- **Frontend**: Bootstrap 5.1.3, Jinja2-Vorlagen
 - **Methodik**: SCRUM (1-2 Wochen Sprints)
 
 ## 📂 Projekt-Struktur
 ```
 webapp/
-├── app.py                  # Flask-Routen & Webserver (198 Zeilen)
-├── database.py             # SimpleDB-Klasse & KI-Lernlogik (197 Zeilen)
-├── pdf_processor.py        # PDF-Extraktion & Regex-Parsing (306 Zeilen)
-├── templates/              # HTML-Templates (Jinja2)
+├── app.py                  # Flask-Routen & Webserver (214 Zeilen)
+├── database.py             # SimpleDB-Klasse & KI-Lernlogik (190 Zeilen)
+├── pdf_processor.py        # PDF-Extraktion & Regex-Verarbeitung (411 Zeilen)
+├── config.json             # Dynamische Ausschlusslisten (Auto-Learning)
+├── templates/              # HTML-Vorlagen (Jinja2)
 │   ├── home.html          # Upload-Seite
-│   ├── result.html        # Verarbeitungsergebnis & Training
+│   ├── result.html        # Verarbeitungsergebnis mit Vertrauenswerten
 │   ├── training.html      # KI-Dashboard
-│   └── data.html          # Rechnungsübersicht
+│   └── data.html          # Rechnungsübersicht mit Sortierfunktion
 ├── static/uploads/         # Hochgeladene PDFs
 └── invoices.json          # JSON-Datenbank
 ```
@@ -54,65 +58,103 @@ webapp/
 ## 🎯 Kernfunktionalitäten
 
 ### 1. PDF-Verarbeitung (pdf_processor.py)
-- **Hybrid-Extraktion**: pdfplumber für Tabellen/Layout, PyMuPDF als Fallback
-- **50+ Regex-Pattern**: Firmenname, Rechnungsnummer, Datum, Beträge, Steuersätze
+- **Hybrid-Extraktion**: pdfplumber für Tabellen/Layout, PyMuPDF als Fallback mit aussagekräftigen Konsolen-Meldungen
+- **50+ Regex-Muster**: Firmenname, Rechnungsnummer, Datum, Beträge, Steuersätze
 - **Intelligente Suchstrategien**: Anbieter-spezifische Logik (z.B. Tausendkraut oben, Parfumdreams unten)
-- **False-Positive-Vermeidung**: Exclude-Listen für Begriffe wie "Versandkosten"
-- **Visuelles Highlighting**: Farbcodierte Bounding-Boxes (Rot=Firma, Blau=Betrag, Grün=Nummer, etc.)
+- **Dynamische Ausschlusslisten**: `config.json` statt fest codiert - einfach editierbar ohne Code-Änderung
+- **Vertrauenswerte**: Individueller Sicherheitswert (0-100%) für jedes extrahierte Feld
+- **Visuelles Hervorheben**: Farbcodierte Markierungen mit Zoom-Modal
+- **Auto-Learning**: Häufig korrigierte Wörter werden automatisch zur Ausschlussliste hinzugefügt
 
 ### 2. KI-Lernsystem (database.py)
-- **Überwachtes Lernen**: Nutzer-Korrekturen werden als Training-Daten verwendet
-- **Confidence-Scoring**: 70% (1. Mal) → 95% (2. Mal) → 100% (3. Mal)
-- **Firmenspezifisch**: Mapping wird nur für entsprechenden Anbieter angewendet
-- **Auto-Korrektur**: Ab 60% Confidence automatische Anwendung
-- **Vorschläge**: Ab 40% Confidence als Hinweis angezeigt
+- **Überwachtes Lernen**: Nutzer-Korrekturen werden als Trainingsdaten verwendet
+- **Vertrauenswert-Bewertung**: 70% (1. Mal) → 95% (2. Mal) → 100% (3. Mal)
+- **Firmenspezifisch**: Zuordnung wird nur für entsprechenden Anbieter angewendet
+- **Auto-Korrektur**: Ab 60% Vertrauenswert automatische Anwendung (direkt ins Feld eingesetzt)
+- **Auto-Learning**: Alle 5 Rechnungen werden häufig korrigierte Wörter (≥3x) automatisch zur `config.json` hinzugefügt
+- **Intelligente Vorschläge**: KI-Vorschläge mit 75% Vertrauenswert bei fehlenden Werten
 
-### 3. Modulare Architektur
-- **Separation of Concerns**: Webserver (app.py), Datenlogik (database.py), PDF-Verarbeitung (pdf_processor.py)
-- **79% Code-Reduktion**: Von monolithischen 941 Zeilen auf 198 Zeilen (app.py)
-- **Wartbarkeit**: Klare Verantwortlichkeiten pro Modul
+### 3. Modulare Architektur & Benutzeroberfläche
+- **Trennung der Zuständigkeiten**: Webserver (app.py), Datenlogik (database.py), PDF-Verarbeitung (pdf_processor.py)
+- **Sauberer Code**: Klare Verantwortlichkeiten und gut wartbare Modulstruktur
+- **Wartbarkeit**: Jedes Modul hat eine eindeutige Aufgabe
+- **Dynamische Konfiguration**: `config.json` für Ausschlusslisten (keine Code-Änderungen)
+- **Sortierbare Tabellen**: Sortierfunktion auf Datenseite (JavaScript-basiert)
+- **Zoom-Funktion**: Klick-zum-Zoomen für PDF-Vorschau (Modal mit ESC-Taste)
+- **Vertrauensabzeichen**: 🟢 Grün (85-100%), 🟡 Gelb (60-84%), 🔴 Rot (0-59%)
 
 ## 🔍 Technische Details
 
-### Confidence-Based Learning
+### Vertrauensbasiertes Lernen
 ```python
-# Formel: min(1.0, 0.7 + (count - 1) * 0.25)
-1x Korrektur = 70% Confidence
-2x Korrektur = 95% Confidence
-3x Korrektur = 100% Confidence
+# Extraktions-Vertrauenswerte (pdf_processor.py)
+Firma (andere): 90%
+Gesamtbetrag: 60-95% (je nach Muster-Übereinstimmung)
+Nettobetrag: 85%
+Steuersatz: 90%
+Rechnungsnummer: 70-95% (je nach Muster)
+Datum: 75-95%
+Leistungsdatum: 60-95%
+Beschreibung: 70%
+
+# Lern-Vertrauenswerte (database.py)
+1x Korrektur = 70% Vertrauenswert
+2x Korrektur = 95% Vertrauenswert
+3x Korrektur = 100% Vertrauenswert
+
+# KI-Vorschläge
+Fehlende Werte mit KI-Vorschlag = 75% Vertrauenswert
+```
+
+### Auto-Learning-Mechanismus
+```python
+# Alle 5 Rechnungen wird automatisch analysiert
+if len(invoices) % 5 == 0:
+    # Finde Wörter die ≥3x korrigiert wurden
+    false_positives = get_frequently_corrected_words(field, min=3)
+    # Füge automatisch zu config.json hinzu
+    update_exclude_list("company_top", false_positives)
 ```
 
 ### Extraktions-Beispiele
 ```python
-# Firmenname mit Exclude-Terms
-exclude_terms = r'(Versandkosten|Porto|Lieferung|Straße|...)'
+# Dynamische Ausschlusslisten aus config.json
+exclude_company_top = ["Versandkosten", "Porto", "Lieferung", "Straße", ...]
+exclude_description = ["Versandkosten", "Menge", "Preis", "€", ...]
 
-# Intelligente Datum-Erkennung
+# Intelligente Datumserkennung
 parse_date("27 Dezember 2024") → "2024-12-27"
 parse_date("27.12.2024") → "2024-12-27"
 
 # Plausibilitätsprüfung Steuersatz
 if 0 <= tax_rate <= 25:  # Nur gültige Steuersätze
+
+# Vertrauenswert-basierte Anzeige
+if confidence >= 0.85: badge = "🟢 Grün (85-100%)"
+elif confidence >= 0.60: badge = "🟡 Gelb (60-84%)"
+else: badge = "🔴 Rot (0-59%)"
 ```
 
-## ⚠️ Limitationen
+## ⚠️ Einschränkungen
 - **Nur text-basierte PDFs**: Keine OCR-Unterstützung für gescannte Dokumente
-- **JSON-Datenbank**: Nicht für Multi-User-Produktivbetrieb geeignet
-- **Keine Authentifizierung**: Kein User-Login/Passwort-System
-- **Development Server**: Flask-Dev-Server, nicht für Production gedacht
+- **JSON-Datenbank**: Nicht für Mehrbenutzerbetrieb geeignet
+- **Keine Authentifizierung**: Kein Benutzer-Login/Passwort-System
+- **Entwicklungsserver**: Flask-Entwicklungsserver, nicht für Produktivbetrieb gedacht
 
 ## 🚀 Roadmap für kommerzielle Nutzung
-1. **Sicherheit**: User-Login, HTTPS, Session-Management
+1. **Sicherheit**: Benutzer-Login, HTTPS, Sitzungsverwaltung
 2. **Datenbank**: Migration zu PostgreSQL/MySQL
-3. **Production-Server**: Gunicorn + Nginx
-4. **DSGVO**: Datenschutzerklärung, Cookie-Consent
-5. **Testing**: Unit-Tests, CI/CD Pipeline
-6. **Monitoring**: Logging, Error-Tracking (Sentry)
+3. **Produktionsserver**: Gunicorn + Nginx
+4. **OCR-Integration**: Tesseract für gescannte PDFs
+5. **DSGVO**: Datenschutzerklärung, Cookie-Zustimmung
+6. **Testing**: Unit-Tests, CI/CD-Pipeline
+7. **Überwachung**: Protokollierung, Fehler-Tracking (Sentry)
+8. **Funktionen**: Batch-Upload, PDF-Hervorhebung-Download, DATEV-Export
 
 ## 📝 Lizenz
 Dieses Projekt wurde im Rahmen eines Universitätsprojekts entwickelt.
 
-## 🙏 Acknowledgments
+## 🙏 Danksagungen
 - PyMuPDF (fitz) für PDF-Verarbeitung
 - pdfplumber für Layout-Erkennung
 - Flask Community für das Web-Framework
