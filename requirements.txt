@@ -1,5 +1,6 @@
 # Web Framework
 Flask==2.3.3
+gunicorn==21.2.0
 
 # PDF Processing
 PyMuPDF==1.26.6      # Für Text-Extraktion und PDF-zu-Bild mit Highlighting
